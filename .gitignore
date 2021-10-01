@@ -127,3 +127,9 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+
+# Reduction process & raw data
+setup_files/
+*_pypeit/
+.DS_Store
+
