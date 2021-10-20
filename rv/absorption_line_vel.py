@@ -16,7 +16,7 @@ mpl.rcParams['ytick.labelsize'] = '20'
 ##################### SpectrumSN class ##########################
 
 
-class SpectrumSN():
+class SpectrumSN(object):
     '''1D optical spectrum'''
 
     def __init__(self, spec1D, z=0):
@@ -25,14 +25,30 @@ class SpectrumSN():
                               comment='#',
                               delim_whitespace=True,
                               header=None)
+
         wv = spec_df[0].values
         wv_rf = wv / (1 + z)
         fl = spec_df[1].values
-        fl_unc = spec_df[2].values
 
-        self.fl = fl
-        self.wv_rf = wv_rf
-        self.fl_unc = fl_unc
+        try:
+            if 'Keck' in spec1D:
+                fl_unc = spec_df[3].values
+            else:
+                fl_unc = spec_df[2].values
+
+                if 'P60' in spec1D:
+                    fl_unc **= .5
+
+            rel_unc = fl_unc / fl
+            rel_unc[rel_unc < 1e-3] = np.median(rel_unc[rel_unc > 1e-3])
+            fl_unc = rel_unc * fl
+        except:
+            print('Warning: no flux uncertainty in the datafile!')
+            fl_unc = np.ones_like(fl) * 1e-2 * np.median(fl)
+
+        self.fl = fl[fl > 0]
+        self.wv_rf = wv_rf[fl > 0]
+        self.fl_unc = fl_unc[fl > 0]
 
     def plot_line_region(self, blue_edge, red_edge):
         '''plot the spectrum in the line region'''
