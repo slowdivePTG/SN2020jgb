@@ -193,7 +193,14 @@ class AbsorbLine(SpectrumSN):
 
         self.plot_model(self.theta_LS)
 
-        print(self.theta_MCMC, self.sig_theta_MCMC)
+        if ndim == 5:
+            print('Velocity pvf: {:.0f} pm {:.0f} km/s'.format(
+                self.theta_MCMC[2], self.sig_theta_MCMC[2]))
+        elif ndim == 8:
+            print('Velocity pvf: {:.0f} pm {:.0f} km/s'.format(
+                self.theta_MCMC[2], self.sig_theta_MCMC[2]))
+            print('Velocity hvf: {:.0f} pm {:.0f} km/s'.format(
+                self.theta_MCMC[5], self.sig_theta_MCMC[5]))
 
         return sampler
 
