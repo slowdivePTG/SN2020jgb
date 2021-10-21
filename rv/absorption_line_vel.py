@@ -73,12 +73,15 @@ class SpectrumSN(object):
                     fl_unc **= .5
 
             rel_unc = fl_unc / fl
-            rel_unc[rel_unc < 1e-3] = np.median(rel_unc[rel_unc > 1e-3])
+            med_rel_unc = np.nanmedian(rel_unc)
+            if rel_unc.min() < med_rel_unc / 1e2:
+                warnings.warn("Some flux with extremely low uncertainty!")
+            rel_unc[rel_unc < med_rel_unc / 1e2] = med_rel_unc
             fl_unc = rel_unc * fl
         except:
             warnings.warn("No flux uncertainty in the datafile!")
-            # set relative uncertainty to be 1%
-            fl_unc = np.ones_like(fl) * 1e-2 * np.median(fl)
+            # set relative uncertainty to be 10%
+            fl_unc = np.ones_like(fl) * 1e-1 * np.median(fl)
 
         # make sure flux measurements are positive
         self.fl = fl[fl > 0]
@@ -667,7 +670,7 @@ def lnprior(
     if len(theta[2:]) == 3:
         mean_vel, lnvar, amplitude = theta[2:]
         var_vel = np.exp(lnvar)
-        if (-40000 < mean_vel < 0 and 100 < var_vel**0.5 < 22000
+        if (-4e4 < mean_vel < 0 and 100 < var_vel**0.5 < 22000
                 and -1e5 < amplitude < 0):
             return lnp_y1 + lnp_y2
             # lnflat = 0  #-np.log(40000 * (22000 - 100) * 1e5)
