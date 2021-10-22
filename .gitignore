@@ -133,3 +133,5 @@ setup_files/
 *_pypeit/
 .DS_Store
 
+# HDF data for MCMC chains
+*.h5
