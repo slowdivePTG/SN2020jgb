@@ -576,7 +576,11 @@ class AbsorbLine(SpectrumSN):
                                 self.vel_rf, self.delta_vel_components)
         plt.errorbar(self.vel_rf, self.norm_fl,
                      yerr=self.norm_fl_unc, alpha=0.5, elinewidth=.5)
-        plt.plot(self.vel_rf, model_flux, linewidth=5)
+        model_plot = plt.plot(self.vel_rf, model_flux, linewidth=5)
+        plt.errorbar([self.vel_rf[0], self.vel_rf[-1]], [
+                     model_flux[0], model_flux[-1]],
+                     yerr=[self.blue_fl[1], self.red_fl[1]],
+                     color=model_plot[0].get_color(), fmt='o', capsize=5)
         plt.plot(self.vel_rf, model_flux - self.norm_fl, color='grey')
 
         if len(theta) == 8:
