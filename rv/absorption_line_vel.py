@@ -141,12 +141,16 @@ class SpectrumSN(object):
         try:
             if len(region) == 0:
                 raise IndexError('No data within this range!')
-            if len(region) == 1:
+            elif len(region) == 1:
                 warnings.warn('Too few points within the wavelength range!')
-                return (self.fl[region], self.fl_unc[region])
+                return(self.fl[region[0]], self.fl_unc[region[0]])
             else:
-                mean = self.fl[region].mean()
-                std = np.std(self.fl[region], ddof=1)
+                if len(region) <= 5:
+                    warnings.warn(
+                        '<=5 points within the wavelength range!')
+                mean = np.mean(self.fl[region])
+                std = np.nanmedian(self.fl_unc[region])
+                #std = np.std(self.fl[region], ddof=1)
             return (mean, std)
         except IndexError as e:
             repr(e)
@@ -227,6 +231,10 @@ class AbsorbLine(SpectrumSN):
         the wavelength range [angstrom] of the line 
         (host galaxy frame)
 
+    rel_strength : array_like, default=[]
+        the relative strength between each line in the series
+        rel_strength = []: all lines are of the equal strength
+
     norm_fl : array_like
         flux normalized by the median value
 
@@ -283,7 +291,8 @@ class AbsorbLine(SpectrumSN):
 
     def __init__(self, spec1D, z,
                  blue_edge, red_edge,
-                 lines=[]):
+                 lines=[],
+                 rel_strength=[]):
         '''Constructor
 
         Parameters
@@ -300,6 +309,9 @@ class AbsorbLine(SpectrumSN):
         lines: array_like, default=[]
             the central wavelength(s) [angstrom] of this (series) of line(s)
             (e.g. [6371.359, 6347.103])
+
+        rel_strength : array_like, default=[]
+            the relative strength between each line in the series
         '''
 
         super(AbsorbLine, self).__init__(spec1D, z)
@@ -327,13 +339,20 @@ class AbsorbLine(SpectrumSN):
         self.norm_fl_unc = rel_unc * self.norm_fl
 
         # flux at each edge
-        blue_fl = super(AbsorbLine, self).get_flux_at_lambda(blue_edge)
-        red_fl = super(AbsorbLine, self).get_flux_at_lambda(red_edge)
+        range_l = red_edge - blue_edge
+        delta_l = min(50, range_l / 10)
+        blue_fl = super(AbsorbLine, self).get_flux_at_lambda(
+            blue_edge, delta_l=delta_l)
+        red_fl = super(AbsorbLine, self).get_flux_at_lambda(
+            red_edge, delta_l=delta_l)
         self.blue_fl = blue_fl / np.nanmedian(self.fl)
         self.red_fl = red_fl / np.nanmedian(self.fl)
 
         # velocity
-        lines = np.sort(lines)
+        if len(rel_strength) == 0:
+            rel_strength = np.ones_like(lines)
+        self.rel_strength = np.array(rel_strength)[np.argsort(lines)][:-1]
+        lines = np.array(lines)[np.argsort(lines)]
         lambda_0 = lines[-1]
         vel_rf = velocity_rf(self.wv_rf, lambda_0)
         self.vel_rf = vel_rf[line_region]
@@ -362,7 +381,8 @@ class AbsorbLine(SpectrumSN):
             neg_lnlike_gaussian_abs,
             guess,
             method='Powell',  # Powell method does not need derivatives
-            args=(self.blue_vel, self.red_vel, self.vel_rf, self.norm_fl,
+            args=(self.rel_strength,
+                  self.blue_vel, self.red_vel, self.vel_rf, self.norm_fl,
                   self.delta_vel_components, self.norm_fl_unc, 'chi2'))
 
         self.theta_LS = LS_res['x']
@@ -440,6 +460,9 @@ class AbsorbLine(SpectrumSN):
         if len(initial) == 0:
             initial = self.theta_LS
 
+        initial[0] = self.blue_fl[0]
+        initial[1] = self.red_fl[0]
+
         ndim = len(initial)
         p0 = [i + initial for i in np.random.randn(nwalkers, ndim) * 1e-5]
 
@@ -463,18 +486,20 @@ class AbsorbLine(SpectrumSN):
             nwalkers,
             ndim,
             ln_prob,
-            args=(self.blue_vel, self.red_vel, self.vel_rf, self.norm_fl,
+            args=(self.rel_strength,
+                  self.blue_vel, self.red_vel, self.vel_rf, self.norm_fl,
                   self.delta_vel_components,
                   mu_pvf, var_pvf,
                   self.norm_fl_unc * norm_fac,
-                  self.blue_fl, self.red_fl),
+                  [self.blue_fl[0], self.blue_fl[1] * norm_fac],
+                  [self.red_fl[0], self.red_fl[1] * norm_fac]),
             backend=backend)
 
         index = 0
         for sample in sampler.sample(p0,
                                      iterations=max_nsteps,
                                      progress=True):
-            # Only check convergence every 100 steps
+            # Only check convergence every 50 steps
             if sampler.iteration % 50:
                 continue
 
@@ -491,9 +516,15 @@ class AbsorbLine(SpectrumSN):
             old_tau = tau
 
         if nburn < 0:
-            nburn = int(2 * np.max(tau))
+            try:
+                nburn = int(2 * np.nanmax(tau))
+            except:
+                nburn = len(tau) // 2
         if thin < 0:
-            thin = max(int(0.5 * np.max(tau)), 1)
+            try:
+                thin = max(int(0.5 * np.nanmax(tau)), 1)
+            except:
+                thin = 2
         samples = sampler.get_chain(discard=nburn, flat=True)
 
         # Median as the estimator
@@ -572,6 +603,7 @@ class AbsorbLine(SpectrumSN):
 
         plt.figure(figsize=(10, 10))
         model_flux = flux_gauss(theta,
+                                self.rel_strength,
                                 self.blue_vel, self.red_vel,
                                 self.vel_rf, self.delta_vel_components)
         plt.errorbar(self.vel_rf, self.norm_fl,
@@ -585,9 +617,11 @@ class AbsorbLine(SpectrumSN):
 
         if len(theta) == 8:
             model1_flux = flux_gauss(theta[:5],
+                                     self.rel_strength,
                                      self.blue_vel, self.red_vel,
                                      self.vel_rf, self.delta_vel_components)
             model2_flux = flux_gauss(np.append(theta[:2], theta[5:]),
+                                     self.rel_strength,
                                      self.blue_vel, self.red_vel,
                                      self.vel_rf, self.delta_vel_components)
             plt.plot(self.vel_rf, model1_flux,
@@ -619,7 +653,7 @@ def calc_gauss(mean_vel, var_vel, amplitude, vel_rf):
     return gauss
 
 
-def flux_gauss(theta, blue_vel, red_vel, vel_rf, delta_vel_components=[]):
+def flux_gauss(theta, rel_strength, blue_vel, red_vel, vel_rf, delta_vel_components=[]):
     '''Calculate normalized flux based on a Gaussian model
 
     Parameters
@@ -628,6 +662,10 @@ def flux_gauss(theta, blue_vel, red_vel, vel_rf, delta_vel_components=[]):
         fitting parameters: flux at the blue edge, flux at the
         red edge, (mean of relative velocity, log variance,
         amplitude) * Number of velocity components
+
+    rel_strength : array_like, default=[]
+        the relative strength between each line in the series
+        rel_strength = []: all lines are of the equal strength
 
     blue_vel, red_vel : float
         the relative velocity [km/s] at the blue/red edge
@@ -661,9 +699,9 @@ def flux_gauss(theta, blue_vel, red_vel, vel_rf, delta_vel_components=[]):
         model_flux += calc_gauss(mean_vel, var_vel, amplitude, vel_rf)
 
         if len(delta_vel_components) > 0:
-            for delta_vel in delta_vel_components:
-                model_flux += calc_gauss(mean_vel - delta_vel, var_vel,
-                                         amplitude, vel_rf)
+            for rel_s, delta_vel in zip(rel_strength, delta_vel_components):
+                model_flux += rel_s * calc_gauss(mean_vel - delta_vel, var_vel,
+                                                 amplitude, vel_rf)
     return model_flux
 
 
@@ -671,6 +709,7 @@ def flux_gauss(theta, blue_vel, red_vel, vel_rf, delta_vel_components=[]):
 
 
 def lnlike_gaussian_abs(theta,
+                        rel_strength,
                         blue_vel,
                         red_vel,
                         vel_rf,
@@ -686,6 +725,10 @@ def lnlike_gaussian_abs(theta,
         fitting parameters: flux at the blue edge, flux at the
         red edge, (mean of relative velocity, log variance,
         amplitude) * Number of velocity components
+
+    rel_strength : array_like, default=[]
+        the relative strength between each line in the series
+        rel_strength = []: all lines are of the equal strength
 
     blue_vel, red_vel : float
         the relative velocity [km/s] at the blue/red edge
@@ -713,7 +756,8 @@ def lnlike_gaussian_abs(theta,
         the log likelihood function
     '''
 
-    model_flux = flux_gauss(theta, blue_vel, red_vel, vel_rf,
+    model_flux = flux_gauss(theta, rel_strength,
+                            blue_vel, red_vel, vel_rf,
                             delta_vel_components)
     if type == 'gaussian':
         lnl = -0.5 * len(model_flux) * np.log(2 * np.pi) - np.sum(
@@ -726,6 +770,7 @@ def lnlike_gaussian_abs(theta,
 
 
 def neg_lnlike_gaussian_abs(theta,
+                            rel_strength,
                             blue_vel,
                             red_vel,
                             vel_rf,
@@ -736,6 +781,7 @@ def neg_lnlike_gaussian_abs(theta,
     '''negative log-likelihood function'''
 
     lnl = lnlike_gaussian_abs(theta,
+                              rel_strength,
                               blue_vel,
                               red_vel,
                               vel_rf,
@@ -748,6 +794,7 @@ def neg_lnlike_gaussian_abs(theta,
 
 def lnprior(
     theta,
+    blue_vel, red_vel,
     mu_pvf=-1e4,
     var_pvf=1e7,
     blue_fl=[1, .1],
@@ -762,6 +809,9 @@ def lnprior(
         fitting parameters: flux at the blue edge, flux at the
         red edge, (mean of relative velocity, log variance,
         amplitude) * Number of velocity components
+
+    blue_vel, red_vel : float
+        the relative velocity [km/s] at the blue/red edge
 
     mu_pvf : float, default=-1e4
         mean of the pvf profile prior
@@ -785,7 +835,8 @@ def lnprior(
     if len(theta[2:]) == 3:
         mean_vel, lnvar, amplitude = theta[2:]
         var_vel = np.exp(lnvar)
-        if (-4e4 < mean_vel < 0 and 100 < var_vel**0.5 < 22000
+        if (blue_vel + var_vel**.5 < mean_vel < red_vel - var_vel**.5
+                and 100 < var_vel**.5 < 20000
                 and -1e5 < amplitude < 0):
             return lnp_y1 + lnp_y2
             # lnflat = 0  #-np.log(40000 * (22000 - 100) * 1e5)
@@ -795,16 +846,16 @@ def lnprior(
     elif len(theta[2:]) == 6:
         mean_vel_pvf, lnvar_pvf, amp_pvf = theta[2:3 + 2]
         mean_vel_hvf, lnvar_hvf, amp_hvf = theta[3 + 2:]
-        var_rel_pvf = np.exp(lnvar_pvf)
-        var_rel_hvf = np.exp(lnvar_hvf)
+        var_vel_pvf = np.exp(lnvar_pvf)
+        var_vel_hvf = np.exp(lnvar_hvf)
 
         lnpvf = -0.5 * np.log(
             2 * np.pi * var_pvf) - (mean_vel_pvf - mu_pvf)**2 / 2 / var_pvf
 
-        if (0 > mean_vel_pvf > -2e4 and 1e5 < var_rel_pvf < 1e9
-                and -1e4 < amp_pvf < 0
-                and mean_vel_pvf - 2000 > mean_vel_hvf > -4e4
-                and 1e5 < var_rel_hvf < 1e9 and -1e4 < amp_hvf < 0):
+        if (red_vel - var_vel_pvf**.5 * 2 > mean_vel_pvf > -2e4 and 1e5 < var_vel_pvf < 1e9
+                and -1e5 < amp_pvf < 0
+                and mean_vel_pvf - 2000 > mean_vel_hvf > blue_vel + var_vel_hvf**.5 * 2
+                and 1e5 < var_vel_hvf < 1e9 and -1e5 < amp_hvf < 0):
             lnflat = 0
         else:
             lnflat = -np.inf
@@ -813,6 +864,7 @@ def lnprior(
 
 def ln_prob(
     theta,
+    rel_strength,
     blue_vel,
     red_vel,
     vel_rf,
@@ -829,8 +881,9 @@ def ln_prob(
     See lnprior() and lnlike_gaussian_abs() for details
     '''
 
-    ln_prior = lnprior(theta, mu_pvf, var_pvf, blue_fl, red_fl)
-    ln_like = lnlike_gaussian_abs(theta, blue_vel, red_vel, vel_rf, norm_flux,
+    ln_prior = lnprior(theta, blue_vel, red_vel,
+                       mu_pvf, var_pvf, blue_fl, red_fl)
+    ln_like = lnlike_gaussian_abs(theta, rel_strength, blue_vel, red_vel, vel_rf, norm_flux,
                                   delta_vel_components, norm_flux_unc)
     return ln_prior + ln_like
 
