@@ -195,7 +195,7 @@ class SpectrumSN_Lines(SpectrumSN):
         self.z = z
         self.line = {}
 
-    def add_line(self, name, blue_edge, red_edge, lines=[]):
+    def add_line(self, name, blue_edge, red_edge, lines=[], rel_strength=[]):
         '''Add one (series of) absorption line(s)
 
         Construct a new AbsorbLine object, and save it in self.line
@@ -212,10 +212,14 @@ class SpectrumSN_Lines(SpectrumSN):
         lines : array_like, default=[]
             the central wavelength(s) [angstrom] of this 
             (series) of line(s)
+
+        rel_strength : array_like, default=[]
+            the relative strength between each line in the series
+            rel_strength = []: all lines are of the equal strength
         '''
 
         self.line[name] = AbsorbLine(
-            self.spec1D, self.z, blue_edge, red_edge, lines)
+            self.spec1D, self.z, blue_edge, red_edge, lines, rel_strength)
 
 
 class AbsorbLine(SpectrumSN):
@@ -270,6 +274,12 @@ class AbsorbLine(SpectrumSN):
         1 sigma uncertainty for each parameter, approximated 
         by the half the range of 16 and 84 percentile values 
         in the MCMC chains
+
+    EW : float
+        effective width [angstrom]
+
+    sig_EW : float
+        uncertainty in effective width [angstrom]
 
 
 
@@ -552,7 +562,11 @@ class AbsorbLine(SpectrumSN):
                 dens_thres = hist[arg][-1 - j]
                 j += 1
             interval = bins[hist > dens_thres]
-            self.sig_theta_MCMC.append((interval[-1] - interval[0]) / 2)
+            try:
+                self.sig_theta_MCMC.append((interval[-1] - interval[0]) / 2)
+            except:
+                warnings.warn('No valid credit interval!')
+                self.sig_theta_MCMC.append((bins[-1] - bins[0]) / 2)
 
             # If the posteriors are asymmetric
             # self.sig_theta_MCMC.append(
@@ -564,6 +578,12 @@ class AbsorbLine(SpectrumSN):
         if ndim == 8:
             print('Velocity hvf: {:.0f} pm {:.0f} km/s'.format(
                 self.theta_MCMC[5], self.sig_theta_MCMC[5]))
+
+        # convert amplitude to equivalent width
+        ratio = 2 / (self.red_vel - self.blue_vel) * \
+            (self.wv_line[-1] - self.wv_line[0]) * np.sum(self.rel_strength)
+        self.EW = np.array(self.theta_MCMC[4::3]) * -ratio
+        self.sig_EW = np.array(self.sig_theta_MCMC[4::3]) * ratio
 
         # If the posteriors are asymmetric
         # print('Velocity pvf: {:.0f} plus {:.0f} minus {:.0f} km/s'.format(
@@ -602,18 +622,27 @@ class AbsorbLine(SpectrumSN):
         '''
 
         plt.figure(figsize=(10, 10))
+        # ensure high resolution in predicted model
+        if len(self.vel_rf) < 200:
+            vel_rf = np.linspace(self.vel_rf[0], self.vel_rf[-1], 200)
+        else:
+            vel_rf = self.vel_rf
         model_flux = flux_gauss(theta,
                                 self.rel_strength,
                                 self.blue_vel, self.red_vel,
-                                self.vel_rf, self.delta_vel_components)
+                                vel_rf, self.delta_vel_components)
+        model_res = flux_gauss(theta,
+                               self.rel_strength,
+                               self.blue_vel, self.red_vel,
+                               self.vel_rf, self.delta_vel_components) - self.norm_fl
         plt.errorbar(self.vel_rf, self.norm_fl,
                      yerr=self.norm_fl_unc, alpha=0.5, elinewidth=.5)
-        model_plot = plt.plot(self.vel_rf, model_flux, linewidth=5)
+        model_plot = plt.plot(vel_rf, model_flux, linewidth=5)
         plt.errorbar([self.vel_rf[0], self.vel_rf[-1]], [
                      model_flux[0], model_flux[-1]],
                      yerr=[self.blue_fl[1], self.red_fl[1]],
                      color=model_plot[0].get_color(), fmt='o', capsize=5)
-        plt.plot(self.vel_rf, model_flux - self.norm_fl, color='grey')
+        plt.plot(self.vel_rf, model_res, color='grey')
 
         if len(theta) == 8:
             model1_flux = flux_gauss(theta[:5],
@@ -633,7 +662,6 @@ class AbsorbLine(SpectrumSN):
         plt.ylabel(r'$\mathrm{Normalized\ Flux}$')
         plt.tight_layout()
         plt.show()
-
 
 ###################### Basic Functions ##########################
 
@@ -795,8 +823,8 @@ def neg_lnlike_gaussian_abs(theta,
 def lnprior(
     theta,
     blue_vel, red_vel,
-    mu_pvf=-1e4,
-    var_pvf=1e7,
+    mu_pvf=None,
+    var_pvf=None,
     blue_fl=[1, .1],
     red_fl=[1, .1],
 ):
@@ -813,10 +841,10 @@ def lnprior(
     blue_vel, red_vel : float
         the relative velocity [km/s] at the blue/red edge
 
-    mu_pvf : float, default=-1e4
+    mu_pvf : float, default=None
         mean of the pvf profile prior
 
-    var_pvf : float, default=1e7
+    var_pvf : float, default=None
         var of the pvf profile prior
 
     blue_fl, red_fl : list
@@ -835,10 +863,15 @@ def lnprior(
     if len(theta[2:]) == 3:
         mean_vel, lnvar, amplitude = theta[2:]
         var_vel = np.exp(lnvar)
+        if var_pvf != None:
+            lnpvf = -0.5 * np.log(
+                2 * np.pi * var_pvf) - (mean_vel - mu_pvf)**2 / 2 / var_pvf
+        else:
+            lnpvf = 0
         if (blue_vel + var_vel**.5 < mean_vel < red_vel - var_vel**.5
-                and 100 < var_vel**.5 < 20000
-                and -1e5 < amplitude < 0):
-            return lnp_y1 + lnp_y2
+                and 1 < var_vel**.5 < (red_vel - blue_vel) / 2  # 20000
+                and -10 * var_vel**.5 < amplitude < 0):
+            return lnp_y1 + lnp_y2 + lnpvf
             # lnflat = 0  #-np.log(40000 * (22000 - 100) * 1e5)
         else:
             return -np.inf
@@ -852,10 +885,12 @@ def lnprior(
         lnpvf = -0.5 * np.log(
             2 * np.pi * var_pvf) - (mean_vel_pvf - mu_pvf)**2 / 2 / var_pvf
 
-        if (red_vel - var_vel_pvf**.5 * 2 > mean_vel_pvf > -2e4 and 1e5 < var_vel_pvf < 1e9
-                and -1e5 < amp_pvf < 0
+        if (red_vel - var_vel_pvf**.5 * 2 > mean_vel_pvf > -2e4
+                and 1e0 < var_vel_pvf < (red_vel - blue_vel) / 4
+                and -10 * var_vel_pvf**.5 < amp_pvf < 0
                 and mean_vel_pvf - 2000 > mean_vel_hvf > blue_vel + var_vel_hvf**.5 * 2
-                and 1e5 < var_vel_hvf < 1e9 and -1e5 < amp_hvf < 0):
+                and 1e0 < var_vel_hvf < (red_vel - blue_vel) / 4
+                and -10 * var_vel_hvf**.5 < amp_hvf < 0):
             lnflat = 0
         else:
             lnflat = -np.inf
