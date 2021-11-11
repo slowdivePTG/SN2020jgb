@@ -478,6 +478,7 @@ class AbsorbLine(SpectrumSN):
 
         if normalize_unc:
             norm_fac = (self.chi2_LS / len(self.vel_rf))**.5
+            print('Normalize factor = {:.3f}'.format(norm_fac))
         else:
             norm_fac = 1
 
@@ -509,8 +510,8 @@ class AbsorbLine(SpectrumSN):
         for sample in sampler.sample(p0,
                                      iterations=max_nsteps,
                                      progress=True):
-            # Only check convergence every 50 steps
-            if sampler.iteration % 50:
+            # Only check convergence every 500 steps
+            if sampler.iteration % 500:
                 continue
 
             # Compute the autocorrelation time so far
@@ -520,7 +521,7 @@ class AbsorbLine(SpectrumSN):
 
             # Check convergence
             converged = np.all(tau * 50 < sampler.iteration)
-            converged &= np.all(np.abs(old_tau - tau) / tau < 0.01)
+            converged &= np.all(np.abs(old_tau - tau) / tau < 0.05)
             if converged:
                 break
             old_tau = tau
@@ -597,14 +598,14 @@ class AbsorbLine(SpectrumSN):
         if Plot_mcmc:
             plot_MCMC(sampler, nburn, thin, nplot=20)
         if Plot_tau:
-            n = 50 * np.arange(1, index + 1)
+            n = 500 * np.arange(1, index + 1)
             y = autocorr[:index]
             plt.figure(figsize=(10, 10))
             plt.plot(n, n / 50.0, "--k")
             plt.plot(n, y)
             plt.xlim(0, n.max())
             plt.ylim(0, y.max() + 0.1 * (y.max() - y.min()))
-            plt.xlabel(r"$\mathrm{Number\ of steps}$")
+            plt.xlabel(r"$\mathrm{Number\ of\ steps}$")
             plt.ylabel(r"$\mathrm{Mean}\ \hat{\tau}$")
             plt.show()
 
@@ -681,7 +682,8 @@ def calc_gauss(mean_vel, var_vel, amplitude, vel_rf):
     return gauss
 
 
-def flux_gauss(theta, rel_strength, blue_vel, red_vel, vel_rf, delta_vel_components=[]):
+def flux_gauss(theta, rel_strength, blue_vel, red_vel, vel_rf,
+               delta_vel_components=[]):
     '''Calculate normalized flux based on a Gaussian model
 
     Parameters
@@ -823,6 +825,7 @@ def neg_lnlike_gaussian_abs(theta,
 def lnprior(
     theta,
     blue_vel, red_vel,
+    delta_vel=0,
     mu_pvf=None,
     var_pvf=None,
     blue_fl=[1, .1],
@@ -840,6 +843,9 @@ def lnprior(
 
     blue_vel, red_vel : float
         the relative velocity [km/s] at the blue/red edge
+
+    delta_vel : float, default=0
+        the relative velocity between the bluest and reddest line
 
     mu_pvf : float, default=None
         mean of the pvf profile prior
@@ -868,8 +874,8 @@ def lnprior(
                 2 * np.pi * var_pvf) - (mean_vel - mu_pvf)**2 / 2 / var_pvf
         else:
             lnpvf = 0
-        if (blue_vel + var_vel**.5 < mean_vel < red_vel - var_vel**.5
-                and 1 < var_vel**.5 < (red_vel - blue_vel) / 2  # 20000
+        if (blue_vel + delta_vel + var_vel**.5 * 2 < mean_vel < red_vel - var_vel**.5 * 2
+                and 5e1 < var_vel**.5 < (red_vel - blue_vel) / 2  # 20000
                 and -10 * var_vel**.5 < amplitude < 0):
             return lnp_y1 + lnp_y2 + lnpvf
             # lnflat = 0  #-np.log(40000 * (22000 - 100) * 1e5)
@@ -885,11 +891,11 @@ def lnprior(
         lnpvf = -0.5 * np.log(
             2 * np.pi * var_pvf) - (mean_vel_pvf - mu_pvf)**2 / 2 / var_pvf
 
-        if (red_vel - var_vel_pvf**.5 * 2 > mean_vel_pvf > -2e4
-                and 1e0 < var_vel_pvf < (red_vel - blue_vel) / 4
+        if (red_vel - var_vel_pvf**.5 > mean_vel_pvf > -2e4
+                and 5e1 < var_vel_pvf**.5 < (red_vel - blue_vel - delta_vel) / 2
                 and -10 * var_vel_pvf**.5 < amp_pvf < 0
-                and mean_vel_pvf - 2000 > mean_vel_hvf > blue_vel + var_vel_hvf**.5 * 2
-                and 1e0 < var_vel_hvf < (red_vel - blue_vel) / 4
+                and mean_vel_pvf - 2000 > mean_vel_hvf > blue_vel + delta_vel + var_vel_hvf**.5
+                and 5e1 < var_vel_hvf**.5 < (red_vel - blue_vel - delta_vel) / 2
                 and -10 * var_vel_hvf**.5 < amp_hvf < 0):
             lnflat = 0
         else:
@@ -916,7 +922,11 @@ def ln_prob(
     See lnprior() and lnlike_gaussian_abs() for details
     '''
 
-    ln_prior = lnprior(theta, blue_vel, red_vel,
+    if len(delta_vel_components) == 0:
+        delta_vel = 0
+    else:
+        delta_vel = np.max(delta_vel_components)
+    ln_prior = lnprior(theta, blue_vel, red_vel, delta_vel,
                        mu_pvf, var_pvf, blue_fl, red_fl)
     ln_like = lnlike_gaussian_abs(theta, rel_strength, blue_vel, red_vel, vel_rf, norm_flux,
                                   delta_vel_components, norm_flux_unc)
@@ -959,9 +969,9 @@ def plot_MCMC(sampler, nburn, thin=1, nplot=None):
     else:
         print('Error: wrong parameter number!')
 
-    plotChains(sampler, nburn, paramsNames, nplot)
-    plt.tight_layout()
-    plt.show()
+    #plotChains(sampler, nburn, paramsNames, nplot)
+    # plt.tight_layout()
+    # plt.show()
 
     samples = sampler.get_chain(discard=nburn, flat=True, thin=thin)
     fig = corner.corner(samples,
