@@ -411,6 +411,8 @@ class AbsorbLine(SpectrumSN):
 
     def MCMC_sampler(self,
                      mu_pvf=-1e4, var_pvf=1e7,
+                     vel_flat=[-1e5, 0],
+                     var_max=1e8,
                      nwalkers=100, max_nsteps=50000,
                      nburn=-1, thin=-1, initial=[],
                      normalize_unc=False,
@@ -426,6 +428,12 @@ class AbsorbLine(SpectrumSN):
 
         var_pvf : float, default=1e7
             var of the pvf profile prior
+
+        vel_flat : list, default=[-1e5, 0]
+            the range of the flat velocity prior
+
+        var_max : float, default=1e8
+            maximum var allowed in a line profile
 
         nwalkers : int, default=100
             number of MCMC sampler walkers
@@ -500,6 +508,7 @@ class AbsorbLine(SpectrumSN):
             args=(self.rel_strength,
                   self.blue_vel, self.red_vel, self.vel_rf, self.norm_fl,
                   self.delta_vel_components,
+                  vel_flat, var_max,
                   mu_pvf, var_pvf,
                   self.norm_fl_unc * norm_fac,
                   [self.blue_fl[0], self.blue_fl[1] * norm_fac],
@@ -603,8 +612,8 @@ class AbsorbLine(SpectrumSN):
             plt.figure(figsize=(10, 10))
             plt.plot(n, n / 50.0, "--k")
             plt.plot(n, y)
-            plt.xlim(0, n.max())
-            plt.ylim(0, y.max() + 0.1 * (y.max() - y.min()))
+            plt.xlim(500, n.max())
+            plt.ylim(10, y.max() + 0.1 * (y.max() - y.min()))
             plt.xlabel(r"$\mathrm{Number\ of\ steps}$")
             plt.ylabel(r"$\mathrm{Mean}\ \hat{\tau}$")
             plt.show()
@@ -824,12 +833,13 @@ def neg_lnlike_gaussian_abs(theta,
 
 def lnprior(
     theta,
-    blue_vel, red_vel,
+    vel_flat=[-1e5, 0],
+    var_max=1e8,
     delta_vel=0,
     mu_pvf=None,
     var_pvf=None,
     blue_fl=[1, .1],
-    red_fl=[1, .1],
+    red_fl=[1, .1]
 ):
     '''log-prior probability
 
@@ -841,8 +851,11 @@ def lnprior(
         red edge, (mean of relative velocity, log variance,
         amplitude) * Number of velocity components
 
-    blue_vel, red_vel : float
-        the relative velocity [km/s] at the blue/red edge
+    vel_flat : list, default=[-1e5, 0]
+        the range of the flat velocity prior [km/s]
+
+    var_max : float, default=1e8
+        maximum var allowed in a line profile
 
     delta_vel : float, default=0
         the relative velocity between the bluest and reddest line
@@ -866,6 +879,8 @@ def lnprior(
     lnp_y1 = -np.log(blue_fl[1]) - (blue_fl[0] - y1)**2 / 2 / blue_fl[1]**2
     lnp_y2 = -np.log(red_fl[1]) - (red_fl[0] - y2)**2 / 2 / red_fl[1]**2
 
+    sig_lim = min((vel_flat[1] - vel_flat[0] - delta_vel) / 2, var_max**.5)
+
     if len(theta[2:]) == 3:
         mean_vel, lnvar, amplitude = theta[2:]
         var_vel = np.exp(lnvar)
@@ -874,11 +889,10 @@ def lnprior(
                 2 * np.pi * var_pvf) - (mean_vel - mu_pvf)**2 / 2 / var_pvf
         else:
             lnpvf = 0
-        if (blue_vel + delta_vel + var_vel**.5 * 2 < mean_vel < red_vel - var_vel**.5 * 2
-                and 5e1 < var_vel**.5 < (red_vel - blue_vel) / 2  # 20000
-                and -10 * var_vel**.5 < amplitude < 0):
+        if (vel_flat[0] + delta_vel < mean_vel < vel_flat[1]
+                and 5e1 < var_vel**.5 < sig_lim
+                and -(2 * np.pi * var_vel)**.5 < amplitude < (2 * np.pi * var_vel)**.5):
             return lnp_y1 + lnp_y2 + lnpvf
-            # lnflat = 0  #-np.log(40000 * (22000 - 100) * 1e5)
         else:
             return -np.inf
 
@@ -891,12 +905,12 @@ def lnprior(
         lnpvf = -0.5 * np.log(
             2 * np.pi * var_pvf) - (mean_vel_pvf - mu_pvf)**2 / 2 / var_pvf
 
-        if (red_vel - var_vel_pvf**.5 > mean_vel_pvf > -2e4
-                and 5e1 < var_vel_pvf**.5 < (red_vel - blue_vel - delta_vel) / 2
-                and -10 * var_vel_pvf**.5 < amp_pvf < 0
-                and mean_vel_pvf - 2000 > mean_vel_hvf > blue_vel + delta_vel + var_vel_hvf**.5
-                and 5e1 < var_vel_hvf**.5 < (red_vel - blue_vel - delta_vel) / 2
-                and -10 * var_vel_hvf**.5 < amp_hvf < 0):
+        if (-2e4 < mean_vel_pvf < vel_flat[1]
+                and 5e1 < var_vel_pvf**.5 < sig_lim
+                and -(2 * np.pi * var_vel_pvf)**.5 < amp_pvf < (2 * np.pi * var_vel_pvf)**.5
+                and mean_vel_pvf > mean_vel_hvf > vel_flat[0] + delta_vel
+                and 5e1 < var_vel_hvf**.5 < sig_lim
+                and -(2 * np.pi * var_vel_hvf)**.5 < amp_hvf < (2 * np.pi * var_vel_hvf)**.5):
             lnflat = 0
         else:
             lnflat = -np.inf
@@ -911,6 +925,8 @@ def ln_prob(
     vel_rf,
     norm_flux,
     delta_vel_components=[],
+    vel_flat=[-1e5, 0],
+    var_max=1e8,
     mu_pvf=-1e4,
     var_pvf=1e7,
     norm_flux_unc=1,
@@ -926,7 +942,7 @@ def ln_prob(
         delta_vel = 0
     else:
         delta_vel = np.max(delta_vel_components)
-    ln_prior = lnprior(theta, blue_vel, red_vel, delta_vel,
+    ln_prior = lnprior(theta, vel_flat, var_max, delta_vel,
                        mu_pvf, var_pvf, blue_fl, red_fl)
     ln_like = lnlike_gaussian_abs(theta, rel_strength, blue_vel, red_vel, vel_rf, norm_flux,
                                   delta_vel_components, norm_flux_unc)
