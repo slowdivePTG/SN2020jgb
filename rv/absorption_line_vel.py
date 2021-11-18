@@ -80,7 +80,7 @@ class SpectrumSN(object):
             else:
                 fl_unc = spec_df[2].values
 
-                if 'P60' in spec1D:
+                if 'P60' in spec1D or 'P200' in spec1D:
                     fl_unc **= .5
         except:
             warnings.warn("No flux uncertainty in the datafile!")
