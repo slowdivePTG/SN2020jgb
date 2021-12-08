@@ -1,3 +1,6 @@
+import os
+import glob
+import warnings
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
@@ -7,14 +10,12 @@ import emcee
 import corner
 
 import matplotlib as mpl
-mpl.rcParams['text.usetex'] = True
+# mpl.rcParams['text.usetex'] = True #only when producing plots for publication
+mpl.rcParams['font.family'] = 'times new roman'
 mpl.rcParams['font.size'] = '25'
 mpl.rcParams['xtick.labelsize'] = '20'
 mpl.rcParams['ytick.labelsize'] = '20'
 
-import warnings
-import glob
-import os
 
 ##################### SpectrumSN class ##########################
 
@@ -550,7 +551,7 @@ class AbsorbLine(SpectrumSN):
         # Median as the estimator
         #self.theta_MCMC = np.median(samples, axis=0)
         # self.sig_theta_MCMC = (np.percentile(samples, q=84, axis=0)
-        #- np.percentile(samples, q=16, axis=0)) / 2
+        # - np.percentile(samples, q=16, axis=0)) / 2
 
         # Mode as the estimator
         # 68% credible region for the highest density
@@ -684,10 +685,35 @@ def velocity_rf(lambda_rf, lambda_0):
     return v
 
 
+def velocity_rf_line(lambda_0, lambda_1, vel):
+    '''get the relative velocity of a feature assuming another line
+
+    Parameters
+    ----------
+    lambda_0 : float
+        wavelength of the original line [angstrom]
+    lambda_1 : float
+        wavelength of the new line [angstrom]
+    vel : float
+        the velocity relative to lambda_0 [km/s]
+
+    Returns
+    -------
+    vel_1 : float
+        the velocity relative to lambda_1 [km/s]
+    '''
+
+    c = 2.99792458e5
+    lambda_rf = ((vel / c + 1)/(-vel / c + 1))**.5 * lambda_0
+    vel_1 = velocity_rf(lambda_rf, lambda_1)
+
+    return vel_1
+
+
 def calc_gauss(mean_vel, var_vel, amplitude, vel_rf):
     '''gaussian profile'''
-    gauss = amplitude / np.sqrt(2 * np.pi * var_vel) * np.exp(
-        -0.5 * (vel_rf - mean_vel)**2 / var_vel)
+    gauss = amplitude / np.sqrt(2 * np.pi * var_vel) * \
+        np.exp(-0.5 * (vel_rf - mean_vel)**2 / var_vel)
     return gauss
 
 
