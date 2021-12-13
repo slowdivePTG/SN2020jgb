@@ -2,6 +2,7 @@ import os
 import glob
 import warnings
 import numpy as np
+from numpy.linalg import norm
 import pandas as pd
 import matplotlib.pyplot as plt
 from scipy.optimize import minimize
@@ -10,6 +11,11 @@ import emcee
 import corner
 
 import matplotlib as mpl
+
+import sys
+sys.path.append('../../tools/')
+from dust_extinction import calALambda
+
 # mpl.rcParams['text.usetex'] = True #only when producing plots for publication
 mpl.rcParams['font.family'] = 'times new roman'
 mpl.rcParams['font.size'] = '25'
@@ -222,6 +228,52 @@ class SpectrumSN_Lines(SpectrumSN):
         self.line[name] = AbsorbLine(
             self.spec1D, self.z, blue_edge, red_edge, lines, rel_strength)
 
+    def compare_lines(self, ax, vmax=-30000, vmin=0, 
+                      displace=0, norm_fac=1, bin_size=100):
+        '''Compare the line regions in velocity space
+
+        Parameters
+        ----------
+        ax : matplotlib.axes.Axes
+            the matplotlib Axes in which the plots are made
+        vmax : float, default=-30000
+            the upper limit of the line velocity (<=0) [km/s]
+        vmin : float, default=0
+            the lower limit of the line velocity (<=0) [km/s]
+        displace : int, default=0
+            the displacement of the first spectra
+        norm_fac : float, default=1
+            normalization factor for the flux
+        bin_size : float, default=1
+            size of each spectrum bin [km/s]
+        '''
+
+        from data_binning import data_binning, plot_box_spec
+
+        col = ['#e41a1c', '#377eb8', '#4daf4a',
+               '#984ea3', '#ff7f00', '#ffff33', '#a65628']
+
+        for k, l in enumerate(self.line):
+            vel_rf = self.line[l].vel_rf
+            arg = (vel_rf > vmax) & (vel_rf < vmin)
+            vel_rf = vel_rf[arg]
+            fl = self.line[l].norm_fl[arg]
+            fl_unc = self.line[l].norm_fl_unc[arg] / norm_fac
+
+            out = data_binning(np.array([vel_rf, fl, fl_unc]).T, size=bin_size)
+            vel_rf_bin, fl_bin = plot_box_spec(out[:, 0], out[:, 1])
+            vel_rf, fl = plot_box_spec(vel_rf, fl)
+            fl_unc = np.repeat(fl_unc, 2)
+            fl = fl / norm_fac - (k + displace) * 2 
+            fl_bin = fl_bin / norm_fac - (k + displace) * 2
+            plt.plot(vel_rf_bin, fl_bin, label=l, color=col[k + displace])
+            plt.plot(vel_rf, fl, alpha=0.3, color=col[k + displace])
+            #plt.fill_between(vel_rf,
+            #                 fl - fl_unc, fl + fl_unc,
+            #                 alpha=0.5, color=col[k + displace])
+        ax.set_xlabel('$v\ [\mathrm{km/s}]$')
+        ax.set_yticks([])
+
 
 class AbsorbLine(SpectrumSN):
     '''A (series of) absorption line(s) in a 1D optical spectrum
@@ -241,10 +293,10 @@ class AbsorbLine(SpectrumSN):
         rel_strength = []: all lines are of the equal strength
 
     norm_fl : array_like
-        flux normalized by the median value
+        flux normalized by the median value within the line region
 
     norm_fl_unc : array_like
-        normalized flux uncertainty
+        normalized flux uncertainty within the line region
 
     blue_fl, red_fl : list
         normalized flux and uncertainty at the blue/red edge
