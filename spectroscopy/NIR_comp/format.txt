@@ -1,0 +1,14 @@
+; data are in marion_dat format
+; each file has 8 columns: l, f, er, ff, lz, fn, ern, ffn
+; l=observed wavelength (angstroms)
+; f=raw flux (ergs/s/cm^2/A)
+; er=error estimate by pixel
+; ff= Fourier transform smoothed spectrum
+; lz=wavelength shifted to rest frame of host (lz=l/(1+z))
+; fn, ern, & ffn are the normalized raw data (f, ff, & er)
+; normalization makes ffn=1.0 at 1.0 microns for NIR data
+; normalization makes ffn=1.7 at 7300 A for optical data
+
+For most analysis it is easiest to look at the normalized, 
+smoothed data (ffn) plotted against the redshift 
+adjusted wavelength (lz).
