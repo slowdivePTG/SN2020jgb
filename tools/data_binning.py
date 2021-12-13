@@ -22,8 +22,9 @@ def data_binning(data, size=2, min_bin=1):  # size - day
                 weight_mag = (temp[arg, 1] / temp[arg, 2]**2) / \
                     (temp[arg, 2]**(-2)).mean()
                 mag_bin = weight_mag.mean()
-                magerr_bin = (1 / (data[arg, 2]**(-2)).mean() /
-                              len(data[arg, 2]))**(0.5)
+                '''magerr_bin = (1 / (data[arg, 2]**(-2)).mean() /
+                              len(data[arg, 2]))**(0.5)'''
+                magerr_bin = (temp[arg, 2]**2).sum()**.5/len(arg)
                 i = j
             else:
                 date_bin = data[i, 0]
