@@ -37,3 +37,15 @@ def data_binning(data, size=2, min_bin=1):  # size - day
                 data_bin.append(t)
             i = j
     return np.array(data_bin)
+
+
+def plot_box_spec(wave, flux):
+    flux_plot = np.repeat(flux, 2)
+    wv_plot = wave.copy()
+    wv_plot[:-1] += np.diff(wave) / 2
+    wv_plot = np.append(
+        wave[0] - (wave[1] - wave[0]) / 2,
+        np.append(np.repeat(wv_plot[0:-1], 2),
+                  wave[-1] + (wave[-1] - wave[-2]) / 2))
+
+    return wv_plot, flux_plot
