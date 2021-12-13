@@ -14,9 +14,10 @@ def data_binning(data, size=2, min_bin=1):  # size - day
         temp = data[i:j, :]
         if len(temp) >= min_bin:
             if len(temp) > 1:
-                arg = np.argwhere(
+                '''arg = np.argwhere(
                     abs(temp[:, 1] - np.median(temp[:, 1])) <= 3 *
-                    mad_std(temp[:, 1])).flatten()
+                    mad_std(temp[:, 1])).flatten()'''
+                arg = np.arange(len(temp))
                 date_bin = temp[arg, 0].mean()
                 weight_mag = (temp[arg, 1] / temp[arg, 2]**2) / \
                     (temp[arg, 2]**(-2)).mean()
