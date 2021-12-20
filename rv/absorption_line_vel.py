@@ -1,20 +1,18 @@
-import os
-import glob
-import warnings
-import numpy as np
-from numpy.linalg import norm
-import pandas as pd
-import matplotlib.pyplot as plt
-from scipy.optimize import minimize
-
-import emcee
-import corner
-
 import matplotlib as mpl
-
+import corner
+import emcee
+from scipy.optimize import minimize
+import matplotlib.pyplot as plt
+import pandas as pd
+from numpy.linalg import norm
+import numpy as np
+import warnings
+import glob
+from dust_extinction import calALambda
+from logging import raiseExceptions
 import sys
 sys.path.append('../../tools/')
-from dust_extinction import calALambda
+
 
 # mpl.rcParams['text.usetex'] = True #only when producing plots for publication
 mpl.rcParams['font.family'] = 'times new roman'
@@ -288,7 +286,8 @@ class AbsorbLine(SpectrumSN):
     sig_EW : float
         uncertainty in effective width [angstrom]
 
-
+    lambda_0_rf : array_like
+        reference wavelength of each component
 
     Methods
     -------
@@ -323,12 +322,23 @@ class AbsorbLine(SpectrumSN):
         blue_edge, red_edge: float
             the wavelength [angstrom] (host galaxy frame) at the blue/red edge
 
-        lines: array_like, default=[]
+        lines: 2D array_like, default=[]
             the central wavelength(s) [angstrom] of this (series) of line(s)
-            (e.g. [6371.359, 6347.103])
+            1D/2D for single components:
+                Si II: [[6371.359, 6347.103]] or [6371.359, 6347.103] 
+            2D for multiple components":
+                different vel components of one element:
+                    Ca II IRT [[8498.018, 8542.089, 8662.140], [8498.018, 8542.089, 8662.140]]    
+                multiple elements:
+                    He I/Fe II [[10830], [9998, 10500, 10863]]
 
-        rel_strength : array_like, default=[]
+        rel_strength : 2D array_like, default=[]
             the relative strength between each line in the series
+            1D/2D for single component:
+                Si II: [] or [[]] - empty for equal strength
+            2D for multiple components:
+                Ca II IRT [[], []]    
+                He I/Fe II [[], [0.382, 0.239, 0.172]]
         '''
 
         super(AbsorbLine, self).__init__(spec1D, z)
@@ -366,18 +376,34 @@ class AbsorbLine(SpectrumSN):
         self.red_fl = red_fl / np.nanmedian(self.fl)
 
         # velocity
-        if len(rel_strength) == 0:
-            rel_strength = np.ones_like(lines)
-        self.rel_strength = np.array(rel_strength)[np.argsort(lines)][:-1]
-        lines = np.array(lines)[np.argsort(lines)]
-        lambda_0 = lines[-1]
+        try:
+            if len(lines[0]) > 0:
+                pass
+        except:
+            lines = np.atleast_2d(lines)
+            rel_strength = np.atleast_2d(rel_strength)
+        lambda_0 = np.max(lines[0])
         vel_rf = velocity_rf(self.wv_rf, lambda_0)
         self.vel_rf = vel_rf[line_region]
 
         self.blue_vel = velocity_rf(blue_edge, lambda_0)
         self.red_vel = velocity_rf(red_edge, lambda_0)
-        self.delta_vel_components = [
-            velocity_rf(lambda_0, l) for l in lines[:-1]]
+
+        self.rel_strength = []
+        self.delta_vel_components = []
+        self.lambda_0_rf = []
+
+        for k in range(len(lines)):
+            if len(rel_strength[k]) == 0:
+                rs = np.ones_like(lines[k])
+            else:
+                rs = rel_strength[k]
+            li = np.array(lines[k])[np.argsort(lines[k])]
+            rs = np.array(rs)[np.argsort(lines[k])][:-1]
+            self.rel_strength = np.append(self.rel_strength, rs)
+            self.delta_vel_components = np.append(self.delta_vel_components, [
+                                                  velocity_rf(lambda_0, l) for l in li[:-1]])
+            self.lambda_0_rf = np.append(self.lambda_0_rf, np.max(lines[k]))
 
         self.theta_LS = []
         self.chi2_LS = np.nan
@@ -402,22 +428,22 @@ class AbsorbLine(SpectrumSN):
                   self.blue_vel, self.red_vel, self.vel_rf, self.norm_fl,
                   self.delta_vel_components, self.norm_fl_unc, 'chi2'))
 
-        self.theta_LS = LS_res['x']
+        theta_LS = LS_res['x']
+        ndim = len(theta_LS)
+        self.theta_LS = theta_LS.copy()
         self.chi2_LS = LS_res['fun']
 
-        self.plot_model(self.theta_LS)
+        self.plot_model(theta_LS)
 
-        # print(self.theta_LS)
-        ndim = len(self.theta_LS)
         print('LS estimation:')
-        print('Velocity pvf: {:.0f} km/s'.format(
-            self.theta_LS[2]))
-        if ndim == 8:  # ndim == 8 means we have hvf measurements
-            print('Velocity hvf: {:.0f} km/s'.format(
-                self.theta_LS[5]))
+        for k in range(ndim // 3):
+            self.theta_LS[2 + 3 * k] = velocity_rf_line(
+                self.lambda_0_rf[0], self.lambda_0_rf[k], self.theta_LS[2 + 3 * k])
+            print('Velocity {}: {:.0f} km/s'.format(k +
+                  1, self.theta_LS[2 + 3 * k]))
 
     def MCMC_sampler(self,
-                     mu_pvf=-1e4, var_pvf=1e7,
+                     mu_prior=[], var_prior=[],
                      vel_flat=[-1e5, 0],
                      var_max=1e8,
                      nwalkers=100, max_nsteps=50000,
@@ -430,11 +456,11 @@ class AbsorbLine(SpectrumSN):
 
         Parameters
         ----------
-        mu_pvf : float, default=-1e4
-            mean of the pvf profile prior
+        mu_prior : array_like, default=[]
+            means of the profile prior
 
-        var_pvf : float, default=1e7
-            var of the pvf profile prior
+        var_prior : float, default=[]
+            variances of the profile prior
 
         vel_flat : list, default=[-1e5, 0]
             the range of the flat velocity prior
@@ -499,11 +525,11 @@ class AbsorbLine(SpectrumSN):
 
         # Saving and monitoring process
         # https://emcee.readthedocs.io/en/stable/tutorials/monitor/
-        filename = "{}.h5".format(self.spec_name)  # save the chain
-        if filename in glob.glob('./*h5'):
-            os.remove(filename)
-        backend = emcee.backends.HDFBackend(filename)
-        backend.reset(nwalkers, ndim)
+        # filename = "{}.h5".format(self.spec_name)  # save the chain
+        # if filename in glob.glob('./*h5'):
+        #    os.remove(filename)
+        #backend = emcee.backends.HDFBackend(filename)
+        #backend.reset(nwalkers, ndim)
 
         autocorr = np.zeros(max_nsteps)
         old_tau = np.inf
@@ -516,11 +542,11 @@ class AbsorbLine(SpectrumSN):
                   self.blue_vel, self.red_vel, self.vel_rf, self.norm_fl,
                   self.delta_vel_components,
                   vel_flat, var_max,
-                  mu_pvf, var_pvf,
+                  mu_prior, var_prior,
                   self.norm_fl_unc * norm_fac,
                   [self.blue_fl[0], self.blue_fl[1] * norm_fac],
-                  [self.red_fl[0], self.red_fl[1] * norm_fac]),
-            backend=backend)
+                  [self.red_fl[0], self.red_fl[1] * norm_fac]))
+        # backend=backend)
 
         index = 0
         for sample in sampler.sample(p0,
@@ -563,13 +589,19 @@ class AbsorbLine(SpectrumSN):
         # 68% credible region for the highest density
         self.theta_MCMC = []
         self.sig_theta_MCMC = []
+        theta_MCMC = []
         for i in range(ndim):
             hist, bin_edges = np.histogram(
                 samples[:, i], bins=50, density=True)
             bins = (bin_edges[1:] + bin_edges[:-1]) / 2
             width = bin_edges[1] - bin_edges[0]
             arg = np.argsort(hist)
+            theta_MCMC.append(bins[arg][-1])
             self.theta_MCMC.append(bins[arg][-1])
+
+            for k in range(ndim // 3):
+                theta_MCMC[2 + 3 * k] = velocity_rf_line(
+                    self.lambda_0_rf[0], self.lambda_0_rf[k], theta_MCMC[2 + 3 * k])
 
             cred = 0.68  # credible region
             dens_thres = np.inf
@@ -590,11 +622,9 @@ class AbsorbLine(SpectrumSN):
             #    [bins[arg][-1] - interval[0], interval[-1] - bins[arg][-1]])
 
         print('MCMC results:')
-        print('Velocity pvf: {:.0f} pm {:.0f} km/s'.format(
-            self.theta_MCMC[2], self.sig_theta_MCMC[2]))
-        if ndim == 8:
-            print('Velocity hvf: {:.0f} pm {:.0f} km/s'.format(
-                self.theta_MCMC[5], self.sig_theta_MCMC[5]))
+        for k in range(ndim // 3):
+            print('Velocity {}: {:.0f} pm {:.0f} km/s'.format(k +
+                  1, self.theta_MCMC[2 + 3 * k], self.sig_theta_MCMC[2 + 3 * k]))
 
         # convert amplitude to equivalent width
         ratio = 2 / (self.red_vel - self.blue_vel) * \
@@ -610,9 +640,13 @@ class AbsorbLine(SpectrumSN):
         #        self.theta_MCMC[5], self.sig_theta_MCMC[5][0], self.sig_theta_MCMC[5][1]))
 
         if Plot_model:
-            self.plot_model(self.theta_MCMC)
+            self.plot_model(theta_MCMC)
         if Plot_mcmc:
-            plot_MCMC(sampler, nburn, thin, nplot=20)
+            samples = sampler.get_chain(discard=nburn, flat=True, thin=thin)
+            for k in range(ndim // 3):
+                samples[:, 2 + 3 * k] = velocity_rf_line(
+                    self.lambda_0_rf[0], self.lambda_0_rf[k], samples[:, 2 + 3 * k]) 
+            plot_MCMC(sampler=sampler, nplot=20, samples=samples)
         if Plot_tau:
             n = 500 * np.arange(1, index + 1)
             y = autocorr[:index]
@@ -661,19 +695,14 @@ class AbsorbLine(SpectrumSN):
                      color=model_plot[0].get_color(), fmt='o', capsize=5)
         plt.plot(self.vel_rf, model_res, color='grey')
 
-        if len(theta) == 8:
-            model1_flux = flux_gauss(theta[:5],
-                                     self.rel_strength,
-                                     self.blue_vel, self.red_vel,
-                                     self.vel_rf, self.delta_vel_components)
-            model2_flux = flux_gauss(np.append(theta[:2], theta[5:]),
-                                     self.rel_strength,
-                                     self.blue_vel, self.red_vel,
-                                     self.vel_rf, self.delta_vel_components)
-            plt.plot(self.vel_rf, model1_flux,
-                     color='k', alpha=0.8, linewidth=3)
-            plt.plot(self.vel_rf, model2_flux,
-                     color='k', alpha=0.4, linewidth=3)
+        if len(theta) > 5:
+            for k in range(len(theta) // 3):
+                model_flux = flux_gauss(np.append(theta[:2], theta[2 + 3 * k:5 + 3 * k]),
+                                        self.rel_strength,
+                                        self.blue_vel, self.red_vel,
+                                        self.vel_rf, self.delta_vel_components)
+                plt.plot(self.vel_rf, model_flux,
+                         color='k', alpha=0.4, linewidth=3)
 
         plt.xlabel(r'$v\ [\mathrm{km/s}]$')
         plt.ylabel(r'$\mathrm{Normalized\ Flux}$')
@@ -764,13 +793,13 @@ def flux_gauss(theta, rel_strength, blue_vel, red_vel, vel_rf,
 
     model_flux = m * vel_rf + b
 
-    for i in range(len(theta[2:]) // 3):
-        mean_vel, lnvar, amplitude = theta[3 * i + 2:3 * i + 5]
+    for k in range(len(theta) // 3):
+        mean_vel, lnvar, amplitude = theta[3 * k + 2:3 * k + 5]
         var_vel = np.exp(lnvar)
         model_flux += calc_gauss(mean_vel, var_vel, amplitude, vel_rf)
 
         if len(delta_vel_components) > 0:
-            for rel_s, delta_vel in zip(rel_strength, delta_vel_components):
+            for rel_s, delta_vel in zip(rel_strength.ravel(), delta_vel_components):
                 model_flux += rel_s * calc_gauss(mean_vel - delta_vel, var_vel,
                                                  amplitude, vel_rf)
     return model_flux
@@ -868,8 +897,8 @@ def lnprior(
     vel_flat=[-1e5, 0],
     var_max=1e8,
     delta_vel=0,
-    mu_pvf=None,
-    var_pvf=None,
+    mu_prior=[],
+    var_prior=[],
     blue_fl=[1, .1],
     red_fl=[1, .1]
 ):
@@ -892,11 +921,11 @@ def lnprior(
     delta_vel : float, default=0
         the relative velocity between the bluest and reddest line
 
-    mu_pvf : float, default=None
-        mean of the pvf profile prior
+    mu_prior : array_like, default=[]
+        means of the profile prior
 
-    var_pvf : float, default=None
-        var of the pvf profile prior
+    var_prior : float, default=[]
+        variances of the profile prior
 
     blue_fl, red_fl : list
         normalized flux and uncertainty at the blue/red edge
@@ -911,42 +940,33 @@ def lnprior(
     lnp_y1 = -np.log(blue_fl[1]) - (blue_fl[0] - y1)**2 / 2 / blue_fl[1]**2
     lnp_y2 = -np.log(red_fl[1]) - (red_fl[0] - y2)**2 / 2 / red_fl[1]**2
 
+    num_vel_com = len(theta // 3)
+
     sig_lim = min((vel_flat[1] - vel_flat[0] - delta_vel) / 2, var_max**.5)
 
+    if len(mu_prior) == len(var_prior):
+        raise ValueError('Means and variances of prior do not match.')
+
+    if len(var_prior) == 0:
+        var_prior = np.ones(num_vel_com) * np.inf
+        mu_prior = np.zeros(num_vel_com)
+
     if len(theta[2:]) == 3:
-        mean_vel, lnvar, amplitude = theta[2:]
+        mean_vel = theta[2::3]
+        lnvar = theta[3::3]
+        amplitude = theta[4::3]
         var_vel = np.exp(lnvar)
-        if var_pvf != None:
-            lnpvf = -0.5 * np.log(
-                2 * np.pi * var_pvf) - (mean_vel - mu_pvf)**2 / 2 / var_pvf
-        else:
-            lnpvf = 0
-        if (vel_flat[0] + delta_vel < mean_vel < vel_flat[1]
-                and 5e1 < var_vel**.5 < sig_lim
-                and -(2 * np.pi * var_vel)**.5 < amplitude < (2 * np.pi * var_vel)**.5):
+        lnpvf = -0.5 * np.log(
+            2 * np.pi * var_prior) - (mean_vel - mu_prior)**2 / 2 / var_prior
+        lnpvf = lnpvf.sum()
+        if (vel_flat[0] + delta_vel < mean_vel.min()
+                and mean_vel.max() < vel_flat[1]
+                and 5e1 < var_vel.min()**.5
+                and var_vel.max() < sig_lim
+                and (-(2 * np.pi * var_vel)**.5 < amplitude < (2 * np.pi * var_vel)**.5)).all():
             return lnp_y1 + lnp_y2 + lnpvf
         else:
             return -np.inf
-
-    elif len(theta[2:]) == 6:
-        mean_vel_pvf, lnvar_pvf, amp_pvf = theta[2:3 + 2]
-        mean_vel_hvf, lnvar_hvf, amp_hvf = theta[3 + 2:]
-        var_vel_pvf = np.exp(lnvar_pvf)
-        var_vel_hvf = np.exp(lnvar_hvf)
-
-        lnpvf = -0.5 * np.log(
-            2 * np.pi * var_pvf) - (mean_vel_pvf - mu_pvf)**2 / 2 / var_pvf
-
-        if (-2e4 < mean_vel_pvf < vel_flat[1]
-                and 5e1 < var_vel_pvf**.5 < sig_lim
-                and -(2 * np.pi * var_vel_pvf)**.5 < amp_pvf < (2 * np.pi * var_vel_pvf)**.5
-                and mean_vel_pvf > mean_vel_hvf > vel_flat[0] + delta_vel
-                and 5e1 < var_vel_hvf**.5 < sig_lim
-                and -(2 * np.pi * var_vel_hvf)**.5 < amp_hvf < (2 * np.pi * var_vel_hvf)**.5):
-            lnflat = 0
-        else:
-            lnflat = -np.inf
-    return lnpvf + lnflat + lnp_y1 + lnp_y2
 
 
 def ln_prob(
@@ -984,15 +1004,15 @@ def ln_prob(
 ######################### MCMC visualization ##############################
 
 
-def plot_MCMC(sampler, nburn, thin=1, nplot=None):
+def plot_MCMC(sampler=None, nburn=0, thin=1, nplot=None, samples=None):
     '''plot walker chains and corner plots
 
     Parameters
     ----------
-    sampler : emcee EnsembleSampler object
+    sampler : emcee EnsembleSampler object, default=0
         emcee affine-invariant multi-chain MCMC sampler
 
-    nburn : int
+    nburn : int, default=0
         number of "burn-in" steps for the MCMC chains
 
     thin : int, default=1
@@ -1000,28 +1020,26 @@ def plot_MCMC(sampler, nburn, thin=1, nplot=None):
 
     nplot : int, default=None
         number of chains to show in the visualization
+
+    samples : array_like, default=None
+        MCMC samples
     '''
 
     ndim = sampler.get_chain().shape[2]
-    if ndim == 5:
-        paramsNames = [
-            r'$\mathrm{Blue\ edge\ flux}$', r'$\mathrm{Red\ edge\ flux}$',
-            r'$v_\mathrm{pvf}$', r'$\ln(\sigma^2_\mathrm{pvf})$', r'$A_\mathrm{pvf}$'
-        ]
-    elif ndim == 8:
-        paramsNames = [
-            r'$\mathrm{Blue\ edge\ flux}$', r'$\mathrm{Red\ edge\ flux}$',
-            r'$v_\mathrm{pvf}$', r'$\ln(\sigma^2_\mathrm{pvf})$', r'$A_\mathrm{pvf}$',
-            r'$v_\mathrm{hvf}$', r'$\ln(\sigma^2_\mathrm{hvf})$', r'$A_\mathrm{hvf}$'
-        ]
-    else:
-        print('Error: wrong parameter number!')
+    paramsNames = [r'$\mathrm{Blue\ edge\ flux}$',
+                   r'$\mathrm{Red\ edge\ flux}$']
+    num_vel_com = ndim // 3
+    for k in range(num_vel_com):
+        v_label = r'$v_{}$'.format(k)
+        sig2_label = r'$\ln(\sigma^2_{})$'.format(k)
+        A_label = r'$A_{}$'.format(k)
+        paramsNames = np.append(paramsNames, [v_label, sig2_label, A_label])
 
-    #plotChains(sampler, nburn, paramsNames, nplot)
+    # plotChains(sampler, nburn, paramsNames, nplot)
     # plt.tight_layout()
     # plt.show()
-
-    samples = sampler.get_chain(discard=nburn, flat=True, thin=thin)
+    if samples == None:
+        samples = sampler.get_chain(discard=nburn, flat=True, thin=thin)
     fig = corner.corner(samples,
                         labels=paramsNames,
                         quantiles=[0.16, 0.50, 0.84],
