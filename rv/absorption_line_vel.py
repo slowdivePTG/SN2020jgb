@@ -1,6 +1,7 @@
 import matplotlib as mpl
 import corner
 import emcee
+from numpy.core.fromnumeric import mean
 from scipy.optimize import minimize
 import matplotlib.pyplot as plt
 import pandas as pd
@@ -426,19 +427,21 @@ class AbsorbLine(SpectrumSN):
             method='Powell',  # Powell method does not need derivatives
             args=(self.rel_strength,
                   self.blue_vel, self.red_vel, self.vel_rf, self.norm_fl,
-                  self.delta_vel_components, self.norm_fl_unc, 'chi2'))
+                  self.delta_vel_components, self.lambda_0_rf, self.norm_fl_unc, 'chi2'))
 
-        theta_LS = LS_res['x']
-        ndim = len(theta_LS)
-        self.theta_LS = theta_LS.copy()
+        self.theta_LS = LS_res['x']
+        ndim = len(self.theta_LS)
         self.chi2_LS = LS_res['fun']
 
+        theta_LS = self.theta_LS.copy()
+        ndim = len(theta_LS)
+        for k in range(ndim // 3):
+            theta_LS[2 + 3 * k] = velocity_rf_line(
+                self.lambda_0_rf[k], self.lambda_0_rf[0], theta_LS[2 + 3 * k])
         self.plot_model(theta_LS)
 
         print('LS estimation:')
         for k in range(ndim // 3):
-            self.theta_LS[2 + 3 * k] = velocity_rf_line(
-                self.lambda_0_rf[0], self.lambda_0_rf[k], self.theta_LS[2 + 3 * k])
             print('Velocity {}: {:.0f} km/s'.format(k +
                   1, self.theta_LS[2 + 3 * k]))
 
@@ -541,6 +544,7 @@ class AbsorbLine(SpectrumSN):
             args=(self.rel_strength,
                   self.blue_vel, self.red_vel, self.vel_rf, self.norm_fl,
                   self.delta_vel_components,
+                  self.lambda_0_rf,
                   vel_flat, var_max,
                   mu_prior, var_prior,
                   self.norm_fl_unc * norm_fac,
@@ -589,19 +593,13 @@ class AbsorbLine(SpectrumSN):
         # 68% credible region for the highest density
         self.theta_MCMC = []
         self.sig_theta_MCMC = []
-        theta_MCMC = []
         for i in range(ndim):
             hist, bin_edges = np.histogram(
                 samples[:, i], bins=50, density=True)
             bins = (bin_edges[1:] + bin_edges[:-1]) / 2
             width = bin_edges[1] - bin_edges[0]
             arg = np.argsort(hist)
-            theta_MCMC.append(bins[arg][-1])
             self.theta_MCMC.append(bins[arg][-1])
-
-            for k in range(ndim // 3):
-                theta_MCMC[2 + 3 * k] = velocity_rf_line(
-                    self.lambda_0_rf[0], self.lambda_0_rf[k], theta_MCMC[2 + 3 * k])
 
             cred = 0.68  # credible region
             dens_thres = np.inf
@@ -639,13 +637,14 @@ class AbsorbLine(SpectrumSN):
         #    print('Velocity hvf: {:.0f} plus {:.0f} minus {:.0f} km/s'.format(
         #        self.theta_MCMC[5], self.sig_theta_MCMC[5][0], self.sig_theta_MCMC[5][1]))
 
+        theta_MCMC = self.theta_MCMC.copy()
+        for k in range(ndim // 3):
+            theta_MCMC[2 + 3 * k] = velocity_rf_line(
+                self.lambda_0_rf[k], self.lambda_0_rf[0], theta_MCMC[2 + 3 * k])
         if Plot_model:
             self.plot_model(theta_MCMC)
         if Plot_mcmc:
             samples = sampler.get_chain(discard=nburn, flat=True, thin=thin)
-            for k in range(ndim // 3):
-                samples[:, 2 + 3 * k] = velocity_rf_line(
-                    self.lambda_0_rf[0], self.lambda_0_rf[k], samples[:, 2 + 3 * k]) 
             plot_MCMC(sampler=sampler, nplot=20, samples=samples)
         if Plot_tau:
             n = 500 * np.arange(1, index + 1)
@@ -815,6 +814,7 @@ def lnlike_gaussian_abs(theta,
                         vel_rf,
                         norm_flux,
                         delta_vel_components=[],
+                        lambda_0_rf=[],
                         flux_unc=1,
                         type='gaussian'):
     '''Log likelihood function assuming Gaussian profile
@@ -843,6 +843,9 @@ def lnlike_gaussian_abs(theta,
         relative velocities of other absorption lines (if any)
         with respect to the default one at v=0
 
+    lambda_0_rf : array_like, default=[]
+        reference wavelength of each component
+
     flux_unc : float
         uncertainty in normalized flux
 
@@ -855,8 +858,12 @@ def lnlike_gaussian_abs(theta,
     lnl : float
         the log likelihood function
     '''
-
-    model_flux = flux_gauss(theta, rel_strength,
+    theta_flux = theta.copy()
+    for k in range(len(theta) // 3):
+        theta_flux[2 + 3 * k] = velocity_rf_line(
+            lambda_0_rf[k], lambda_0_rf[0], theta_flux[2 + 3 * k])
+    # print(theta[5], theta_flux[5])
+    model_flux = flux_gauss(theta_flux, rel_strength,
                             blue_vel, red_vel, vel_rf,
                             delta_vel_components)
     if type == 'gaussian':
@@ -876,6 +883,7 @@ def neg_lnlike_gaussian_abs(theta,
                             vel_rf,
                             norm_flux,
                             delta_vel_components=[],
+                            lambda_0_rf=[],
                             flux_unc=1,
                             type='gaussian'):
     '''negative log-likelihood function'''
@@ -887,6 +895,7 @@ def neg_lnlike_gaussian_abs(theta,
                               vel_rf,
                               norm_flux,
                               delta_vel_components=delta_vel_components,
+                              lambda_0_rf=lambda_0_rf,
                               flux_unc=flux_unc,
                               type=type)
     return -1 * lnl
@@ -944,29 +953,33 @@ def lnprior(
 
     sig_lim = min((vel_flat[1] - vel_flat[0] - delta_vel) / 2, var_max**.5)
 
-    if len(mu_prior) == len(var_prior):
-        raise ValueError('Means and variances of prior do not match.')
+    if len(mu_prior) != len(var_prior):
+        raise IndexError('Means and variances of prior do not match.')
 
     if len(var_prior) == 0:
         var_prior = np.ones(num_vel_com) * np.inf
         mu_prior = np.zeros(num_vel_com)
+    else:
+        var_prior = np.array(var_prior)
+        mu_prior = np.array(mu_prior)
 
-    if len(theta[2:]) == 3:
-        mean_vel = theta[2::3]
-        lnvar = theta[3::3]
-        amplitude = theta[4::3]
-        var_vel = np.exp(lnvar)
-        lnpvf = -0.5 * np.log(
-            2 * np.pi * var_prior) - (mean_vel - mu_prior)**2 / 2 / var_prior
-        lnpvf = lnpvf.sum()
-        if (vel_flat[0] + delta_vel < mean_vel.min()
-                and mean_vel.max() < vel_flat[1]
-                and 5e1 < var_vel.min()**.5
-                and var_vel.max() < sig_lim
-                and (-(2 * np.pi * var_vel)**.5 < amplitude < (2 * np.pi * var_vel)**.5)).all():
-            return lnp_y1 + lnp_y2 + lnpvf
-        else:
+    mean_vel = np.array(theta[2::3])
+    lnvar = np.array(theta[3::3])
+    amplitude = np.array(theta[4::3])
+    var_vel = np.exp(lnvar)
+    lnpvf = -0.5 * np.log(
+        2 * np.pi * var_prior) - (mean_vel - mu_prior)**2 / 2 / var_prior
+    lnpvf = lnpvf.sum()
+    vlim = -np.inf
+    for k in range(len(mean_vel)):
+        if not (vel_flat[0] + delta_vel < mean_vel[k] < vel_flat[1]
+                and 5e1 < var_vel[k]**.5 < sig_lim
+                # and (-(2 * np.pi * var_vel[k])**.5 < amplitude[k] < (2 * np.pi * var_vel[k])**.5)):
+                and (-(2 * np.pi * var_vel[k])**.5 * np.mean([y1, y2]) < amplitude[k] < 0)
+                and mean_vel[k] > vlim):
             return -np.inf
+        vlim = mean_vel[k]
+    return lnp_y1 + lnp_y2 + lnpvf
 
 
 def ln_prob(
@@ -977,10 +990,11 @@ def ln_prob(
     vel_rf,
     norm_flux,
     delta_vel_components=[],
+    lambda_0_rf=[],
     vel_flat=[-1e5, 0],
     var_max=1e8,
-    mu_pvf=-1e4,
-    var_pvf=1e7,
+    mu_prior=[],
+    var_prior=[],
     norm_flux_unc=1,
     blue_fl=[1, .1],
     red_fl=[1, .1],
@@ -994,17 +1008,20 @@ def ln_prob(
         delta_vel = 0
     else:
         delta_vel = np.max(delta_vel_components)
-    ln_prior = lnprior(theta, vel_flat, var_max, delta_vel,
-                       mu_pvf, var_pvf, blue_fl, red_fl)
-    ln_like = lnlike_gaussian_abs(theta, rel_strength, blue_vel, red_vel, vel_rf, norm_flux,
-                                  delta_vel_components, norm_flux_unc)
+    ln_prior = lnprior(theta=theta, vel_flat=vel_flat, var_max=var_max, delta_vel=delta_vel,
+                       mu_prior=mu_prior, var_prior=var_prior, blue_fl=blue_fl, red_fl=red_fl)
+    ln_like = lnlike_gaussian_abs(theta=theta, rel_strength=rel_strength, blue_vel=blue_vel, red_vel=red_vel,
+                                  vel_rf=vel_rf, norm_flux=norm_flux,
+                                  delta_vel_components=delta_vel_components,
+                                  lambda_0_rf=lambda_0_rf,
+                                  flux_unc=norm_flux_unc)
     return ln_prior + ln_like
 
 
 ######################### MCMC visualization ##############################
 
 
-def plot_MCMC(sampler=None, nburn=0, thin=1, nplot=None, samples=None):
+def plot_MCMC(sampler=None, nburn=0, thin=1, nplot=None, samples=[]):
     '''plot walker chains and corner plots
 
     Parameters
@@ -1021,7 +1038,7 @@ def plot_MCMC(sampler=None, nburn=0, thin=1, nplot=None, samples=None):
     nplot : int, default=None
         number of chains to show in the visualization
 
-    samples : array_like, default=None
+    samples : array_like, default=[]
         MCMC samples
     '''
 
@@ -1038,7 +1055,7 @@ def plot_MCMC(sampler=None, nburn=0, thin=1, nplot=None, samples=None):
     # plotChains(sampler, nburn, paramsNames, nplot)
     # plt.tight_layout()
     # plt.show()
-    if samples == None:
+    if len(samples) == []:
         samples = sampler.get_chain(discard=nburn, flat=True, thin=thin)
     fig = corner.corner(samples,
                         labels=paramsNames,
