@@ -15,7 +15,7 @@ import sys
 sys.path.append('../../tools/')
 
 
-# mpl.rcParams['text.usetex'] = True #only when producing plots for publication
+mpl.rcParams['text.usetex'] = True #only when producing plots for publication
 mpl.rcParams['font.family'] = 'times new roman'
 mpl.rcParams['font.size'] = '25'
 mpl.rcParams['xtick.labelsize'] = '20'
