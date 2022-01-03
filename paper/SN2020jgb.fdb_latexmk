@@ -1,14 +1,14 @@
 # Fdb version 3
-["bibtex SN2020jgb"] 1641183138 "SN2020jgb.aux" "SN2020jgb.bbl" "SN2020jgb" 1641184642
+["bibtex SN2020jgb"] 1641185083 "SN2020jgb.aux" "SN2020jgb.bbl" "SN2020jgb" 1641222531
   "./aasjournal.bst" 1638983498 36130 1e2d4614828005814bd64e3c665b8e99 ""
-  "SN2020jgb.aux" 1641184612 6745 7bbf1e6cc4c9d7f3416c2a78e115c816 "pdflatex"
-  "SN2020jgb.bib" 1641181402 12628 55236c4124e59a46456f0401c39b6edb ""
+  "SN2020jgb.aux" 1641222528 6828 1c7f96092dcac59ff2558b214dc58c8b "pdflatex"
+  "SN2020jgb.bib" 1641185033 13232 2078936e02ca0419c66b5c1070ede8b1 ""
   (generated)
   "SN2020jgb.bbl"
   "SN2020jgb.blg"
-["pdflatex"] 1641184611 "/Users/chang/Desktop/SNIa/SN2020jgb/paper/SN2020jgb.tex" "/Users/chang/Desktop/SNIa/SN2020jgb/paper/SN2020jgb.pdf" "SN2020jgb" 1641184642
-  "/Users/chang/Desktop/SNIa/SN2020jgb/paper/SN2020jgb.aux" 1641184612 6745 7bbf1e6cc4c9d7f3416c2a78e115c816 ""
-  "/Users/chang/Desktop/SNIa/SN2020jgb/paper/SN2020jgb.tex" 1641184443 17212 280101c3bbc1c21b3bc9eaa20f8630ee ""
+["pdflatex"] 1641222528 "/Users/chang/Desktop/SNIa/SN2020jgb/paper/SN2020jgb.tex" "/Users/chang/Desktop/SNIa/SN2020jgb/paper/SN2020jgb.pdf" "SN2020jgb" 1641222531
+  "/Users/chang/Desktop/SNIa/SN2020jgb/paper/SN2020jgb.aux" 1641222528 6828 1c7f96092dcac59ff2558b214dc58c8b ""
+  "/Users/chang/Desktop/SNIa/SN2020jgb/paper/SN2020jgb.tex" 1641185081 17282 572ebbcd4f7f40ab550b071928d81e2e ""
   "/usr/local/texlive/2021/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc" 1136849721 2900 1537cc8184ad1792082cd229ecc269f4 ""
   "/usr/local/texlive/2021/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/local/texlive/2021/texmf-dist/fonts/tfm/adobe/helvetic/phvr.tfm" 1136768653 2504 ba6584b616b92101c768b6c4ffb32dd0 ""
@@ -132,18 +132,18 @@
   "/usr/local/texlive/2021/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1616695603 5169178 a2ce6e2d73f603b690db6777d06dbccb ""
   "/usr/local/texlive/2021/texmf-var/web2c/pdftex/pdflatex.fmt" 1638493622 2724738 3d69a65dee2e52ee9c769e6df9c486d1 ""
   "/usr/local/texlive/2021/texmf.cnf" 1616695596 577 4c1911a7228e554c6032256d3cf5567d ""
-  "SN2020jgb.aux" 1641184612 6745 7bbf1e6cc4c9d7f3416c2a78e115c816 "pdflatex"
-  "SN2020jgb.bbl" 1641183138 5079 252b019de0640a6cca32987499fdb85a "bibtex SN2020jgb"
-  "SN2020jgb.out" 1641184612 1951 19142689b44df7299d100cb10f2f9b98 "pdflatex"
-  "SN2020jgb.tex" 1641184443 17212 280101c3bbc1c21b3bc9eaa20f8630ee ""
+  "SN2020jgb.aux" 1641222528 6828 1c7f96092dcac59ff2558b214dc58c8b "pdflatex"
+  "SN2020jgb.bbl" 1641185083 5195 fa8e490117c8afa91b63298a6d61718a "bibtex SN2020jgb"
+  "SN2020jgb.out" 1641222528 1951 19142689b44df7299d100cb10f2f9b98 "pdflatex"
+  "SN2020jgb.tex" 1641185081 17282 572ebbcd4f7f40ab550b071928d81e2e ""
   "aastex631.cls" 1638983498 231673 3a8503ea2dc529eec05658a2b11d12d0 ""
-  "figures/CaII_HeI_hvf.pdf" 1641184611 153522 b57381cc57f064f5ff0c4db8fb45545f ""
+  "figures/CaII_HeI_hvf.pdf" 1641222528 153522 80231c1058a5542661bcb804e1ffc92c ""
   "figures/optical_spec_evolution.pdf" 1641184197 350417 c69e711260cf6ca6ef12cce09631ee42 ""
   "figures/photometry.pdf" 1641182252 178662 16072f90daf19ff90d3679a6718aa40c ""
   (generated)
-  "SN2020jgb.out"
   "SN2020jgb.aux"
+  "SN2020jgb.log"
+  "/Users/chang/Desktop/SNIa/SN2020jgb/paper/SN2020jgb.pdf"
+  "SN2020jgb.out"
   "SN2020jgb.pdf"
   "/Users/chang/Desktop/SNIa/SN2020jgb/paper/SN2020jgb.log"
-  "/Users/chang/Desktop/SNIa/SN2020jgb/paper/SN2020jgb.pdf"
-  "SN2020jgb.log"
