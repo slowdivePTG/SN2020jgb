@@ -151,7 +151,7 @@
 %%
 %% If you wish, you may supply running head information, although
 %% this information may be modified by the editorial offices.
-\shorttitle{SN2020jgb}
+\shorttitle{SN 2020jgb}
 \shortauthors{Authors et al.}
 %%
 %% You can add a light gray and diagonal water-mark to the first page 
@@ -169,7 +169,7 @@
 
 \begin{document}
 
-\title{SN2020jgb}
+\title{SN 2020jgb}
 
 %% LaTeX will automatically break titles if they run longer than
 %% one line. However, you may use \\ to force a line break if
@@ -241,22 +241,7 @@
 %% Mark off the abstract in the ``abstract'' environment. 
 \begin{abstract}
 
-This example manuscript is intended to serve as a tutorial and template for
-authors to use when writing their own AAS Journal articles. The manuscript
-includes a history of \aastex\ and documents the new features in the
-previous versions as well as the bug fixes in version 6.31. This
-manuscript includes many figure and table examples to illustrate these new
-features.  Information on features not explicitly mentioned in the article
-can be viewed in the manuscript comments or more extensive online
-documentation. Authors are welcome replace the text, tables, figures, and
-bibliography with their own and submit the resulting manuscript to the AAS
-Journals peer review system.  The first lesson in the tutorial is to remind
-authors that the AAS Journals, the Astrophysical Journal (ApJ), the
-Astrophysical Journal Letters (ApJL), the Astronomical Journal (AJ), and
-the Planetary Science Journal (PSJ) all have a 250 word limit for the 
-abstract\footnote{Abstracts for Research Notes of the American Astronomical 
-Society (RNAAS) are limited to 150 words}.  If you exceed this length the
-Editorial office will ask you to shorten it. This abstract has 182 words.
+
 
 \end{abstract}
 
@@ -284,10 +269,54 @@ Editorial office will ask you to shorten it. This abstract has 182 words.
 %% to the KEY in the \bibitem in the reference list below. 
 
 \section{Introduction} \label{sec:intro}
+\section{Observations} \label{sec:obs}
+\subsection{Detection and Classification}
+SN 2020jgb was first discovered by the Zwicky Transient Facility \citep[ZTF;][]{ZTF2019a,ZTF2019b} on 2020 May 03.463 UT (MJD 58972.463) with the 48-inch Samuel Oschin Telescope (P48) at Palomar Observatory. The internal designation is ZTF20aayhacx. It was detected at a magnitude of 19.86 in ZTF $g$-band, and J2000 coordinates $\alpha=17^\mathrm{h}53^\mathrm{m}12^\mathrm{s}.651$, $\delta=-00^\circ51'21''.81$. The last non-detection was on 2020 April 27.477 (MJD 58966.477; 5.99 days before the first detection) up to a limiting magnitude of 20.7 in ZTF $r$-band.
 
-\section{Methods} \label{sec:method}
+\textbf{Classification, ...}
 
-\bibliography{sample631}{}
+\subsection{Optical Photometry}
+We obtained $gr$-band photometry of SN 2020jgb with the ZTF camera. A Galactic extinction of $E(B-V)=0.404$ is reported by the maps of \citep{Schlafly2011}, for which we correct all our photometry. We do not account for any additional host extinction due to the lack of any Na I D absorption in our spectra (\textbf{Is it in the outskirt?}).
+
+\subsection{Optical Spectroscopy}
+\begin{figure}
+    \centering
+    \includegraphics[width=\linewidth]{figures/optical_spec_evolution.pdf}
+    \label{fig:spec_evo}
+    \caption{Optical spectroscopic sequence of SN 2020jgb.}
+\end{figure}
+
+\subsection{Near-infrared (NIR) Spectroscopy}
+We obtained one NIR spectrum of the transient using the Gemini near-infrared spectrometer \citep[GNIRS;][]{GNIRS1998} on the Gemini North telescope on 2020 June 9 ($\approx$22 days after $r$-band peak), for an integration time of 2400 s. The spectra were reduced with the \texttt{PypeIt} Python package \citep{pypeit:joss_pub,pypeit:zenodo}.
+
+\section{Analysis} \label{sec:analysis}
+\subsection{Photometric Properties}
+\begin{itemize}
+    \item sub-luminous
+    \item first light time, peak time
+    \item color evolution
+\end{itemize}
+
+\subsection{Spectroscopic Properties}
+\begin{itemize}
+    \item infrared Ca II triplet (Ca II IRT)
+    \item tentative He I absorption at $\approx$9950 \r{A}
+\end{itemize}
+\subsection{Optical Spectroscopy}
+\begin{figure}
+    \centering
+    \includegraphics[width=\linewidth]{figures/CaII_HeI_hvf.pdf}
+    \label{fig:hvp_comp}
+    \caption{Line velocity comparison between the high-velocity component of Ca II IRT and the infrared absorption feature at $\approx$9950 \r{A} assuming it is associated with He I at 10830 \r{A}.}
+\end{figure}
+
+\section{Host Galaxy} \label{sec:host}
+
+\section{Model Comparisons} \label{sec:model}
+
+\section{Discussion and Conclusion} \label{sec:discussion}
+
+\bibliography{SN2020jgb}{}
 \bibliographystyle{aasjournal}
 
 %% This command is needed to show the entire author+affiliation list when
