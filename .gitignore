@@ -135,3 +135,15 @@ setup_files/
 
 # HDF data for MCMC chains
 *.h5
+
+# LaTeX
+*.aux
+*.blg
+*.bib
+*.fdb_latexmk
+*.out
+*.synctex.gz
+*.bst
+*.cls
+orcid-ID.png
+*.fls
