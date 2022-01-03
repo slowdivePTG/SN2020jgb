@@ -1,4 +1,6 @@
 from logging import raiseExceptions
+import sys
+sys.path.append('../../tools/')
 from dust_extinction import calALambda
 import glob
 import warnings
@@ -11,8 +13,6 @@ from numpy.core.fromnumeric import mean
 import emcee
 import corner
 import matplotlib as mpl
-import sys
-sys.path.append('../../tools/')
 
 
 mpl.rcParams['text.usetex'] = True #only when producing plots for publication

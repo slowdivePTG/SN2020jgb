@@ -4,44 +4,44 @@ The top-level auxiliary file: SN2020jgb.aux
 The style file: aasjournal.bst
 Database file #1: SN2020jgb.bib
 Reallocated wiz_functions (elt_size=4) to 6000 items from 3000.
-You've used 7 entries,
+You've used 8 entries,
             3168 wiz_defined-function locations,
-            714 strings with 12434 characters,
-and the built_in function-call counts, 6931 in all, are:
-= -- 272
-> -- 1063
-< -- 2
-+ -- 350
-- -- 362
-* -- 867
-:= -- 1433
-add.period$ -- 7
-call.type$ -- 7
-change.case$ -- 29
-chr.to.int$ -- 7
-cite$ -- 7
-duplicate$ -- 130
-empty$ -- 216
-format.name$ -- 372
-if$ -- 1237
+            724 strings with 12588 characters,
+and the built_in function-call counts, 7245 in all, are:
+= -- 300
+> -- 1075
+< -- 3
++ -- 354
+- -- 365
+* -- 889
+:= -- 1493
+add.period$ -- 8
+call.type$ -- 8
+change.case$ -- 33
+chr.to.int$ -- 8
+cite$ -- 8
+duplicate$ -- 145
+empty$ -- 242
+format.name$ -- 376
+if$ -- 1302
 int.to.chr$ -- 1
 int.to.str$ -- 0
-missing$ -- 5
-newline$ -- 29
-num.names$ -- 29
-pop$ -- 34
+missing$ -- 6
+newline$ -- 32
+num.names$ -- 33
+pop$ -- 37
 preamble$ -- 1
-purify$ -- 29
+purify$ -- 33
 quote$ -- 0
-skip$ -- 115
+skip$ -- 128
 stack$ -- 0
-substring$ -- 145
+substring$ -- 159
 swap$ -- 10
 text.length$ -- 1
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 63
+type$ -- 72
 warning$ -- 0
-while$ -- 23
+while$ -- 27
 width$ -- 0
-write$ -- 85
+write$ -- 96
