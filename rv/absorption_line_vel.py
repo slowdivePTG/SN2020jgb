@@ -215,9 +215,8 @@ class SpectrumSN_Lines(SpectrumSN):
             the wavelength [angstrom] (host galaxy frame) at 
             the blue/red edge
 
-        lines : array_like, default=[]
-            the central wavelength(s) [angstrom] of this 
-            (series) of line(s)
+        lines : 2D array_like, default=[]
+            wavelength of each absorption line
 
         rel_strength : array_like, default=[]
             the relative strength between each line in the series
@@ -245,6 +244,9 @@ class AbsorbLine(SpectrumSN):
         the relative strength between each line in the series
         rel_strength = []: all lines are of the equal strength
 
+    lambda_0 : float
+        wavelength as a reference for velocity
+
     norm_fl : array_like
         flux normalized by the median value within the line region
 
@@ -261,9 +263,8 @@ class AbsorbLine(SpectrumSN):
     blue_vel, red_vel : float
         relative velocity at the blue/red edge
 
-    delta_vel_components : array_like, default=[]
-        relative velocities of other absorption lines (if any)
-        with respect to the default one at v=0
+    lines : 2D array_like, default=[]
+            wavelength of each absorption line
 
     theta_LS : array_like
         best fit with least square methods, powered by
@@ -271,6 +272,9 @@ class AbsorbLine(SpectrumSN):
 
     chi2_LS : float
         the minimized residual with least square methods
+
+    chi2_MCMC : float
+        the minimized residual with MCMC
 
     theta_MCMC : array_like
         best fit with an MCMC sampler, approximated by median 
@@ -286,9 +290,6 @@ class AbsorbLine(SpectrumSN):
 
     sig_EW : float
         uncertainty in effective width [angstrom]
-
-    lambda_0_rf : array_like
-        reference wavelength of each component
 
     Methods
     -------
@@ -391,9 +392,7 @@ class AbsorbLine(SpectrumSN):
         self.red_vel = velocity_rf(red_edge, lambda_0)
 
         self.rel_strength = []
-        self.delta_vel_components = []
         self.lines = []
-        self.lambda_0_rf = []
 
         for k in range(len(lines)):
             if len(rel_strength[k]) == 0:
@@ -402,12 +401,11 @@ class AbsorbLine(SpectrumSN):
                 rs = rel_strength[k]
             li = np.array(lines[k])[np.argsort(lines[k])]
             rs = np.array(rs) / rs[np.argmax(lines[k])]
-            rs = np.array(rs)[np.argsort(lines[k])][:-1]
+            rs = np.array(rs)[np.argsort(lines[k])]
             self.lines.append(li)
             self.rel_strength.append(rs)
-            self.delta_vel_components.append(
-                [velocity_rf(lambda_0, l) for l in li[:-1]])
-            self.lambda_0_rf = np.append(self.lambda_0_rf, np.max(lines[k]))
+            if k == 0:
+                self.lambda_0 = np.max(lines[k])
 
         self.theta_LS = []
         self.chi2_LS = np.nan
@@ -428,20 +426,16 @@ class AbsorbLine(SpectrumSN):
             neg_lnlike_gaussian_abs,
             guess,
             method='Powell',  # Powell method does not need derivatives
-            args=(self.rel_strength,
+            args=(self.rel_strength, self.lambda_0,
                   self.blue_vel, self.red_vel, self.vel_rf, self.norm_fl,
-                  self.lines, self.lambda_0_rf, self.norm_fl_unc, 'chi2'))
+                  self.lines, self.norm_fl_unc, 'chi2'))
 
         self.theta_LS = LS_res['x']
         ndim = len(self.theta_LS)
         self.chi2_LS = LS_res['fun']
 
-        theta_LS = self.theta_LS.copy()
-        ndim = len(theta_LS)
-        for k in range(ndim // 3):
-            theta_LS[2 + 3 * k] = velocity_rf_line(
-                self.lambda_0_rf[k], self.lambda_0_rf[0], theta_LS[2 + 3 * k])
-        self.plot_model(theta_LS)
+        ndim = len(self.theta_LS)
+        #self.plot_model(self.theta_LS)
 
         print('LS estimation:')
         for k in range(ndim // 3):
@@ -454,7 +448,7 @@ class AbsorbLine(SpectrumSN):
                      var_max=1e8,
                      nwalkers=100, max_nsteps=50000,
                      nburn=-1, thin=-1, initial=[],
-                     normalize_unc=False,
+                     normalize_unc='None',
                      Plot_model=True,
                      Plot_mcmc=False,
                      Plot_tau=False):
@@ -493,9 +487,12 @@ class AbsorbLine(SpectrumSN):
         initial : array_like, default=[]
              initial values for the MCMC sampler
 
-        normalize_unc : bool, default=False
+        normalize_unc : string, default='None'
             whether to normalize the flux uncertainty based 
-            on the residual of a former LS estimation
+            on the residual of a former estimation
+                'None' : no normalization
+                'LS' : based on former least square estimation
+                'MCMC' : based on former MCMC
 
         Plot_model : bool, default=True
             whether to plot the model v.s. data
@@ -523,8 +520,12 @@ class AbsorbLine(SpectrumSN):
         ndim = len(initial)
         p0 = [i + initial for i in np.random.randn(nwalkers, ndim) * 1e-5]
 
-        if normalize_unc:
-            norm_fac = (self.chi2_LS / len(self.vel_rf))**.5
+        if normalize_unc != '':            
+            if normalize_unc == 'LS':
+                chi2 = self.chi2_LS
+            elif normalize_unc == 'MCMC':
+                chi2 = self.chi2_MCMC
+            norm_fac = (chi2 / len(self.vel_rf))**.5
             print('Normalize factor = {:.3f}'.format(norm_fac))
         else:
             norm_fac = 1
@@ -544,10 +545,9 @@ class AbsorbLine(SpectrumSN):
             nwalkers,
             ndim,
             ln_prob,
-            args=(self.rel_strength,
+            args=(self.rel_strength, self.lambda_0,
                   self.blue_vel, self.red_vel, self.vel_rf, self.norm_fl,
                   self.lines,
-                  self.lambda_0_rf,
                   vel_flat, var_max,
                   mu_prior, var_prior,
                   self.norm_fl_unc * norm_fac,
@@ -627,6 +627,10 @@ class AbsorbLine(SpectrumSN):
             print('Velocity {}: {:.0f} pm {:.0f} km/s'.format(k +
                   1, self.theta_MCMC[2 + 3 * k], self.sig_theta_MCMC[2 + 3 * k]))
 
+        self.chi2_MCMC = neg_lnlike_gaussian_abs(self.theta_MCMC, self.rel_strength, self.lambda_0,
+                  self.blue_vel, self.red_vel, self.vel_rf, self.norm_fl,
+                  self.lines, self.norm_fl_unc, 'chi2')
+
         # convert amplitude to equivalent width
         self.EW = 0
         self.sig_EW = 0
@@ -643,12 +647,8 @@ class AbsorbLine(SpectrumSN):
         #    print('Velocity hvf: {:.0f} plus {:.0f} minus {:.0f} km/s'.format(
         #        self.theta_MCMC[5], self.sig_theta_MCMC[5][0], self.sig_theta_MCMC[5][1]))
 
-        theta_MCMC = self.theta_MCMC.copy()
-        for k in range(ndim // 3):
-            theta_MCMC[2 + 3 * k] = velocity_rf_line(
-                self.lambda_0_rf[k], self.lambda_0_rf[0], theta_MCMC[2 + 3 * k])
         if Plot_model:
-            self.plot_model(theta_MCMC)
+            self.plot_model(self.theta_MCMC)
         if Plot_mcmc:
             samples = sampler.get_chain(discard=nburn, flat=True, thin=thin)
             plot_MCMC(sampler=sampler, nplot=20, samples=samples)
@@ -685,10 +685,12 @@ class AbsorbLine(SpectrumSN):
             vel_rf = self.vel_rf
         model_flux = flux_gauss(theta,
                                 self.rel_strength,
+                                self.lambda_0,
                                 self.blue_vel, self.red_vel,
-                                vel_rf, self.lines, info=True)
+                                vel_rf, self.lines)
         model_res = flux_gauss(theta,
                                self.rel_strength,
+                               self.lambda_0,
                                self.blue_vel, self.red_vel,
                                self.vel_rf, self.lines) - self.norm_fl
         plt.errorbar(self.vel_rf, self.norm_fl,
@@ -704,6 +706,7 @@ class AbsorbLine(SpectrumSN):
             for k in range(len(theta) // 3):
                 model_flux = flux_gauss(np.append(theta[:2], theta[2 + 3 * k:5 + 3 * k]),
                                         [self.rel_strength[k]],
+                                        self.lambda_0,
                                         self.blue_vel, self.red_vel,
                                         self.vel_rf, [self.lines[k]])
                 plt.plot(self.vel_rf, model_flux,
@@ -757,8 +760,8 @@ def calc_gauss(mean_vel, var_vel, amplitude, vel_rf):
     return gauss
 
 
-def flux_gauss(theta, rel_strength, blue_vel, red_vel, vel_rf,
-               lines=[], info=False):
+def flux_gauss(theta, rel_strength, lambda_0, blue_vel, red_vel, vel_rf,
+               lines=[]):
     '''Calculate normalized flux based on a Gaussian model
 
     Parameters
@@ -771,6 +774,9 @@ def flux_gauss(theta, rel_strength, blue_vel, red_vel, vel_rf,
     rel_strength : array_like, default=[]
         the relative strength between each line in the series
         rel_strength = []: all lines are of the equal strength
+
+    lambda_0 : float
+        the wavelength as a reference for velocity
 
     blue_vel, red_vel : float
         the relative velocity [km/s] at the blue/red edge
@@ -799,15 +805,11 @@ def flux_gauss(theta, rel_strength, blue_vel, red_vel, vel_rf,
     for k in range(len(theta) // 3):
         mean_vel, lnvar, amplitude = theta[3 * k + 2:3 * k + 5]
         var_vel = np.exp(lnvar)
-        model_flux += calc_gauss(mean_vel, var_vel, amplitude, vel_rf)
 
         for rel_s, li in zip(rel_strength[k], lines[k]):
-            vel0 = velocity_rf_line(lines[0][-1], lines[k][-1], mean_vel)
-            vel = velocity_rf_line(li, lines[0][-1], vel0)
+            vel = velocity_rf_line(li, lambda_0, mean_vel)
             model_flux += rel_s * calc_gauss(vel, var_vel,
                                                 amplitude, vel_rf)
-            if info:
-                print(vel, li, lines[0], vel0)
     return model_flux
 
 
@@ -816,12 +818,12 @@ def flux_gauss(theta, rel_strength, blue_vel, red_vel, vel_rf,
 
 def lnlike_gaussian_abs(theta,
                         rel_strength,
+                        lambda_0,
                         blue_vel,
                         red_vel,
                         vel_rf,
                         norm_flux,
-                        delta_vel_components=[],
-                        lambda_0_rf=[],
+                        lines=[],
                         flux_unc=1,
                         type='gaussian'):
     '''Log likelihood function assuming Gaussian profile
@@ -846,12 +848,11 @@ def lnlike_gaussian_abs(theta,
     norm_flux : float
         normalized flux
 
-    delta_vel_components : array_like, default=[]
-        relative velocities of other absorption lines (if any)
-        with respect to the default one at v=0
+    lines : 2D array_like, default=[]
+            wavelength of each absorption line
 
-    lambda_0_rf : array_like, default=[]
-        reference wavelength of each component
+    lambda_0 : float
+        the wavelength as a reference for velocity
 
     flux_unc : float
         uncertainty in normalized flux
@@ -865,14 +866,9 @@ def lnlike_gaussian_abs(theta,
     lnl : float
         the log likelihood function
     '''
-    theta_flux = theta.copy()
-    for k in range(len(theta) // 3):
-        theta_flux[2 + 3 * k] = velocity_rf_line(
-            lambda_0_rf[k], lambda_0_rf[0], theta_flux[2 + 3 * k])
-    # print(theta[5], theta_flux[5])
-    model_flux = flux_gauss(theta_flux, rel_strength,
+    model_flux = flux_gauss(theta, rel_strength, lambda_0,
                             blue_vel, red_vel, vel_rf,
-                            delta_vel_components)
+                            lines)
     if type == 'gaussian':
         lnl = -0.5 * len(model_flux) * np.log(2 * np.pi) - np.sum(
             np.log(flux_unc)) - 0.5 * np.sum(
@@ -885,24 +881,24 @@ def lnlike_gaussian_abs(theta,
 
 def neg_lnlike_gaussian_abs(theta,
                             rel_strength,
+                            lambda_0,
                             blue_vel,
                             red_vel,
                             vel_rf,
                             norm_flux,
-                            delta_vel_components=[],
-                            lambda_0_rf=[],
+                            lines=[],
                             flux_unc=1,
                             type='gaussian'):
     '''negative log-likelihood function'''
 
     lnl = lnlike_gaussian_abs(theta,
                               rel_strength,
+                              lambda_0,
                               blue_vel,
                               red_vel,
                               vel_rf,
                               norm_flux,
-                              delta_vel_components=delta_vel_components,
-                              lambda_0_rf=lambda_0_rf,
+                              lines=lines,
                               flux_unc=flux_unc,
                               type=type)
     return -1 * lnl
@@ -992,12 +988,12 @@ def lnprior(
 def ln_prob(
     theta,
     rel_strength,
+    lambda_0,
     blue_vel,
     red_vel,
     vel_rf,
     norm_flux,
-    delta_vel_components=[],
-    lambda_0_rf=[],
+    lines=[],
     vel_flat=[-1e5, 0],
     var_max=1e8,
     mu_prior=[],
@@ -1012,16 +1008,20 @@ def ln_prob(
     '''
 
     delta_vel = 0
-    for d in delta_vel_components:
-        for k in d:
-            if k > delta_vel:
-                delta_vel = k
+    for l in lines:
+        delta_vel_min = np.inf
+        for k in l:
+            delta_vel_temp = velocity_rf_line(lambda_0, k, 0)
+            if delta_vel_min > delta_vel_temp:
+                delta_vel_min = delta_vel_temp
+            if delta_vel_temp - delta_vel_min > delta_vel:
+                delta_vel = delta_vel_temp - delta_vel_min
     ln_prior = lnprior(theta=theta, vel_flat=vel_flat, var_max=var_max, delta_vel=delta_vel,
                        mu_prior=mu_prior, var_prior=var_prior, blue_fl=blue_fl, red_fl=red_fl)
-    ln_like = lnlike_gaussian_abs(theta=theta, rel_strength=rel_strength, blue_vel=blue_vel, red_vel=red_vel,
+    ln_like = lnlike_gaussian_abs(theta=theta, lambda_0=lambda_0, rel_strength=rel_strength, 
+                                  blue_vel=blue_vel, red_vel=red_vel,
                                   vel_rf=vel_rf, norm_flux=norm_flux,
-                                  delta_vel_components=delta_vel_components,
-                                  lambda_0_rf=lambda_0_rf,
+                                  lines=lines,
                                   flux_unc=norm_flux_unc)
     return ln_prior + ln_like
 
