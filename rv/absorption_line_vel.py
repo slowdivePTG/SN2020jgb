@@ -392,6 +392,7 @@ class AbsorbLine(SpectrumSN):
 
         self.rel_strength = []
         self.delta_vel_components = []
+        self.lines = []
         self.lambda_0_rf = []
 
         for k in range(len(lines)):
@@ -402,6 +403,7 @@ class AbsorbLine(SpectrumSN):
             li = np.array(lines[k])[np.argsort(lines[k])]
             rs = np.array(rs) / rs[np.argmax(lines[k])]
             rs = np.array(rs)[np.argsort(lines[k])][:-1]
+            self.lines.append(li)
             self.rel_strength.append(rs)
             self.delta_vel_components.append(
                 [velocity_rf(lambda_0, l) for l in li[:-1]])
@@ -428,7 +430,7 @@ class AbsorbLine(SpectrumSN):
             method='Powell',  # Powell method does not need derivatives
             args=(self.rel_strength,
                   self.blue_vel, self.red_vel, self.vel_rf, self.norm_fl,
-                  self.delta_vel_components, self.lambda_0_rf, self.norm_fl_unc, 'chi2'))
+                  self.lines, self.lambda_0_rf, self.norm_fl_unc, 'chi2'))
 
         self.theta_LS = LS_res['x']
         ndim = len(self.theta_LS)
@@ -544,7 +546,7 @@ class AbsorbLine(SpectrumSN):
             ln_prob,
             args=(self.rel_strength,
                   self.blue_vel, self.red_vel, self.vel_rf, self.norm_fl,
-                  self.delta_vel_components,
+                  self.lines,
                   self.lambda_0_rf,
                   vel_flat, var_max,
                   mu_prior, var_prior,
@@ -684,11 +686,11 @@ class AbsorbLine(SpectrumSN):
         model_flux = flux_gauss(theta,
                                 self.rel_strength,
                                 self.blue_vel, self.red_vel,
-                                vel_rf, self.delta_vel_components)
+                                vel_rf, self.lines, info=True)
         model_res = flux_gauss(theta,
                                self.rel_strength,
                                self.blue_vel, self.red_vel,
-                               self.vel_rf, self.delta_vel_components) - self.norm_fl
+                               self.vel_rf, self.lines) - self.norm_fl
         plt.errorbar(self.vel_rf, self.norm_fl,
                      yerr=self.norm_fl_unc, alpha=0.5, elinewidth=.5)
         model_plot = plt.plot(vel_rf, model_flux, linewidth=5)
@@ -703,7 +705,7 @@ class AbsorbLine(SpectrumSN):
                 model_flux = flux_gauss(np.append(theta[:2], theta[2 + 3 * k:5 + 3 * k]),
                                         [self.rel_strength[k]],
                                         self.blue_vel, self.red_vel,
-                                        self.vel_rf, [self.delta_vel_components[k]])
+                                        self.vel_rf, [self.lines[k]])
                 plt.plot(self.vel_rf, model_flux,
                          color='k', alpha=0.4, linewidth=3)
 
@@ -756,7 +758,7 @@ def calc_gauss(mean_vel, var_vel, amplitude, vel_rf):
 
 
 def flux_gauss(theta, rel_strength, blue_vel, red_vel, vel_rf,
-               delta_vel_components=[]):
+               lines=[], info=False):
     '''Calculate normalized flux based on a Gaussian model
 
     Parameters
@@ -779,9 +781,8 @@ def flux_gauss(theta, rel_strength, blue_vel, red_vel, vel_rf,
     norm_flux : float
         normalized flux
 
-    delta_vel_components : 2D array_like, default=[]
-        relative velocities of other absorption lines (if any)
-        with respect to the default one at v=0
+    lines : 2D array_like, default=[]
+        wavelength of each absorption line
 
     Returns
     -------
@@ -800,10 +801,13 @@ def flux_gauss(theta, rel_strength, blue_vel, red_vel, vel_rf,
         var_vel = np.exp(lnvar)
         model_flux += calc_gauss(mean_vel, var_vel, amplitude, vel_rf)
 
-        if len(delta_vel_components[k]) > 0:
-            for rel_s, delta_vel in zip(rel_strength[k], delta_vel_components[k]):
-                model_flux += rel_s * calc_gauss(mean_vel - delta_vel, var_vel,
-                                                 amplitude, vel_rf)
+        for rel_s, li in zip(rel_strength[k], lines[k]):
+            vel0 = velocity_rf_line(lines[0][-1], lines[k][-1], mean_vel)
+            vel = velocity_rf_line(li, lines[0][-1], vel0)
+            model_flux += rel_s * calc_gauss(vel, var_vel,
+                                                amplitude, vel_rf)
+            if info:
+                print(vel, li, lines[0], vel0)
     return model_flux
 
 
