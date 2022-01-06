@@ -413,13 +413,16 @@ class AbsorbLine(SpectrumSN):
         self.theta_MCMC = []
         self.sig_theta_MCMC = []
 
-    def LS_estimator(self, guess=(1, 1, -10000, 15, -1000)):
+    def LS_estimator(self, guess=(1, 1, -10000, 15, -1000), plot_model=False):
         '''Least square point estimation
 
         Parameters
         ----------
         guess: tuple, default=(1, 1, -10000, 15, -1000)
             an initial guess for the fitting parameter theta
+        
+        plot_model : bool, default=False
+            whether to plot the best fit result
         '''
 
         LS_res = minimize(
@@ -435,7 +438,8 @@ class AbsorbLine(SpectrumSN):
         self.chi2_LS = LS_res['fun']
 
         ndim = len(self.theta_LS)
-        #self.plot_model(self.theta_LS)
+        if plot_model:
+            self.plot_model(self.theta_LS)
 
         print('LS estimation:')
         for k in range(ndim // 3):
