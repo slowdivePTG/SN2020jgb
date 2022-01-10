@@ -147,3 +147,6 @@ setup_files/
 *.cls
 orcid-ID.png
 *.fls
+
+# SDSS catalog
+galSpec*.fits
