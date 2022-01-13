@@ -114,6 +114,9 @@ class SpectrumSN(object):
         plt.plot(self.wv_rf[line_region], self.fl[line_region])
         plt.errorbar(self.wv_rf[line_region], self.fl[line_region],
                      yerr=self.fl_unc[line_region], fmt='o')
+        #plt.yscale('log')
+        #plt.ylim(1e-1, None)
+        plt.ylim(0, 1.5)
         plt.tight_layout()
         plt.show()
 
