@@ -106,6 +106,11 @@ class SpectrumSN(object):
         blue_edge, red_edge : float
             the wavelength [angstrom] (host galaxy frame) 
             at the blue/red edge
+
+        Returns
+        -------
+        ax : matplotlib.axes
+            the axes
         '''
         line_region = np.where(
             (self.wv_rf < red_edge) & (self.wv_rf > blue_edge))[0]
@@ -114,11 +119,8 @@ class SpectrumSN(object):
         plt.plot(self.wv_rf[line_region], self.fl[line_region])
         plt.errorbar(self.wv_rf[line_region], self.fl[line_region],
                      yerr=self.fl_unc[line_region], fmt='o')
-        #plt.yscale('log')
-        #plt.ylim(1e-1, None)
-        plt.ylim(0, 1.5)
         plt.tight_layout()
-        plt.show()
+        return plt.gca()
 
     def get_flux_at_lambda(self, lambda_0, delta_l=50):
         '''Get the flux and uncertainty at some given wavelength
