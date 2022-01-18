@@ -206,7 +206,8 @@ class SpectrumSN_Lines(SpectrumSN):
         self.z = z
         self.line = {}
 
-    def add_line(self, name, blue_edge, red_edge, lines=[], rel_strength=[]):
+    def add_line(self, name, blue_edge, red_edge, lines=[], 
+                rel_strength=[], free_rel_strength=[]):
         '''Add one (series of) absorption line(s)
 
         Construct a new AbsorbLine object, and save it in self.line
@@ -226,10 +227,14 @@ class SpectrumSN_Lines(SpectrumSN):
         rel_strength : array_like, default=[]
             the relative strength between each line in the series
             rel_strength = []: all lines are of the equal strength
+        
+        free_rel_strength : array_like, default=[]
+            whether to set the relative strength of each line series as
+            another free parameter in MCMC fit
         '''
 
         self.line[name] = AbsorbLine(
-            self.spec1D, self.z, blue_edge, red_edge, lines, rel_strength)
+            self.spec1D, self.z, blue_edge, red_edge, lines, rel_strength, free_rel_strength)
 
 
 class AbsorbLine(SpectrumSN):
@@ -248,6 +253,10 @@ class AbsorbLine(SpectrumSN):
     rel_strength : array_like, default=[]
         the relative strength between each line in the series
         rel_strength = []: all lines are of the equal strength
+    
+    free_rel_strength : array_like, default=[]
+        whether to set the relative strength of each line series as
+        another free parameter in MCMC fit
 
     lambda_0 : float
         wavelength as a reference for velocity
@@ -315,7 +324,8 @@ class AbsorbLine(SpectrumSN):
     def __init__(self, spec1D, z,
                  blue_edge, red_edge,
                  lines=[],
-                 rel_strength=[]):
+                 rel_strength=[],
+                 free_rel_strength=[]):
         '''Constructor
 
         Parameters
@@ -346,6 +356,10 @@ class AbsorbLine(SpectrumSN):
             2D for multiple components:
                 Ca II IRT [[], []]    
                 He I/Fe II [[], [0.382, 0.239, 0.172]]
+        
+        free_rel_strength : array_like, default=[]
+            whether to set the relative strength of each line series as
+            another free parameter in MCMC fit
         '''
 
         super(AbsorbLine, self).__init__(spec1D, z)
@@ -411,6 +425,9 @@ class AbsorbLine(SpectrumSN):
             self.rel_strength.append(rs)
             if k == 0:
                 self.lambda_0 = np.max(lines[k])
+        if len(free_rel_strength) == 0:
+            free_rel_strength = np.array([False] * len(self.rel_strength))
+        self.free_rel_strength = free_rel_strength
 
         self.theta_LS = []
         self.chi2_LS = np.nan
@@ -465,6 +482,7 @@ class AbsorbLine(SpectrumSN):
 
         Parameters
         ----------
+
         mu_prior : array_like, default=[]
             means of the profile prior
 
@@ -527,7 +545,14 @@ class AbsorbLine(SpectrumSN):
         initial[1] = self.red_fl[0]
 
         ndim = len(initial)
-        p0 = [i + initial for i in np.random.randn(nwalkers, ndim) * 1e-5]
+
+        for k, free in enumerate(self.free_rel_strength):
+            if free:
+                rel = self.rel_strength[k][:-1].copy()
+                initial = np.append(initial, np.log10(rel))
+
+        ndim1 = len(initial)
+        p0 = [i + initial for i in np.random.randn(nwalkers, ndim1) * 1e-5]
 
         if normalize_unc != '':            
             if normalize_unc == 'LS':
@@ -550,18 +575,21 @@ class AbsorbLine(SpectrumSN):
         autocorr = np.zeros(max_nsteps)
         old_tau = np.inf
 
+        from copy import deepcopy
+
         sampler = emcee.EnsembleSampler(
             nwalkers,
-            ndim,
+            ndim1,
             ln_prob,
-            args=(self.rel_strength, self.lambda_0,
+            args=(deepcopy(self.rel_strength), self.lambda_0,
                   self.blue_vel, self.red_vel, self.vel_rf, self.norm_fl,
                   self.lines,
                   vel_flat, var_max,
                   mu_prior, var_prior,
                   self.norm_fl_unc * norm_fac,
                   [self.blue_fl[0], self.blue_fl[1] * norm_fac],
-                  [self.red_fl[0], self.red_fl[1] * norm_fac]))
+                  [self.red_fl[0], self.red_fl[1] * norm_fac],
+                  self.free_rel_strength))
         # backend=backend)
 
         index = 0
@@ -605,7 +633,7 @@ class AbsorbLine(SpectrumSN):
         # 68% credible region for the highest density
         self.theta_MCMC = []
         self.sig_theta_MCMC = []
-        for i in range(ndim):
+        for i in range(ndim1):
             hist, bin_edges = np.histogram(
                 samples[:, i], bins=50, density=True)
             bins = (bin_edges[1:] + bin_edges[:-1]) / 2
@@ -638,7 +666,7 @@ class AbsorbLine(SpectrumSN):
 
         self.chi2_MCMC = neg_lnlike_gaussian_abs(self.theta_MCMC, self.rel_strength, self.lambda_0,
                   self.blue_vel, self.red_vel, self.vel_rf, self.norm_fl,
-                  self.lines, self.norm_fl_unc, 'chi2')
+                  self.lines, self.norm_fl_unc, 'chi2', self.free_rel_strength)
 
         # convert amplitude to equivalent width
         self.EW = 0
@@ -660,7 +688,7 @@ class AbsorbLine(SpectrumSN):
             self.plot_model(self.theta_MCMC)
         if Plot_mcmc:
             samples = sampler.get_chain(discard=nburn, flat=True, thin=thin)
-            plot_MCMC(sampler=sampler, nplot=20, samples=samples)
+            plot_MCMC(sampler=sampler, num_vel_com=len(self.rel_strength), nplot=20, samples=samples)
         if Plot_tau:
             n = 500 * np.arange(1, index + 1)
             y = autocorr[:index]
@@ -692,13 +720,24 @@ class AbsorbLine(SpectrumSN):
             vel_rf = np.linspace(self.vel_rf[0], self.vel_rf[-1], 200)
         else:
             vel_rf = self.vel_rf
-        model_flux = flux_gauss(theta,
-                                self.rel_strength,
+        num = len(self.rel_strength)
+        theta0 = theta[:2 + 3 * num]
+        j = 2 + 3 * num
+        rel_strength = self.rel_strength.copy()
+        for k, rel in enumerate(self.free_rel_strength):
+            if rel:
+                for rel_s in range(len(rel_strength[k])-1):
+                    rel_strength[k][rel_s] = 10**theta[j]
+                    j += 1
+        if j != len(theta):
+            raise IndexError('Number of free parameters and relative strength do not match')
+        model_flux = flux_gauss(theta0,
+                                rel_strength,
                                 self.lambda_0,
                                 self.blue_vel, self.red_vel,
                                 vel_rf, self.lines)
-        model_res = flux_gauss(theta,
-                               self.rel_strength,
+        model_res = flux_gauss(theta0,
+                               rel_strength,
                                self.lambda_0,
                                self.blue_vel, self.red_vel,
                                self.vel_rf, self.lines) - self.norm_fl
@@ -711,10 +750,10 @@ class AbsorbLine(SpectrumSN):
                      color=model_plot[0].get_color(), fmt='o', capsize=5)
         plt.plot(self.vel_rf, model_res, color='grey')
 
-        if len(theta) > 5:
-            for k in range(len(theta) // 3):
-                model_flux = flux_gauss(np.append(theta[:2], theta[2 + 3 * k:5 + 3 * k]),
-                                        [self.rel_strength[k]],
+        if len(rel_strength) > 1:
+            for k in range(len(rel_strength)):
+                model_flux = flux_gauss(np.append(theta0[:2], theta0[2 + 3 * k:5 + 3 * k]),
+                                        [rel_strength[k]],
                                         self.lambda_0,
                                         self.blue_vel, self.red_vel,
                                         self.vel_rf, [self.lines[k]])
@@ -834,7 +873,8 @@ def lnlike_gaussian_abs(theta,
                         norm_flux,
                         lines=[],
                         flux_unc=1,
-                        type='gaussian'):
+                        type='gaussian',
+                        free_rel_strength=[]):
     '''Log likelihood function assuming Gaussian profile
 
     Parameters
@@ -842,7 +882,8 @@ def lnlike_gaussian_abs(theta,
     theta : array_like
         fitting parameters: flux at the blue edge, flux at the
         red edge, (mean of relative velocity, log variance,
-        amplitude) * Number of velocity components
+        amplitude) * Number of velocity components, log10 line ratio
+        for each velocity components (if set free)
 
     rel_strength : array_like, default=[]
         the relative strength between each line in the series
@@ -869,13 +910,29 @@ def lnlike_gaussian_abs(theta,
     type : ['gaussian', 'chi2'], default='gaussian'
         'gaussian': Gaussian likelihood (for mcmc)
         'chi2': chi2 likelihood (for least square estimation)
+    
+    free_rel_strength : array_like, default=[]
+        whether to set the relative strength of each line series as
+        another free parameter in MCMC fit
 
     Returns
     -------
     lnl : float
         the log likelihood function
     '''
-    model_flux = flux_gauss(theta, rel_strength, lambda_0,
+    num = len(rel_strength)
+    theta0 = theta[:2 + 3 * num]
+    j = 2 + 3 * num
+    for k, rel in enumerate(free_rel_strength):
+        if rel:
+            for rel_s in range(len(rel_strength[k])-1):
+                rel_strength[k][rel_s] = 10**theta[j]
+                j += 1
+    if j != len(theta):
+        print(j, theta)
+        raise IndexError('Number of free parameters and relative strength do not match')
+
+    model_flux = flux_gauss(theta0, rel_strength, lambda_0,
                             blue_vel, red_vel, vel_rf,
                             lines)
     if type == 'gaussian':
@@ -897,7 +954,8 @@ def neg_lnlike_gaussian_abs(theta,
                             norm_flux,
                             lines=[],
                             flux_unc=1,
-                            type='gaussian'):
+                            type='gaussian',
+                            free_rel_strength=[]):
     '''negative log-likelihood function'''
 
     lnl = lnlike_gaussian_abs(theta,
@@ -909,7 +967,8 @@ def neg_lnlike_gaussian_abs(theta,
                               norm_flux,
                               lines=lines,
                               flux_unc=flux_unc,
-                              type=type)
+                              type=type,
+                              free_rel_strength=free_rel_strength)
     return -1 * lnl
 
 
@@ -921,7 +980,8 @@ def lnprior(
     mu_prior=[],
     var_prior=[],
     blue_fl=[1, .1],
-    red_fl=[1, .1]
+    red_fl=[1, .1],
+    free_rel_strength=[]
 ):
     '''log-prior probability
 
@@ -931,7 +991,8 @@ def lnprior(
     theta : array_like
         fitting parameters: flux at the blue edge, flux at the
         red edge, (mean of relative velocity, log variance,
-        amplitude) * Number of velocity components
+        amplitude) * Number of velocity components, line ratio
+        for each velocity components (if set free)
 
     vel_flat : list, default=[-1e5, 0]
         the range of the flat velocity prior [km/s]
@@ -950,6 +1011,10 @@ def lnprior(
 
     blue_fl, red_fl : list
         normalized flux and uncertainty at the blue/red edge
+    
+    free_rel_strength : array_like, default=[]
+        whether to set the relative strength of each line series as
+        another free parameter in MCMC fit
 
     Returns
     -------
@@ -961,7 +1026,7 @@ def lnprior(
     lnp_y1 = -np.log(blue_fl[1]) - (blue_fl[0] - y1)**2 / 2 / blue_fl[1]**2
     lnp_y2 = -np.log(red_fl[1]) - (red_fl[0] - y2)**2 / 2 / red_fl[1]**2
 
-    num_vel_com = len(theta // 3)
+    num_vel_com = len(free_rel_strength)
 
     sig_lim = min((vel_flat[1] - vel_flat[0] - delta_vel) / 2, var_max**.5)
 
@@ -975,9 +1040,9 @@ def lnprior(
         var_prior = np.array(var_prior)
         mu_prior = np.array(mu_prior)
 
-    mean_vel = np.array(theta[2::3])
-    lnvar = np.array(theta[3::3])
-    amplitude = np.array(theta[4::3])
+    mean_vel = np.array(theta[2:2 + 3 * num_vel_com:3])
+    lnvar = np.array(theta[3:2 + 3 * num_vel_com:3])
+    amplitude = np.array(theta[4:2 + 3 * num_vel_com:3])
     var_vel = np.exp(lnvar)
     lnpvf = -0.5 * np.log(
         2 * np.pi * var_prior) - (mean_vel - mu_prior)**2 / 2 / var_prior
@@ -991,6 +1056,9 @@ def lnprior(
                 and mean_vel[k] > vlim):
             return -np.inf
         vlim = mean_vel[k]
+    for rel in theta[2 + 3 * num_vel_com:]:
+        if not (-1 < rel < 0):
+            return -np.inf
     return lnp_y1 + lnp_y2 + lnpvf
 
 
@@ -1010,12 +1078,14 @@ def ln_prob(
     norm_flux_unc=1,
     blue_fl=[1, .1],
     red_fl=[1, .1],
+    free_rel_strength=[]
 ):
     '''log-posterior probability
 
     See lnprior() and lnlike_gaussian_abs() for details
     '''
-
+    if len(free_rel_strength) == 0:
+        free_rel_strength = np.array([False] * len(rel_strength))
     delta_vel = 0
     for l in lines:
         delta_vel_min = np.inf
@@ -1025,26 +1095,32 @@ def ln_prob(
                 delta_vel_min = delta_vel_temp
             if delta_vel_temp - delta_vel_min > delta_vel:
                 delta_vel = delta_vel_temp - delta_vel_min
-    ln_prior = lnprior(theta=theta, vel_flat=vel_flat, var_max=var_max, delta_vel=delta_vel,
-                       mu_prior=mu_prior, var_prior=var_prior, blue_fl=blue_fl, red_fl=red_fl)
-    ln_like = lnlike_gaussian_abs(theta=theta, lambda_0=lambda_0, rel_strength=rel_strength, 
+    ln_prior = lnprior(theta=theta, vel_flat=vel_flat, var_max=var_max, 
+                       delta_vel=delta_vel,
+                       mu_prior=mu_prior, var_prior=var_prior, blue_fl=blue_fl, red_fl=red_fl, free_rel_strength=free_rel_strength)
+    ln_like = lnlike_gaussian_abs(theta=theta, lambda_0=lambda_0, 
+                                  rel_strength=rel_strength, 
                                   blue_vel=blue_vel, red_vel=red_vel,
                                   vel_rf=vel_rf, norm_flux=norm_flux,
                                   lines=lines,
-                                  flux_unc=norm_flux_unc)
+                                  flux_unc=norm_flux_unc,
+                                  free_rel_strength=free_rel_strength)
     return ln_prior + ln_like
 
 
 ######################### MCMC visualization ##############################
 
 
-def plot_MCMC(sampler=None, nburn=0, thin=1, nplot=None, samples=[]):
+def plot_MCMC(sampler=None, num_vel_com=1, nburn=0, thin=1, nplot=None, samples=[]):
     '''plot walker chains and corner plots
 
     Parameters
     ----------
     sampler : emcee EnsembleSampler object, default=0
         emcee affine-invariant multi-chain MCMC sampler
+
+    num_vel_com : int, default=1
+        number of velocity components
 
     nburn : int, default=0
         number of "burn-in" steps for the MCMC chains
@@ -1062,12 +1138,14 @@ def plot_MCMC(sampler=None, nburn=0, thin=1, nplot=None, samples=[]):
     ndim = sampler.get_chain().shape[2]
     paramsNames = [r'$\mathrm{Blue\ edge\ flux}$',
                    r'$\mathrm{Red\ edge\ flux}$']
-    num_vel_com = ndim // 3
     for k in range(num_vel_com):
         v_label = r'$v_{}$'.format(k)
         sig2_label = r'$\ln(\sigma^2_{})$'.format(k)
         A_label = r'$A_{}$'.format(k)
         paramsNames = np.append(paramsNames, [v_label, sig2_label, A_label])
+    for k in range(ndim - 2 - 3 * num_vel_com):
+        ratio_label = r'$\lg(\mathrm{Ratio}_' + r'{})$'.format(1)
+        paramsNames = np.append(paramsNames, ratio_label)
 
     # plotChains(sampler, nburn, paramsNames, nplot)
     # plt.tight_layout()
