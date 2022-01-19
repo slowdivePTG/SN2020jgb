@@ -368,8 +368,8 @@ class AbsorbLine(SpectrumSN):
         line_region = np.where(
             (self.wv_rf < red_edge) & (self.wv_rf > blue_edge))[0]
         self.wv_line = self.wv_rf[line_region]
-        print('{:.0f} points within {:.2f} and {:.2f} angstroms.'.format(
-            len(line_region), blue_edge, red_edge))
+        #print('{:.0f} points within {:.2f} and {:.2f} angstroms.'.format(
+            #len(line_region), blue_edge, red_edge))
 
         # normalized flux
         norm_fl = self.fl / np.nanmedian(self.fl)
@@ -388,7 +388,7 @@ class AbsorbLine(SpectrumSN):
 
         # flux at each edge
         range_l = red_edge - blue_edge
-        delta_l = min(50, range_l / 10)
+        delta_l = min(100, range_l / 10)
         blue_fl = super(AbsorbLine, self).get_flux_at_lambda(
             blue_edge, delta_l=delta_l)
         red_fl = super(AbsorbLine, self).get_flux_at_lambda(
@@ -703,15 +703,19 @@ class AbsorbLine(SpectrumSN):
 
         return sampler
 
-    def plot_model(self, theta):
+    def plot_model(self, theta, return_ax=False):
         '''Plot the predicted absorption features
 
         Parameters
         ----------
         theta : array_like
-        fitting parameters: flux at the blue edge, flux at the
-        red edge, (mean of relative velocity, log variance,
-        amplitude) * Number of velocity components
+            fitting parameters: flux at the blue edge, flux at the
+            red edge, (mean of relative velocity, log variance,
+            amplitude) * Number of velocity components
+
+        return_ax : boolean, default=False
+            whether to return the axes
+            if return_ax == True, a matplotlib axes will be returned
         '''
 
         plt.figure(figsize=(10, 10))
@@ -763,7 +767,10 @@ class AbsorbLine(SpectrumSN):
         plt.xlabel(r'$v\ [\mathrm{km/s}]$')
         plt.ylabel(r'$\mathrm{Normalized\ Flux}$')
         plt.tight_layout()
-        plt.show()
+        if return_ax:
+            return plt.gca()
+        else:
+            plt.show()
 
 ###################### Basic Functions ##########################
 
@@ -846,8 +853,8 @@ def flux_gauss(theta, rel_strength, lambda_0, blue_vel, red_vel, vel_rf,
     '''
 
     y1, y2 = theta[:2]
-    m = (y2 - y1) / (blue_vel - red_vel)
-    b = y2 - m * blue_vel
+    m = (y2 - y1) / (red_vel - blue_vel)
+    b = y2 - m * red_vel
 
     model_flux = m * vel_rf + b
     for k in range(len(theta) // 3):
@@ -1033,20 +1040,18 @@ def lnprior(
     if len(mu_prior) != len(var_prior):
         raise IndexError('Means and variances of prior do not match.')
 
-    if len(var_prior) == 0:
-        var_prior = np.ones(num_vel_com) * np.inf
-        mu_prior = np.zeros(num_vel_com)
-    else:
-        var_prior = np.array(var_prior)
-        mu_prior = np.array(mu_prior)
-
     mean_vel = np.array(theta[2:2 + 3 * num_vel_com:3])
     lnvar = np.array(theta[3:2 + 3 * num_vel_com:3])
     amplitude = np.array(theta[4:2 + 3 * num_vel_com:3])
     var_vel = np.exp(lnvar)
-    lnpvf = -0.5 * np.log(
-        2 * np.pi * var_prior) - (mean_vel - mu_prior)**2 / 2 / var_prior
-    lnpvf = lnpvf.sum()
+    if len(var_prior) == 0:
+        lnpvf = 0
+    else:
+        var_prior = np.array(var_prior)
+        mu_prior = np.array(mu_prior)
+        lnpvf = -0.5 * np.log(
+            2 * np.pi * var_prior) - (mean_vel - mu_prior)**2 / 2 / var_prior
+        lnpvf = lnpvf.sum()
     vlim = -np.inf
     for k in range(len(mean_vel)):
         if not (vel_flat[0] + delta_vel < mean_vel[k] < vel_flat[1]
