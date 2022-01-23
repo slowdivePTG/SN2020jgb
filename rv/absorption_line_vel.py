@@ -81,7 +81,7 @@ class SpectrumSN(object):
             SN_name):spec1D.find('.ascii')]
 
         try:
-            if 'Keck' in spec1D:
+            if ('Keck' in spec1D) and (len(spec_df.columns) > 3):
                 fl_unc = spec_df[3].values
             else:
                 fl_unc = spec_df[2].values
