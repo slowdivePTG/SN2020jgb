@@ -81,7 +81,7 @@ class SpectrumSN(object):
             SN_name):spec1D.find('.ascii')]
 
         try:
-            if 'Keck' in spec1D:
+            if ('Keck' in spec1D) and (len(spec_df.columns) > 3):
                 fl_unc = spec_df[3].values
             else:
                 fl_unc = spec_df[2].values
@@ -159,8 +159,9 @@ class SpectrumSN(object):
                 if len(region) <= 5:
                     warnings.warn(
                         '<=5 points within the wavelength range!')
-                mean = np.mean(self.fl[region])
-                std = np.nanmedian(self.fl_unc[region])
+                mean = np.sum(self.fl[region] / self.fl_unc[region]**2)\
+                    / np.sum(1 / self.fl_unc[region]**2)
+                std = np.nanmin(self.fl_unc[region])
                 #std = np.std(self.fl[region], ddof=1)
             return (mean, std)
         except IndexError as e:
