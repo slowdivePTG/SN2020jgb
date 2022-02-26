@@ -151,5 +151,6 @@ orcid-ID.png
 # SDSS catalog
 galSpec*.fits
 
-ZTF18aaqeasu/
-SN2022an/
+rv/ZTF18aaqeasu/
+rv/SN2016hnk/
+rv/SN2022an/
