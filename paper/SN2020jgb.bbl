@@ -25,10 +25,22 @@
 {Bellm}, E.~C., {Kulkarni}, S.~R., {Graham}, M.~J., {et~al.} 2019, \pasp, 131,
   018002, \dodoi{10.1088/1538-3873/aaecbe}
 
+\bibitem[{{Blagorodnova} {et~al.}(2018){Blagorodnova}, {Neill}, {Walters},
+  {Kulkarni}, {Fremling}, {Ben-Ami}, {Dekany}, {Fucik}, {Konidaris}, {Nash},
+  {Ngeow}, {Ofek}, {O' Sullivan}, {Quimby}, {Ritter}, \&
+  {Vyhmeister}}]{SEDM_2018}
+{Blagorodnova}, N., {Neill}, J.~D., {Walters}, R., {et~al.} 2018, \pasp, 130,
+  035003, \dodoi{10.1088/1538-3873/aaa53f}
+
 \bibitem[{{Boyle} {et~al.}(2017){Boyle}, {Sim}, {Hachinger}, \&
   {Kerzendorf}}]{Boyle2017_Helium}
 {Boyle}, A., {Sim}, S.~A., {Hachinger}, S., \& {Kerzendorf}, W. 2017, \aap,
   599, A46, \dodoi{10.1051/0004-6361/201629712}
+
+\bibitem[{{Brinchmann} {et~al.}(2004){Brinchmann}, {Charlot}, {White},
+  {Tremonti}, {Kauffmann}, {Heckman}, \& {Brinkmann}}]{Brinchmann_SDSS_2004}
+{Brinchmann}, J., {Charlot}, S., {White}, S.~D.~M., {et~al.} 2004, \mnras, 351,
+  1151, \dodoi{10.1111/j.1365-2966.2004.07881.x}
 
 \bibitem[{{Bulla} {et~al.}(2020){Bulla}, {Miller}, {Yao}, {Dessart}, {Dhawan},
   {Papadogiannakis}, {Biswas}, {Goobar}, {Kulkarni}, {Nordin}, {Nugent},
@@ -37,6 +49,29 @@
   {Shupe}}]{Bulla2020}
 {Bulla}, M., {Miller}, A.~A., {Yao}, Y., {et~al.} 2020, \apj, 902, 48,
   \dodoi{10.3847/1538-4357/abb13c}
+
+\bibitem[{{Cenko} {et~al.}(2006){Cenko}, {Fox}, {Moon}, {Harrison}, {Kulkarni},
+  {Henning}, {Guzman}, {Bonati}, {Smith}, {Thicksten}, {Doyle}, {Petrie},
+  {Gal-Yam}, {Soderberg}, {Anagnostou}, \& {Laity}}]{P60_2006}
+{Cenko}, S.~B., {Fox}, D.~B., {Moon}, D.-S., {et~al.} 2006, \pasp, 118, 1396,
+  \dodoi{10.1086/508366}
+
+\bibitem[{De {et~al.}(2019)De, Kasliwal, Polin, Nugent, Bildsten, Adams, Bellm,
+  Blagorodnova, Burdge, Cannella, Cenko, Dekany, Feeney, Hale, Fremling,
+  Graham, Ho, Jencson, Kulkarni, Laher, Masci, Miller, Patterson, Rebbapragada,
+  Riddle, Shupe, \& Smith}]{de_18byg_2019}
+De, K., Kasliwal, M.~M., Polin, A., {et~al.} 2019, The Astrophysical Journal,
+  873, L18, \dodoi{10.3847/2041-8213/ab0aec}
+
+\bibitem[{De {et~al.}(2020)De, Kasliwal, Tzanidakis, Fremling, Adams, Aloisi,
+  Andreoni, Bagdasaryan, Bellm, Bildsten, Cannella, Cook, Delacroix, Drake,
+  Duev, Dugas, Frederick, Gal-Yam, Goldstein, Golkhou, Graham, Hale, Hankins,
+  Helou, Ho, Irani, Jencson, Kaplan, Kaye, Kulkarni, Kupfer, Laher, Leadbeater,
+  Lunnan, Masci, Miller, Neill, Ofek, Perley, Polin, Prince, Quataert, Reiley,
+  Riddle, Rusholme, Sharma, Shupe, Sollerman, Tartaglia, Walters, Yan, \&
+  Yao}]{de_Ca_rich_2020}
+De, K., Kasliwal, M.~M., Tzanidakis, A., {et~al.} 2020, The Astrophysical
+  Journal, 905, 58, \dodoi{10.3847/1538-4357/abb45c}
 
 \bibitem[{{Elias} {et~al.}(1998){Elias}, {Vukobratovich}, {Andrew}, {Cho},
   {Cuberly}, {Don}, {Gerzoff}, {Harmer}, {Harris}, {Heynssens}, {Hicks},
@@ -49,6 +84,16 @@
 
 \bibitem[{{Fitzpatrick}(1999)}]{Fitzpatrick1999}
 {Fitzpatrick}, E.~L. 1999, \pasp, 111, 63, \dodoi{10.1086/316293}
+
+\bibitem[{Galbany {et~al.}(2019)Galbany, Ashall, Höflich, González-Gaitán,
+  Taubenberger, Stritzinger, Hsiao, Mazzali, Baron, Blondin, Bose, Bulla,
+  Burke, Burns, Cartier, Chen, Della~Valle, Diamond, Gutiérrez, Harmanen,
+  Hiramatsu, Holoien, Hosseinzadeh, Howell, Huang, Inserra, de~Jaeger, Jha,
+  Kangas, Kromer, Lyman, Maguire, Marion, Milisavljevic, Prentice, Razza,
+  Reynolds, Sand, Shappee, Shekhar, Smartt, Stassun, Sullivan, Valenti,
+  Villanueva, Wang, Wheeler, Zhai, \& Zhang}]{galbany_16hnk_2019}
+Galbany, L., Ashall, C., Höflich, P., {et~al.} 2019, Astronomy \&
+  Astrophysics, 630, A76, \dodoi{10.1051/0004-6361/201935537}
 
 \bibitem[{{Graham} {et~al.}(2019){Graham}, {Kulkarni}, {Bellm}, {Adams},
   {Barbarino}, {Blagorodnova}, {Bodewits}, {Bolin}, {Brady}, {Cenko}, {Chang},
@@ -82,10 +127,39 @@
 {Hsiao}, E.~Y., {Phillips}, M.~M., {Marion}, G.~H., {et~al.} 2019, \pasp, 131,
   014002, \dodoi{10.1088/1538-3873/aae961}
 
+\bibitem[{Jacobson-Galán {et~al.}(2020)Jacobson-Galán, Polin, Foley,
+  Dimitriadis, Kilpatrick, Margutti, Coulter, Jha, Jones, Kirshner, Pan, Piro,
+  Rest, \& Rojas-Bravo}]{jacobson-galan_16hnk_2020}
+Jacobson-Galán, W.~V., Polin, A., Foley, R.~J., {et~al.} 2020, The
+  Astrophysical Journal, 896, 165, \dodoi{10.3847/1538-4357/ab94b8}
+
+\bibitem[{Jiang {et~al.}(2017)Jiang, Doi, Maeda, Shigeyama, Nomoto, Yasuda,
+  Jha, Tanaka, Morokuma, Tominaga, Ivezić, Ruiz-Lapuente, Stritzinger,
+  Mazzali, Ashall, Mould, Baade, Suzuki, Connolly, Patat, Wang, Yoachim, Jones,
+  Furusawa, \& Miyazaki}]{jiang_16jhr_2017}
+Jiang, J.-a., Doi, M., Maeda, K., {et~al.} 2017, Nature, 550, 80,
+  \dodoi{10.1038/nature23908}
+
+\bibitem[{{Kauffmann} {et~al.}(2003){Kauffmann}, {Heckman}, {White}, {Charlot},
+  {Tremonti}, {Brinchmann}, {Bruzual}, {Peng}, {Seibert}, {Bernardi},
+  {Blanton}, {Brinkmann}, {Castander}, {Cs{\'a}bai}, {Fukugita}, {Ivezic},
+  {Munn}, {Nichol}, {Padmanabhan}, {Thakar}, {Weinberg}, \&
+  {York}}]{Kauffmann_SDSS_2003}
+{Kauffmann}, G., {Heckman}, T.~M., {White}, S. D.~M., {et~al.} 2003, \mnras,
+  341, 33, \dodoi{10.1046/j.1365-8711.2003.06291.x}
+
 \bibitem[{{Marion} {et~al.}(2009){Marion}, {H{\"o}flich}, {Gerardy}, {Vacca},
   {Wheeler}, \& {Robinson}}]{Marion2009_NIR}
 {Marion}, G.~H., {H{\"o}flich}, P., {Gerardy}, C.~L., {et~al.} 2009, \aj, 138,
   727, \dodoi{10.1088/0004-6256/138/3/727}
+
+\bibitem[{{Oke} \& {Gunn}(1982)}]{P200_1982}
+{Oke}, J.~B., \& {Gunn}, J.~E. 1982, \pasp, 94, 586, \dodoi{10.1086/131027}
+
+\bibitem[{{Oke} {et~al.}(1995){Oke}, {Cohen}, {Carr}, {Cromer}, {Dingizian},
+  {Harris}, {Labrecque}, {Lucinio}, {Schaal}, {Epps}, \& {Miller}}]{Keck_1995}
+{Oke}, J.~B., {Cohen}, J.~G., {Carr}, M., {et~al.} 1995, \pasp, 107, 375,
+  \dodoi{10.1086/133562}
 
 \bibitem[{Prochaska {et~al.}(2020)Prochaska, Hennawi, Westfall, Cooke, Wang,
   Hsyu, Davies, Farina, \& Pelliccia}]{pypeit:joss_pub}
@@ -111,5 +185,8 @@ Prochaska, J.~X., Hennawi, J.~F., Westfall, K.~B., {et~al.} 2020, Journal of
   {Uddin}}]{CSP_Ibc_2022}
 {Shahbandeh}, M., {Hsiao}, E.~Y., {Ashall}, C., {et~al.} 2022, \apj, 925, 175,
   \dodoi{10.3847/1538-4357/ac4030}
+
+\bibitem[{{Yaron} \& {Gal-Yam}(2012)}]{wiserep_2012}
+{Yaron}, O., \& {Gal-Yam}, A. 2012, \pasp, 124, 668, \dodoi{10.1086/666656}
 
 \end{thebibliography}
