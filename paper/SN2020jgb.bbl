@@ -25,6 +25,11 @@
 {Bellm}, E.~C., {Kulkarni}, S.~R., {Graham}, M.~J., {et~al.} 2019, \pasp, 131,
   018002, \dodoi{10.1088/1538-3873/aaecbe}
 
+\bibitem[{{Boyle} {et~al.}(2017){Boyle}, {Sim}, {Hachinger}, \&
+  {Kerzendorf}}]{Boyle2017_Helium}
+{Boyle}, A., {Sim}, S.~A., {Hachinger}, S., \& {Kerzendorf}, W. 2017, \aap,
+  599, A46, \dodoi{10.1051/0004-6361/201629712}
+
 \bibitem[{{Bulla} {et~al.}(2020){Bulla}, {Miller}, {Yao}, {Dessart}, {Dhawan},
   {Papadogiannakis}, {Biswas}, {Goobar}, {Kulkarni}, {Nordin}, {Nugent},
   {Polin}, {Sollerman}, {Bellm}, {Coughlin}, {Dekany}, {Golkhou}, {Graham},
@@ -66,6 +71,22 @@
 {Graham}, M.~J., {Kulkarni}, S.~R., {Bellm}, E.~C., {et~al.} 2019, \pasp, 131,
   078001, \dodoi{10.1088/1538-3873/ab006c}
 
+\bibitem[{{Hsiao} {et~al.}(2019){Hsiao}, {Phillips}, {Marion}, {Kirshner},
+  {Morrell}, {Sand}, {Burns}, {Contreras}, {Hoeflich}, {Stritzinger},
+  {Valenti}, {Anderson}, {Ashall}, {Baltay}, {Baron}, {Banerjee}, {Davis},
+  {Diamond}, {Folatelli}, {Freedman}, {F{\"o}rster}, {Galbany}, {Gall},
+  {Gonz{\'a}lez-Gait{\'a}n}, {Goobar}, {Hamuy}, {Holmbo}, {Kasliwal},
+  {Krisciunas}, {Kumar}, {Lidman}, {Lu}, {Nugent}, {Perlmutter}, {Persson},
+  {Piro}, {Rabinowitz}, {Roth}, {Ryder}, {Schmidt}, {Shahbandeh}, {Suntzeff},
+  {Taddia}, {Uddin}, \& {Wang}}]{hsiao_CSP_2019}
+{Hsiao}, E.~Y., {Phillips}, M.~M., {Marion}, G.~H., {et~al.} 2019, \pasp, 131,
+  014002, \dodoi{10.1088/1538-3873/aae961}
+
+\bibitem[{{Marion} {et~al.}(2009){Marion}, {H{\"o}flich}, {Gerardy}, {Vacca},
+  {Wheeler}, \& {Robinson}}]{Marion2009_NIR}
+{Marion}, G.~H., {H{\"o}flich}, P., {Gerardy}, C.~L., {et~al.} 2009, \aj, 138,
+  727, \dodoi{10.1088/0004-6256/138/3/727}
+
 \bibitem[{Prochaska {et~al.}(2020)Prochaska, Hennawi, Westfall, Cooke, Wang,
   Hsyu, Davies, Farina, \& Pelliccia}]{pypeit:joss_pub}
 Prochaska, J.~X., Hennawi, J.~F., Westfall, K.~B., {et~al.} 2020, Journal of
@@ -81,5 +102,14 @@ Prochaska, J.~X., Hennawi, J.~F., Westfall, K.~B., {et~al.} 2020, Journal of
 \bibitem[{{Schlafly} \& {Finkbeiner}(2011)}]{Schlafly2011}
 {Schlafly}, E.~F., \& {Finkbeiner}, D.~P. 2011, \apj, 737, 103,
   \dodoi{10.1088/0004-637X/737/2/103}
+
+\bibitem[{{Shahbandeh} {et~al.}(2022){Shahbandeh}, {Hsiao}, {Ashall}, {Teffs},
+  {Hoeflich}, {Morrell}, {Phillips}, {Anderson}, {Baron}, {Burns}, {Contreras},
+  {Davis}, {Diamond}, {Folatelli}, {Galbany}, {Gall}, {Hachinger}, {Holmbo},
+  {Karamehmetoglu}, {Kasliwal}, {Kirshner}, {Krisciunas}, {Kumar}, {Lu},
+  {Marion}, {Mazzali}, {Piro}, {Sand}, {Stritzinger}, {Suntzeff}, {Taddia}, \&
+  {Uddin}}]{CSP_Ibc_2022}
+{Shahbandeh}, M., {Hsiao}, E.~Y., {Ashall}, C., {et~al.} 2022, \apj, 925, 175,
+  \dodoi{10.3847/1538-4357/ac4030}
 
 \end{thebibliography}
