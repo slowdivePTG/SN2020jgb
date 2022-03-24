@@ -116,6 +116,11 @@ Galbany, L., Ashall, C., Höflich, P., {et~al.} 2019, Astronomy \&
 {Graham}, M.~J., {Kulkarni}, S.~R., {Bellm}, E.~C., {et~al.} 2019, \pasp, 131,
   078001, \dodoi{10.1088/1538-3873/ab006c}
 
+\bibitem[{{Guillochon} {et~al.}(2017){Guillochon}, {Parrent}, {Kelley}, \&
+  {Margutti}}]{Guillochon_2017}
+{Guillochon}, J., {Parrent}, J., {Kelley}, L.~Z., \& {Margutti}, R. 2017, \apj,
+  835, 64, \dodoi{10.3847/1538-4357/835/1/64}
+
 \bibitem[{{Hsiao} {et~al.}(2019){Hsiao}, {Phillips}, {Marion}, {Kirshner},
   {Morrell}, {Sand}, {Burns}, {Contreras}, {Hoeflich}, {Stritzinger},
   {Valenti}, {Anderson}, {Ashall}, {Baltay}, {Baron}, {Banerjee}, {Davis},
@@ -153,6 +158,21 @@ Jiang, J.-a., Doi, M., Maeda, K., {et~al.} 2017, Nature, 550, 80,
 {Marion}, G.~H., {H{\"o}flich}, P., {Gerardy}, C.~L., {et~al.} 2009, \aj, 138,
   727, \dodoi{10.1088/0004-6256/138/3/727}
 
+\bibitem[{Miller \& Stone(1994)}]{miller1994kast}
+Miller, J., \& Stone, R. 1994, The Kast Double Spectograph, Lick Observatory
+  technical reports (University of California Observatories/Lick Observatory).
+\newblock \url{https://books.google.com/books?id=QXk2AQAAIAAJ}
+
+\bibitem[{{Nugent} {et~al.}(2011){Nugent}, {Sullivan}, {Cenko}, {Thomas},
+  {Kasen}, {Howell}, {Bersier}, {Bloom}, {Kulkarni}, {Kandrashoff},
+  {Filippenko}, {Silverman}, {Marcy}, {Howard}, {Isaacson}, {Maguire},
+  {Suzuki}, {Tarlton}, {Pan}, {Bildsten}, {Fulton}, {Parrent}, {Sand},
+  {Podsiadlowski}, {Bianco}, {Dilday}, {Graham}, {Lyman}, {James}, {Kasliwal},
+  {Law}, {Quimby}, {Hook}, {Walker}, {Mazzali}, {Pian}, {Ofek}, {Gal-Yam}, \&
+  {Poznanski}}]{Nugent_11fe_2011}
+{Nugent}, P.~E., {Sullivan}, M., {Cenko}, S.~B., {et~al.} 2011, \nat, 480, 344,
+  \dodoi{10.1038/nature10644}
+
 \bibitem[{{Oke} \& {Gunn}(1982)}]{P200_1982}
 {Oke}, J.~B., \& {Gunn}, J.~E. 1982, \pasp, 94, 586, \dodoi{10.1086/131027}
 
@@ -185,6 +205,10 @@ Prochaska, J.~X., Hennawi, J.~F., Westfall, K.~B., {et~al.} 2020, Journal of
   {Uddin}}]{CSP_Ibc_2022}
 {Shahbandeh}, M., {Hsiao}, E.~Y., {Ashall}, C., {et~al.} 2022, \apj, 925, 175,
   \dodoi{10.3847/1538-4357/ac4030}
+
+\bibitem[{{Shen} \& {Moore}(2014)}]{Shen_DD_2014}
+{Shen}, K.~J., \& {Moore}, K. 2014, \apj, 797, 46,
+  \dodoi{10.1088/0004-637X/797/1/46}
 
 \bibitem[{{Yaron} \& {Gal-Yam}(2012)}]{wiserep_2012}
 {Yaron}, O., \& {Gal-Yam}, A. 2012, \pasp, 124, 668, \dodoi{10.1086/666656}
