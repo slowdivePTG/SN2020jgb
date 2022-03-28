@@ -82,6 +82,11 @@ De, K., Kasliwal, M.~M., Tzanidakis, A., {et~al.} 2020, The Astrophysical
   3354, Infrared Astronomical Instrumentation, ed. A.~M. {Fowler}, 555--565,
   \dodoi{10.1117/12.317281}
 
+\bibitem[{{Fink} {et~al.}(2010){Fink}, {R{\"o}pke}, {Hillebrandt},
+  {Seitenzahl}, {Sim}, \& {Kromer}}]{Fink_DD_2010}
+{Fink}, M., {R{\"o}pke}, F.~K., {Hillebrandt}, W., {et~al.} 2010, \aap, 514,
+  A53, \dodoi{10.1051/0004-6361/200913892}
+
 \bibitem[{{Fitzpatrick}(1999)}]{Fitzpatrick1999}
 {Fitzpatrick}, E.~L. 1999, \pasp, 111, 63, \dodoi{10.1086/316293}
 
@@ -153,6 +158,11 @@ Jiang, J.-a., Doi, M., Maeda, K., {et~al.} 2017, Nature, 550, 80,
 {Kauffmann}, G., {Heckman}, T.~M., {White}, S. D.~M., {et~al.} 2003, \mnras,
   341, 33, \dodoi{10.1046/j.1365-8711.2003.06291.x}
 
+\bibitem[{{Kromer} {et~al.}(2010){Kromer}, {Sim}, {Fink}, {R{\"o}pke},
+  {Seitenzahl}, \& {Hillebrandt}}]{Kromer_DD_2010}
+{Kromer}, M., {Sim}, S.~A., {Fink}, M., {et~al.} 2010, \apj, 719, 1067,
+  \dodoi{10.1088/0004-637X/719/2/1067}
+
 \bibitem[{{Marion} {et~al.}(2009){Marion}, {H{\"o}flich}, {Gerardy}, {Vacca},
   {Wheeler}, \& {Robinson}}]{Marion2009_NIR}
 {Marion}, G.~H., {H{\"o}flich}, P., {Gerardy}, C.~L., {et~al.} 2009, \aj, 138,
@@ -180,6 +190,11 @@ Miller, J., \& Stone, R. 1994, The Kast Double Spectograph, Lick Observatory
   {Harris}, {Labrecque}, {Lucinio}, {Schaal}, {Epps}, \& {Miller}}]{Keck_1995}
 {Oke}, J.~B., {Cohen}, J.~G., {Carr}, M., {et~al.} 1995, \pasp, 107, 375,
   \dodoi{10.1086/133562}
+
+\bibitem[{Polin {et~al.}(2019)Polin, Nugent, \&
+  Kasen}]{polin_observational_2019}
+Polin, A., Nugent, P., \& Kasen, D. 2019, \apj, 873, 84,
+  \dodoi{10.3847/1538-4357/aafb6a}
 
 \bibitem[{Prochaska {et~al.}(2020)Prochaska, Hennawi, Westfall, Cooke, Wang,
   Hsyu, Davies, Farina, \& Pelliccia}]{pypeit:joss_pub}
