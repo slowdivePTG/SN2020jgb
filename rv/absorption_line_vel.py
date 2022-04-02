@@ -1056,9 +1056,8 @@ def lnprior(
     vlim = -np.inf
     for k in range(len(mean_vel)):
         if not (vel_flat[0] + delta_vel < mean_vel[k] < vel_flat[1]
-                and 5e1 < var_vel[k]**.5 < sig_lim
-                # and (-(2 * np.pi * var_vel[k])**.5 < amplitude[k] < (2 * np.pi * var_vel[k])**.5)):
-                and (-(2 * np.pi * var_vel[k])**.5 * np.mean([y1, y2]) < amplitude[k] < 0)
+                and 2e1 < var_vel[k]**.5 < sig_lim
+                and (-(2 * np.pi * var_vel[k])**.5 * np.mean([y1, y2]) < amplitude[k])
                 and mean_vel[k] > vlim):
             return -np.inf
         vlim = mean_vel[k]
