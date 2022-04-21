@@ -5,6 +5,11 @@
 \providecommand{\doeprint}[1]{\href{http://ascl.net/#1}{\nolinkurl{http://ascl.net/#1}}}
 \providecommand{\doarXiv}[1]{\href{https://arxiv.org/abs/#1}{\nolinkurl{https://arxiv.org/abs/#1}}}
 
+\bibitem[{{Baldwin} {et~al.}(1981){Baldwin}, {Phillips}, \&
+  {Terlevich}}]{BPT_1981}
+{Baldwin}, J.~A., {Phillips}, M.~M., \& {Terlevich}, R. 1981, \pasp, 93, 5,
+  \dodoi{10.1086/130766}
+
 \bibitem[{{Bellm} {et~al.}(2019){Bellm}, {Kulkarni}, {Graham}, {Dekany},
   {Smith}, {Riddle}, {Masci}, {Helou}, {Prince}, {Adams}, {Barbarino},
   {Barlow}, {Bauer}, {Beck}, {Belicki}, {Biswas}, {Blagorodnova}, {Bodewits},
@@ -56,6 +61,33 @@
 {Cenko}, S.~B., {Fox}, D.~B., {Moon}, D.-S., {et~al.} 2006, \pasp, 118, 1396,
   \dodoi{10.1086/508366}
 
+\bibitem[{{Chambers} {et~al.}(2016){Chambers}, {Magnier}, {Metcalfe},
+  {Flewelling}, {Huber}, {Waters}, {Denneau}, {Draper}, {Farrow}, {Finkbeiner},
+  {Holmberg}, {Koppenhoefer}, {Price}, {Rest}, {Saglia}, {Schlafly}, {Smartt},
+  {Sweeney}, {Wainscoat}, {Burgett}, {Chastel}, {Grav}, {Heasley}, {Hodapp},
+  {Jedicke}, {Kaiser}, {Kudritzki}, {Luppino}, {Lupton}, {Monet}, {Morgan},
+  {Onaka}, {Shiao}, {Stubbs}, {Tonry}, {White}, {Ba{\~n}ados}, {Bell},
+  {Bender}, {Bernard}, {Boegner}, {Boffi}, {Botticella}, {Calamida},
+  {Casertano}, {Chen}, {Chen}, {Cole}, {Deacon}, {Frenk}, {Fitzsimmons},
+  {Gezari}, {Gibbs}, {Goessl}, {Goggia}, {Gourgue}, {Goldman}, {Grant},
+  {Grebel}, {Hambly}, {Hasinger}, {Heavens}, {Heckman}, {Henderson}, {Henning},
+  {Holman}, {Hopp}, {Ip}, {Isani}, {Jackson}, {Keyes}, {Koekemoer}, {Kotak},
+  {Le}, {Liska}, {Long}, {Lucey}, {Liu}, {Martin}, {Masci}, {McLean}, {Mindel},
+  {Misra}, {Morganson}, {Murphy}, {Obaika}, {Narayan}, {Nieto-Santisteban},
+  {Norberg}, {Peacock}, {Pier}, {Postman}, {Primak}, {Rae}, {Rai}, {Riess},
+  {Riffeser}, {Rix}, {R{\"o}ser}, {Russel}, {Rutz}, {Schilbach}, {Schultz},
+  {Scolnic}, {Strolger}, {Szalay}, {Seitz}, {Small}, {Smith}, {Soderblom},
+  {Taylor}, {Thomson}, {Taylor}, {Thakar}, {Thiel}, {Thilker}, {Unger},
+  {Urata}, {Valenti}, {Wagner}, {Walder}, {Walter}, {Watters}, {Werner},
+  {Wood-Vasey}, \& {Wyse}}]{PS1_2016}
+{Chambers}, K.~C., {Magnier}, E.~A., {Metcalfe}, N., {et~al.} 2016, arXiv
+  e-prints, arXiv:1612.05560.
+\newblock \doarXiv{1612.05560}
+
+\bibitem[{{Dahiwale} \& {Fremling}(2020)}]{TNS_2020}
+{Dahiwale}, A., \& {Fremling}, C. 2020, Transient Name Server Classification
+  Report, 2020-1624, 1
+
 \bibitem[{De {et~al.}(2019)De, Kasliwal, Polin, Nugent, Bildsten, Adams, Bellm,
   Blagorodnova, Burdge, Cannella, Cenko, Dekany, Feeney, Hale, Fremling,
   Graham, Ho, Jencson, Kulkarni, Laher, Masci, Miller, Patterson, Rebbapragada,
@@ -94,6 +126,17 @@ De, K., Kasliwal, M.~M., Tzanidakis, A., {et~al.} 2020, The Astrophysical
   3354, Infrared Astronomical Instrumentation, ed. A.~M. {Fowler}, 555--565,
   \dodoi{10.1117/12.317281}
 
+\bibitem[{{Faber} {et~al.}(2003){Faber}, {Phillips}, {Kibrick}, {Alcott},
+  {Allen}, {Burrous}, {Cantrall}, {Clarke}, {Coil}, {Cowley}, {Davis}, {Deich},
+  {Dietsch}, {Gilmore}, {Harper}, {Hilyard}, {Lewis}, {McVeigh}, {Newman},
+  {Osborne}, {Schiavon}, {Stover}, {Tucker}, {Wallace}, {Wei}, {Wirth}, \&
+  {Wright}}]{DEIMOS_2003}
+{Faber}, S.~M., {Phillips}, A.~C., {Kibrick}, R.~I., {et~al.} 2003, in Society
+  of Photo-Optical Instrumentation Engineers (SPIE) Conference Series, Vol.
+  4841, Instrument Design and Performance for Optical/Infrared Ground-based
+  Telescopes, ed. M.~{Iye} \& A.~F.~M. {Moorwood}, 1657--1669,
+  \dodoi{10.1117/12.460346}
+
 \bibitem[{{Fink} {et~al.}(2010){Fink}, {R{\"o}pke}, {Hillebrandt},
   {Seitenzahl}, {Sim}, \& {Kromer}}]{Fink_DD_2010}
 {Fink}, M., {R{\"o}pke}, F.~K., {Hillebrandt}, W., {et~al.} 2010, \aap, 514,
@@ -101,6 +144,14 @@ De, K., Kasliwal, M.~M., Tzanidakis, A., {et~al.} 2020, The Astrophysical
 
 \bibitem[{{Fitzpatrick}(1999)}]{Fitzpatrick1999}
 {Fitzpatrick}, E.~L. 1999, \pasp, 111, 63, \dodoi{10.1086/316293}
+
+\bibitem[{{Galbany} {et~al.}(2018){Galbany}, {Anderson}, {S{\'a}nchez},
+  {Kuncarayakti}, {Pedraz}, {Gonz{\'a}lez-Gait{\'a}n}, {Stanishev},
+  {Dom{\'\i}nguez}, {Moreno-Raya}, {Wood-Vasey}, {Mour{\~a}o}, {Ponder},
+  {Badenes}, {Moll{\'a}}, {L{\'o}pez-S{\'a}nchez}, {Rosales-Ortega},
+  {V{\'\i}lchez}, {Garc{\'\i}a-Benito}, \& {Marino}}]{Galbany_PISCO_2018}
+{Galbany}, L., {Anderson}, J.~P., {S{\'a}nchez}, S.~F., {et~al.} 2018, \apj,
+  855, 107, \dodoi{10.3847/1538-4357/aaaf20}
 
 \bibitem[{Galbany {et~al.}(2019)Galbany, Ashall, Höflich, González-Gaitán,
   Taubenberger, Stritzinger, Hsiao, Mazzali, Baron, Blondin, Bose, Bulla,
@@ -162,6 +213,11 @@ Jacobson-Galán, W.~V., Polin, A., Foley, R.~J., {et~al.} 2020, The
 Jiang, J.-a., Doi, M., Maeda, K., {et~al.} 2017, Nature, 550, 80,
   \dodoi{10.1038/nature23908}
 
+\bibitem[{{Johnson} {et~al.}(2021){Johnson}, {Leja}, {Conroy}, \&
+  {Speagle}}]{Johnson_prospector_2021}
+{Johnson}, B.~D., {Leja}, J., {Conroy}, C., \& {Speagle}, J.~S. 2021, \apjs,
+  254, 22, \dodoi{10.3847/1538-4365/abef67}
+
 \bibitem[{{Kauffmann} {et~al.}(2003){Kauffmann}, {Heckman}, {White}, {Charlot},
   {Tremonti}, {Brinchmann}, {Bruzual}, {Peng}, {Seibert}, {Bernardi},
   {Blanton}, {Brinkmann}, {Castander}, {Cs{\'a}bai}, {Fukugita}, {Ivezic},
@@ -179,6 +235,11 @@ Jiang, J.-a., Doi, M., Maeda, K., {et~al.} 2017, Nature, 550, 80,
   {Wheeler}, \& {Robinson}}]{Marion2009_NIR}
 {Marion}, G.~H., {H{\"o}flich}, P., {Gerardy}, C.~L., {et~al.} 2009, \aj, 138,
   727, \dodoi{10.1088/0004-6256/138/3/727}
+
+\bibitem[{{McMahon} {et~al.}(2013){McMahon}, {Banerji}, {Gonzalez}, {Koposov},
+  {Bejar}, {Lodieu}, {Rebolo}, \& {VHS Collaboration}}]{VHS_2013}
+{McMahon}, R.~G., {Banerji}, M., {Gonzalez}, E., {et~al.} 2013, The Messenger,
+  154, 35
 
 \bibitem[{Miller \& Stone(1994)}]{miller1994kast}
 Miller, J., \& Stone, R. 1994, The Kast Double Spectograph, Lick Observatory
@@ -236,6 +297,10 @@ Prochaska, J.~X., Hennawi, J.~F., Westfall, K.~B., {et~al.} 2020, Journal of
 \bibitem[{{Shen} \& {Moore}(2014)}]{Shen_DD_2014}
 {Shen}, K.~J., \& {Moore}, K. 2014, \apj, 797, 46,
   \dodoi{10.1088/0004-637X/797/1/46}
+
+\bibitem[{{Veilleux} \& {Osterbrock}(1987)}]{Veilleux_1987}
+{Veilleux}, S., \& {Osterbrock}, D.~E. 1987, \apjs, 63, 295,
+  \dodoi{10.1086/191166}
 
 \bibitem[{{Yaron} \& {Gal-Yam}(2012)}]{wiserep_2012}
 {Yaron}, O., \& {Gal-Yam}, A. 2012, \pasp, 124, 668, \dodoi{10.1086/666656}
