@@ -1,0 +1,80 @@
+Title: ZTF18aaqeasu (SN2018byg): A Massive Helium-shell Double Detonation 
+       on a Sub-Chandrasekhar Mass White Dwarf 
+Authors: De K., Kasliwal M.M., Polin A., Nugent P.E., Bildsten L., Adams S.M., 
+         Bellm E.C., Blagorodnova N., Burdge K.B., Cannella C., Cenko S.B., 
+         Dekany R.G., Feeney M., Hale D., Fremling U.C., Graham M.J., Ho A.Y.Q., 
+         Jencson J.E., Kulkarni S.R., Laher R.R., Masci F.J., Miller A.A., 
+         Patterson M.T., Rebbapragada U., Riddle R.L., Shupe D.L., Smith R.M. 
+Table: Data behind Figure 1: Multi-color light curves of ZTF18aaqeasu
+================================================================================
+Byte-by-byte Description of file: dbf1.txt
+--------------------------------------------------------------------------------
+   Bytes Format Units   Label   Explanations
+--------------------------------------------------------------------------------
+   1-  9 F9.3   d       MJD     Modified Julian Date, JD-2,400,000.5
+  11- 17 F7.3   ---     Phase   Phase, days since peak r-band, MJD=58258.49
+  19- 23 F5.2   mag     omag    Observed Magnitude in Filter (1)
+  25- 30 F6.2   mag   e_omag    ?=-99. Uncertainty in omag (1)
+  32- 32 A1     ---     Filter  Filter
+  34- 37 A4     ---     Instr   Instrument (2)
+--------------------------------------------------------------------------------
+Note (1): In case of upper limits, the upper limit is given in the omag column, 
+    while e_omag is set to -99.
+Note (2): Instruments --
+    P200 = Wafer Scale Imager for Prime (WASP) on the Palomar 200-inch Hale 200in;
+    P48  = Zwicky Transient Facility on the Palomar 48-inch Samuel Oschin Telescope;
+    P60  = ZTF+Spectral Energy Distribution Machine camera on the Palomar 60in.
+--------------------------------------------------------------------------------
+58242.270 -15.216 20.54   0.12 r P48  
+58243.180 -14.362 20.14   0.08 r P48  
+58244.180 -13.424 19.89   0.06 r P48  
+58245.180 -12.486 19.74   0.13 r P48  
+58246.240 -11.492 19.70   0.07 r P48  
+58247.240 -10.553 19.53   0.05 r P48  
+58248.250  -9.606 19.53   0.18 r P48  
+58249.240  -8.677 19.49   0.12 r P48  
+58250.220  -7.758 19.42   0.09 r P48  
+58254.200  -4.024 19.18   0.07 r P48  
+58255.250  -3.039 19.22   0.07 r P48  
+58256.250  -2.101 19.13   0.07 r P48  
+58257.240  -1.173 19.09   0.05 r P48  
+58258.210  -0.263 19.16   0.07 r P48  
+58260.200   1.604 19.06   0.29 r P48  
+58266.250   7.280 19.43   0.13 r P48  
+58269.180  10.028 19.74   0.15 r P48  
+58272.180  12.842 20.16   0.27 r P48  
+58274.210  14.747 20.36   0.19 r P48  
+58280.200  20.366 20.43   0.21 r P48  
+58266.310   7.336 19.47   0.11 r P60  
+58269.170  10.019 19.79   0.07 r P60  
+58270.180  10.966 19.92   0.28 r P60  
+58274.210  14.747 20.28   0.08 r P60  
+58276.210  16.623 20.48   0.04 r P60  
+58278.180  18.471 20.56   0.07 r P60  
+58283.240  23.218 20.86   0.13 r P60  
+58286.230  26.023 17.28 -99.   r P60  
+58290.240  29.784 18.59 -99.   r P60  
+58294.280  33.574 21.15 -99.   r P60  
+58266.310   7.336 21.27   0.18 g P60  
+58276.210  16.623 21.91   0.11 g P60  
+58278.180  18.471 21.99   0.17 g P60  
+58280.180  20.347 22.11   0.16 g P60  
+58283.220  23.199 22.13   0.21 g P60  
+58278.350  18.630 22.06   0.11 g P200 
+58269.180  10.028 20.39 -99.   g P60  
+58270.180  10.966 21.53 -99.   g P60  
+58274.210  14.747 18.70 -99.   g P60  
+58286.230  26.023 21.26 -99.   g P60  
+58290.240  29.784 22.43 -99.   g P60  
+58294.280  33.574 21.63 -99.   g P60  
+58266.310   7.336 19.11   0.07 i P60  
+58269.180  10.028 19.58   0.15 i P60  
+58270.180  10.966 19.76   0.20 i P60  
+58274.220  14.756 20.06   0.07 i P60  
+58276.220  16.632 20.25   0.08 i P60  
+58278.190  18.480 20.53   0.48 i P60  
+58280.180  20.347 20.55   0.18 i P60  
+58283.190  23.171 20.76   0.62 i P60  
+58286.230  26.023 19.30 -99.   i P60  
+58290.240  29.784 18.25 -99.   i P60  
+58294.280  33.574 18.36 -99.   i P60  

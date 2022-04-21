@@ -127,3 +127,30 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+
+# Reduction process & raw data
+setup_files/
+*_pypeit/
+.DS_Store
+
+# HDF data for MCMC chains
+*.h5
+
+# LaTeX
+*.aux
+*.blg
+*.bib
+*.fdb_latexmk
+*.out
+*.synctex.gz
+*.bst
+*.cls
+orcid-ID.png
+*.fls
+
+# SDSS catalog
+galSpec*.fits
+
+rv/ZTF18aaqeasu/
+rv/SN2016hnk/
+rv/SN2022an/
