@@ -33,9 +33,7 @@
 \end{itemize}
 \section{Observations} \label{sec:obs}
 \subsection{Detection and Classification}
-\sn\ was first discovered by the Zwicky Transient Facility \citep[ZTF;][]{ZTF2019a,ZTF2019b} on 2020 May 03.463 UT (MJD 58972.463) with the 48-inch Samuel Oschin Telescope (P48) at Palomar Observatory. The internal designation is ZTF20aayhacx. It was detected at a magnitude of 19.86 in ZTF $g$-band, and J2000 coordinates $\alpha=17^\mathrm{h}53^\mathrm{m}12^\mathrm{s}.651$, $\delta=-00^\circ51'21''.81$. The last non-detection was on 2020 April 27.477 (MJD 58966.477; 5.99\,days before the first detection) up to a limiting magnitude of 20.7 in ZTF $r$-band.
-
-\textbf{Classification?}
+\sn\ was first discovered by the Zwicky Transient Facility \citep[ZTF;][]{ZTF2019a,ZTF2019b} on 2020 May 03.463 UT (MJD 58972.463) with the 48-inch Samuel Oschin Telescope (P48) at Palomar Observatory. The internal designation is ZTF20aayhacx. It was detected at a magnitude of 19.86 in ZTF $g$-band, and J2000 coordinates $\alpha=17^\mathrm{h}53^\mathrm{m}12^\mathrm{s}.651$, $\delta=-00^\circ51'21''.81$. The last non-detection was on 2020 April 27.477 (MJD 58966.477; 5.99\,days before the first detection) up to a limiting magnitude of 20.7 in ZTF $r$-band. This transient was identified as a SN Ia by \citet{TNS_2020} due to the prominent \ion{Si}{2} absorption features and a lack of any H features in the spectrum obtained on 2020 May 28.468.
 
 \subsection{Optical Photometry}
 We obtained $gr$-band photometry of \sn\ with the ZTF camera. A Galactic extinction of $E(B-V)=0.404$ is reported by the maps of \citet{Schlafly2011}, for which we correct all our photometry using the extinction model proposed by \citet{Fitzpatrick1999}. We do not account for any additional host extinction due to the lack of any \ion{Na}{1} D absorption in our spectra.
@@ -48,21 +46,21 @@ We obtained $gr$-band photometry of \sn\ with the ZTF camera. A Galactic extinct
 \end{figure*}
 
 \subsection{Optical Spectroscopy}
-We obtained optical spectroscopic follow-up of the object from $\approx$$-10$\,days to $\approx$$+150$\,days relative to the $r$-band peak, using the Spectral Energy Distribution Machine \citep[SEDM;][]{SEDM_2018} on the automated 60\,inch telescope \citep[P60;][]{P60_2006} at Palomar Observatory, the Kast Double Spectrograph \citep{miller1994kast} at the Shane 3\,m Telescope, the Andalucia Faint Object Spectrograph and Camera (ALFOSC)\footnote{\url{https://www.not.iac.es/instruments/alfosc/}} installed at the Nordic Optical Telescope (NOT), the Double Beam Spectrograph (DBSP) on the 200\,inch Hale telescope \citep[P200;][]{P200_1982}, the Low Resolution Imaging Spectrograph (LRIS) on the Keck I telescope \citep{Keck_1995}.
+We obtained optical spectroscopic follow-up of the object from $\approx$$-10$\,days to $\approx$$+150$\,days relative to the $r$-band peak, using the Spectral Energy Distribution Machine \citep[SEDM;][]{SEDM_2018} on the automated 60\,inch telescope \citep[P60;][]{P60_2006} at Palomar Observatory, the Kast Double Spectrograph \citep{miller1994kast} at the Shane 3\,m Telescope, the Andalucia Faint Object Spectrograph and Camera (ALFOSC)\footnote{\url{https://www.not.iac.es/instruments/alfosc/}} installed at the Nordic Optical Telescope (NOT), the Double Beam Spectrograph (DBSP) on the 200\,inch Hale telescope \citep[P200;][]{P200_1982}, the Low Resolution Imaging Spectrograph (LRIS) on the Keck I telescope \citep{Keck_1995}. \textbf{Data reduction?} Details of the spectroscopic observations are listed in Table~\ref{tab:spec}, and the spectral sequence is shown in Figure~\ref{fig:spec_evo}.
 
-\textbf{Data reduction?}
+On 2022 March 31, two years after the transient faded, we also took a spectrum for its host galaxy using the DEep Imaging Multi-Object Spectrograph (DEIMOS) on the Keck II telescope \citep{DEIMOS_2003}, for a total integration time of 3200\,s. The spectra were reduced with the \texttt{PypeIt} Python package \citep{pypeit:joss_pub,pypeit:zenodo}.
 
 \input{./tables/spec.tex}
 \begin{figure*}
     \centering
     \includegraphics[width=\textwidth]{optical_spec_evolution.pdf}
-    \caption{\textit{Left}: optical spectroscopic sequence of \sn. Rest frame phases (days) relative to the $r$-band peak and instruments used are posted next to each spectrum. The spectra are after Galactic extinction correction are shown in grey. The black lines are binned spectra with a bin size of 10\,\r{A}, except for the SEDM spectra, whose resolution is lower than the bin size. In the last two spectra, we have subtracted the light from the host galaxy. %Only regions with SNR $>3$ after binning are plotted. 
+    \caption{\textit{Left}: optical spectral sequence of \sn. Rest frame phases (days) relative to the $r$-band peak and instruments used are posted next to each spectrum. The spectra are after Galactic extinction correction are shown in grey. The black lines are binned spectra with a bin size of 10\,\r{A}, except for the SEDM spectra, whose resolution is lower than the bin size. In the last two spectra, we have subtracted the light from the host galaxy. %Only regions with SNR $>3$ after binning are plotted. 
     \textit{Right}: spectral comparison with SN\,2018byg (sub-luminous He-shell double detonation) and SN\,2004da (normal luminosity).} %The \ion{Si}{2} and \ion{Ca}{2} IRT absorption lines are indicated by the vertical dashed lines. The telluric lines are denoted by the earth symbol, ``$\earth$''.
     \label{fig:spec_evo}
 \end{figure*}
 
 \subsection{Near-infrared (NIR) Spectroscopy}
-We obtained one NIR (0.8-2.5\,\micron) spectrum of the transient using the Gemini near-infrared spectrometer \citep[GNIRS;][]{GNIRS1998} on the Gemini North telescope on 2020 June 9 ($\approx$22\,days after $r$-band peak), for an integration time of 2400\,s. The spectra were reduced with the \texttt{PypeIt} Python package \citep{pypeit:joss_pub,pypeit:zenodo}.
+We obtained one NIR (0.8-2.5\,\micron) spectrum of the transient using the Gemini near-infrared spectrometer \citep[GNIRS;][]{GNIRS1998} on the Gemini North telescope on 2020 June 9 ($\approx$22\,days after $r$-band peak), for an integration time of 2400\,s. The data were also reduced with the \texttt{PypeIt} package.
 
 \begin{figure*}
     \centering
@@ -86,9 +84,9 @@ Also in the earliest spectrum, the wide absorption features by \ion{Ca}{2} infra
 
 The nebular phase spectra of \sn\ are dominated by the Fe-group elements, showing some enhancement in flux between $\approx$4500 and $\approx$6000\,\r{A}. We did not detect any emission feature related to [\ion{Ca}{2}] $\lambda\lambda$7291, 7324\,\r{A}, which is a hallmark for Calcium-rich gap transients and is also prominent in a few double detonation candidates \citep[e.g., SN\,2016hnk and SN\,2019ofm;][]{De_Ca-rich_2020}. 
 
-\sn\ highly resembles other double detonation candidates (e.g., SN\,2018byg) in (i) the strong continuous absorption blueward of $\approx$5000\,\r{A}, and (ii) the wide absorption feature of \ion{Ca}{2} IRT, with the HVFs being prominent. In the double detonation scenario, a large amount of Fe-group elements will be synthesized in the outer regions of the ejecta, which will cause significant line-blanketing near peak light \citep{Kromer_DD_2010, polin_observational_2019}, and also high velocity intermediate-mass elements like \ion{Ca}{2} \citep{Fink_DD_2010, Kromer_DD_2010}. This makes \sn\ another promising candidate for He-shell double detonation SN.
+\sn\ highly resembles other double detonation candidates (e.g., SN\,2018byg) in (i) the strong continuous absorption blueward of $\approx$5000\,\r{A}, and (ii) the wide absorption feature of \ion{Ca}{2} IRT, with the HVFs being prominent. In the double detonation scenario, a large amount of Fe-group elements will be synthesized in the outer regions of the ejecta, which will cause significant line-blanketing near peak light \citep{Kromer_DD_2010, polin_observational_2019}, and also high velocity intermediate-mass elements like \ion{Ca}{2} \citep{Fink_DD_2010, Kromer_DD_2010}. This makes \sn\ another promising candidate for double detonation SN with a thick helium shell.
 
-In \S\ref{sec:NIR_spec} we will discuss the NIR spectra of the normal-luminosity object, SN\,2004da, to which \sn\ also show similarities (see Figure~\ref{fig:NIR_spec}). Hence we also show one of the optical spectra of SN\,2004da in Figure~\ref{fig:spec_evo}, which is typical for a normal SN Ia. It does not show any suppress of flux in $g$-band, and lacks the HVFs of \ion{Ca}{2} IRT, in contrast to the sub-luminous double detonation objects.
+In Section~\ref{sec:NIR_spec}, we will discuss the NIR spectra of the normal-luminosity object, SN\,2004da, to which \sn\ show some similarities (see Figure~\ref{fig:NIR_spec}). Hence we also plot one of the optical spectra of SN\,2004da in Figure~\ref{fig:spec_evo}, which is typical for a normal SN Ia. It does not show any suppress of flux in $g$-band, and lacks the HVFs of \ion{Ca}{2} IRT, in contrast to the sub-luminous double detonation objects.
 
 \subsection{NIR Spectral properties}
 \label{sec:NIR_spec}
@@ -126,11 +124,16 @@ Alternatively, since the NIR spectra for the three objects were all obtained at 
 \end{figure}
 
 \section{Host Galaxy} \label{sec:host}
+A DEIMOS spectrum was obtained on 2022 March 31 for the host galaxy ({\bf name? ALLWISE? PS?}), with prominent narrow emission lines. With the diagnostic emission line ratios ($\lg$~[\ion{N}{2}]/H$\alpha=-1.19\pm0.07$ and $\lg$~[\ion{O}{3}]/H$\beta=0.53\pm0.06$), the BPT diagram \citep{BPT_1981, Veilleux_1987} classified the host galaxy as a star-forming galaxy.
+
+We evaluated the detailed stellar properties using \texttt{Prospector} \citep{Johnson_prospector_2021}, a package for principled inference of stellar population properties using photometric and/or spectroscopic data. The input data included the Galactic extinction corrected DEIMOS spectrum, as well as the archival photometric data from the Panoramic Survey Telescope and Rapid Response System \citep[Pan-STARRS;][{\it r, i, z} Kron magnitudes]{PS1_2016}  and the VISTA Hemisphere Survey \citep[VHS;][J and $\mathrm{K}_\mathrm{s}$ Petrosian magnitudes]{VHS_2013}. In the best fit, the estimated stellar mass is $\lg (M_*\,[\mathrm{M_\odot}])=7.79_{-0.06}^{+0.07}$, and the specific star-formation rate (sSFR) is $\lg (\mathrm{sSFR}\,[\mathrm{yr}^{-1}])=-10.25_{-0.08}^{+0.09}$, with the uncertainties denoting the 68\% credible intervals. 
+
+In Figure~\ref{fig:host}, we show the sSFR and the stellar mass for the host galaxies of He-shell double detonation candidates with thick shells. The host stellar properties for all four candidates prior to \sn\ were archived in the SDSS MPA-JHU DR8 catalog \citep{Kauffmann_SDSS_2003,Brinchmann_SDSS_2004}. For the SN\,2016hnk host, however, the SDSS $\lg(\mathrm{sSFR})$ has an uncertainty $\gtrsim$1, with which we cannot constrain the type of the host. Hence we adopted the integral field spectroscopic results by \citet{galbany_16hnk_2019}, which was obtained as part of the PMAS/PPak Integral-field Supernova Hosts Compilation \citep[PISCO;][]{Galbany_PISCO_2018}. 
 \begin{figure}
     \centering
     \includegraphics[width=\linewidth]{host.pdf}
     \label{fig:host}
-    \caption{The specific star formation rate (sSFR) and the galactic mass for the host galaxies of He-shell double detonation candidates. The data for the host of SN\,2016hnk are taken from \citet{galbany_16hnk_2019}, and for hosts we apply the galaxy parameters from the SDSS MPA-JHU DR8 catalog \citep{Kauffmann_SDSS_2003,Brinchmann_SDSS_2004}.}
+    \caption{The specific star-formation rate (sSFR) and the stellar mass for the host galaxies of He-shell double detonation candidates with thick shells. The parameters for the host of SN\,2016hnk are taken from \citet{galbany_16hnk_2019}, and for other hosts we apply the galaxy parameters from the SDSS MPA-JHU DR8 catalog \citep{Kauffmann_SDSS_2003,Brinchmann_SDSS_2004}.}
 \end{figure}
 
 \section{Model Comparisons} \label{sec:model}
