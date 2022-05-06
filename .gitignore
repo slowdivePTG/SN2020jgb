@@ -151,6 +151,9 @@ orcid-ID.png
 # SDSS catalog
 galSpec*.fits
 
+# Prospector posterior
+*_posteriors.csv
+
 rv/ZTF18aaqeasu/
 rv/SN2016hnk/
 rv/SN2022an/
