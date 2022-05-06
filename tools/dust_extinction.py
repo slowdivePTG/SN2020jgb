@@ -1,9 +1,10 @@
 '''
 Extinction models
-https://github.com/adamamiller/dust_extinction
 '''
 
+from lib2to3.pgen2.token import OP
 import numpy as np
+from pyparsing import Opt
 from scipy import interpolate
 
 def fm90( wv, c1, c2, c3, c4, x0, gamma ):
@@ -24,7 +25,7 @@ def fm90( wv, c1, c2, c3, c4, x0, gamma ):
     def F(x):
         return ( 0.5392 + 0.05644 * ( x - 5.9 ) ) * ( x - 5.9 ) * ( x - 5.9 ) * ( x > 5.9 )
 
-    x = 1e4 / wv
+    x = 1.0e4 / wv
 
     return c1 + c2 * x + \
         c3 * x * x / ( ( x * x - x0 * x0 ) * ( x * x - x0 * x0 ) + x * x * gamma * gamma ) + \
@@ -41,6 +42,8 @@ def ftz( wv, RV ):
     Return:
         E(wv-V)/E(B-V)
     '''
+
+    wv = np.float64(wv)
 
     # UV, lambda < 2700
     c2 = -0.824 + 4.717 / RV
@@ -59,7 +62,7 @@ def ftz( wv, RV ):
                      1.208 + 1.0032 * RV - 0.00033 * RV * RV,
                      UVFunc( 2700 ) + RV, UVFunc( 2600 ) + RV ] )
     tck = interpolate.splrep( x, y )
-    OptIRFunc = lambda wv: interpolate.splev( 1e4 / wv, tck ) - RV
+    OptIRFunc = lambda wv: interpolate.splev( 1.0e4 / wv, tck ) - RV
 
     return np.piecewise( wv, [ wv < 2700, wv >= 2700 ], [ UVFunc, OptIRFunc ] )
 
