@@ -139,7 +139,7 @@ setup_files/
 # LaTeX
 *.aux
 *.blg
-*.bib
+#*.bib
 *.fdb_latexmk
 *.out
 *.synctex.gz
