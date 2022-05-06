@@ -17,6 +17,11 @@ def fits2ascii(file, output, lower=-np.inf, upper=np.inf):
           fmt=("%.4f", "%.4f", "%.4e"),
           header=header,
       )
-    plt.errorbar(wv, fl/np.nanmedian(fl), yerr=unc)
-    plt.errorbar(wv, fl/unc, color='k')
+    f, ax = plt.subplots(2, 1, sharex=True)
+    ax[0].plot(wv, fl/np.nanmedian(fl))
+    ax[1].plot(wv, fl/unc, color='k')
+    ax[1].set_yscale('log')
+    ax[0].set_ylabel('Flux')
+    ax[1].set_ylabel('SNR')
+    ax[1].set_xlabel('Wavelength')
     plt.show()
