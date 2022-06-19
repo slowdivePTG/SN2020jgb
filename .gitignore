@@ -153,6 +153,7 @@ galSpec*.fits
 
 # Prospector posterior
 *_posteriors.csv
+*norm*.csv
 
 rv/ZTF18aaqeasu/
 rv/SN2016hnk/
