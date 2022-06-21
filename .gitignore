@@ -155,6 +155,8 @@ galSpec*.fits
 *_posteriors.csv
 *norm*.csv
 
-rv/ZTF18aaqeasu/
-rv/SN2016hnk/
+# vscode
+.vscode/
+
+rv/ZTF22aajijjf/
 rv/SN2022an/
