@@ -241,6 +241,9 @@ de~los Reyes, M. A.~C., Kirby, E.~N., Seitenzahl, I.~R., \& Shen, K.~J. 2020,
 \bibitem[{{Fitzpatrick}(1999)}]{Fitzpatrick1999}
 {Fitzpatrick}, E.~L. 1999, \pasp, 111, 63, \dodoi{10.1086/316293}
 
+\bibitem[{{Foley}(2015)}]{Foley_2015}
+{Foley}, R.~J. 2015, \mnras, 452, 2463, \dodoi{10.1093/mnras/stv789}
+
 \bibitem[{{Foreman-Mackey} {et~al.}(2013){Foreman-Mackey}, {Hogg}, {Lang}, \&
   {Goodman}}]{emcee_2013}
 {Foreman-Mackey}, D., {Hogg}, D.~W., {Lang}, D., \& {Goodman}, J. 2013, \pasp,
@@ -267,6 +270,13 @@ de~los Reyes, M. A.~C., Kirby, E.~N., Seitenzahl, I.~R., \& Shen, K.~J. 2020,
 Galbany, L., Ashall, C., Höflich, P., {et~al.} 2019, Astronomy \&
   Astrophysics, 630, A76, \dodoi{10.1051/0004-6361/201935537}
 
+\bibitem[{{Geier} {et~al.}(2013){Geier}, {Marsh}, {Wang}, {Dunlap}, {Barlow},
+  {Schaffenroth}, {Chen}, {Irrgang}, {Maxted}, {Ziegerer}, {Kupfer},
+  {Miszalski}, {Heber}, {Han}, {Shporer}, {Telting}, {G{\"a}nsicke},
+  {{\O}stensen}, {O'Toole}, \& {Napiwotzki}}]{Geier_2013}
+{Geier}, S., {Marsh}, T.~R., {Wang}, B., {et~al.} 2013, \aap, 554, A54,
+  \dodoi{10.1051/0004-6361/201321395}
+
 \bibitem[{{Graham} {et~al.}(2019){Graham}, {Kulkarni}, {Bellm}, {Adams},
   {Barbarino}, {Blagorodnova}, {Bodewits}, {Bolin}, {Brady}, {Cenko}, {Chang},
   {Coughlin}, {De}, {Eadie}, {Farnham}, {Feindt}, {Franckowiak}, {Fremling},
@@ -287,6 +297,11 @@ Galbany, L., Ashall, C., Höflich, P., {et~al.} 2019, Astronomy \&
   {Zolkower}}]{ZTF2019b}
 {Graham}, M.~J., {Kulkarni}, S.~R., {Bellm}, E.~C., {et~al.} 2019, \pasp, 131,
   078001, \dodoi{10.1088/1538-3873/ab006c}
+
+\bibitem[{{Gronow} {et~al.}(2020){Gronow}, {Collins}, {Ohlmann}, {Pakmor},
+  {Kromer}, {Seitenzahl}, {Sim}, \& {R{\"o}pke}}]{Gronow_2020}
+{Gronow}, S., {Collins}, C., {Ohlmann}, S.~T., {et~al.} 2020, \aap, 635, A169,
+  \dodoi{10.1051/0004-6361/201936494}
 
 \bibitem[{{Guillochon} {et~al.}(2017){Guillochon}, {Parrent}, {Kelley}, \&
   {Margutti}}]{Guillochon_2017}
@@ -357,6 +372,19 @@ Johnson, B., Leja, J., Bowman, W., {et~al.} 2022, bd-j/prospector: v1.1,
   {Seitenzahl}, \& {Hillebrandt}}]{Kromer_DD_2010}
 {Kromer}, M., {Sim}, S.~A., {Fink}, M., {et~al.} 2010, \apj, 719, 1067,
   \dodoi{10.1088/0004-637X/719/2/1067}
+
+\bibitem[{{Kupfer} {et~al.}(2022){Kupfer}, {Bauer}, {van Roestel}, {Bellm},
+  {Bildsten}, {Fuller}, {Prince}, {Heber}, {Geier}, {Green}, {Kulkarni},
+  {Bloemen}, {Laher}, {Rusholme}, \& {Schneider}}]{Kupfer_2022}
+{Kupfer}, T., {Bauer}, E.~B., {van Roestel}, J., {et~al.} 2022, \apjl, 925,
+  L12, \dodoi{10.3847/2041-8213/ac48f1}
+
+\bibitem[{{Lunnan} {et~al.}(2017){Lunnan}, {Kasliwal}, {Cao}, {Hangard},
+  {Yaron}, {Parrent}, {McCully}, {Gal-Yam}, {Mulchaey}, {Ben-Ami},
+  {Filippenko}, {Fremling}, {Fruchter}, {Howell}, {Koda}, {Kupfer}, {Kulkarni},
+  {Laher}, {Masci}, {Nugent}, {Ofek}, {Yagi}, \& {Yan}}]{Lunnan_2017}
+{Lunnan}, R., {Kasliwal}, M.~M., {Cao}, Y., {et~al.} 2017, \apj, 836, 60,
+  \dodoi{10.3847/1538-4357/836/1/60}
 
 \bibitem[{{Maguire} {et~al.}(2014){Maguire}, {Sullivan}, {Pan}, {Gal-Yam},
   {Hook}, {Howell}, {Nugent}, {Mazzali}, {Chotard}, {Clubb}, {Filippenko},
@@ -484,15 +512,29 @@ Prochaska, J.~X., Hennawi, J.~F., Westfall, K.~B., {et~al.} 2020, Journal of
 {Shahbandeh}, M., {Hsiao}, E.~Y., {Ashall}, C., {et~al.} 2022, \apj, 925, 175,
   \dodoi{10.3847/1538-4357/ac4030}
 
+\bibitem[{{Shen} {et~al.}(2021){Shen}, {Boos}, {Townsley}, \&
+  {Kasen}}]{Shen_2021}
+{Shen}, K.~J., {Boos}, S.~J., {Townsley}, D.~M., \& {Kasen}, D. 2021, \apj,
+  922, 68, \dodoi{10.3847/1538-4357/ac2304}
+
 \bibitem[{{Shen} \& {Moore}(2014)}]{Shen_DD_2014}
 {Shen}, K.~J., \& {Moore}, K. 2014, \apj, 797, 46,
   \dodoi{10.1088/0004-637X/797/1/46}
+
+\bibitem[{{Shen} {et~al.}(2019){Shen}, {Quataert}, \& {Pakmor}}]{Shen_2019}
+{Shen}, K.~J., {Quataert}, E., \& {Pakmor}, R. 2019, \apj, 887, 180,
+  \dodoi{10.3847/1538-4357/ab5370}
 
 \bibitem[{{Silverman} {et~al.}(2015){Silverman}, {Vink{\'o}}, {Marion},
   {Wheeler}, {Barna}, {Szalai}, {Mulligan}, \&
   {Filippenko}}]{Silverman_HVF_2015}
 {Silverman}, J.~M., {Vink{\'o}}, J., {Marion}, G.~H., {et~al.} 2015, \mnras,
   451, 1973, \dodoi{10.1093/mnras/stv1011}
+
+\bibitem[{{Sim} {et~al.}(2012){Sim}, {Fink}, {Kromer}, {R{\"o}pke}, {Ruiter},
+  \& {Hillebrandt}}]{Sim_2012}
+{Sim}, S.~A., {Fink}, M., {Kromer}, M., {et~al.} 2012, \mnras, 420, 3003,
+  \dodoi{10.1111/j.1365-2966.2011.20162.x}
 
 \bibitem[{{Smith} {et~al.}(2012){Smith}, {Nichol}, {Dilday}, {Marriner},
   {Kessler}, {Bassett}, {Cinabro}, {Frieman}, {Garnavich}, {Jha}, {Lampeitl},
