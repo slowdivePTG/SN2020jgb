@@ -315,7 +315,7 @@ Galbany, L., Ashall, C., Höflich, P., {et~al.} 2019, Astronomy \&
   {Gonz{\'a}lez-Gait{\'a}n}, {Goobar}, {Hamuy}, {Holmbo}, {Kasliwal},
   {Krisciunas}, {Kumar}, {Lidman}, {Lu}, {Nugent}, {Perlmutter}, {Persson},
   {Piro}, {Rabinowitz}, {Roth}, {Ryder}, {Schmidt}, {Shahbandeh}, {Suntzeff},
-  {Taddia}, {Uddin}, \& {Wang}}]{hsiao_CSP_2019}
+  {Taddia}, {Uddin}, \& {Wang}}]{Hsiao_CSP_2019}
 {Hsiao}, E.~Y., {Phillips}, M.~M., {Marion}, G.~H., {et~al.} 2019, \pasp, 131,
   014002, \dodoi{10.1088/1538-3873/aae961}
 
@@ -349,11 +349,6 @@ Jacobson-Galán, W.~V., Polin, A., Foley, R.~J., {et~al.} 2020, The
   Furusawa, \& Miyazaki}]{jiang_16jhr_2017}
 Jiang, J.-a., Doi, M., Maeda, K., {et~al.} 2017, Nature, 550, 80,
   \dodoi{10.1038/nature23908}
-
-\bibitem[{Johnson {et~al.}(2022)Johnson, Leja, Bowman, Moustakas, Suess, Belli,
-  Guillochon, Pasha, Speagle, Pena, \& Coughlin}]{ben_johnson_2022}
-Johnson, B., Leja, J., Bowman, W., {et~al.} 2022, bd-j/prospector: v1.1,
-  v1.1.0,  Zenodo, \dodoi{10.5281/zenodo.6192136}
 
 \bibitem[{{Johnson} {et~al.}(2021){Johnson}, {Leja}, {Conroy}, \&
   {Speagle}}]{Johnson_prospector_2021}
@@ -482,6 +477,9 @@ Pedregosa, F., Varoquaux, G., Gramfort, A., {et~al.} 2011, Journal of Machine
 Polin, A., Nugent, P., \& Kasen, D. 2019, \apj, 873, 84,
   \dodoi{10.3847/1538-4357/aafb6a}
 
+\bibitem[{Polin {et~al.}(2021)Polin, Nugent, \& Kasen}]{polin_nebular_2021}
+---. 2021, \apj, 906, 65, \dodoi{10.3847/1538-4357/abcccc}
+
 \bibitem[{{Poznanski} {et~al.}(2011){Poznanski}, {Ganeshalingam}, {Silverman},
   \& {Filippenko}}]{Poznanski_2011}
 {Poznanski}, D., {Ganeshalingam}, M., {Silverman}, J.~M., \& {Filippenko},
@@ -517,6 +515,11 @@ Prochaska, J.~X., Hennawi, J.~F., Westfall, K.~B., {et~al.} 2020, Journal of
 {Shen}, K.~J., {Boos}, S.~J., {Townsley}, D.~M., \& {Kasen}, D. 2021, \apj,
   922, 68, \dodoi{10.3847/1538-4357/ac2304}
 
+\bibitem[{{Shen} {et~al.}(2018){Shen}, {Kasen}, {Miles}, \&
+  {Townsley}}]{Shen_DD_2018}
+{Shen}, K.~J., {Kasen}, D., {Miles}, B.~J., \& {Townsley}, D.~M. 2018, \apj,
+  854, 52, \dodoi{10.3847/1538-4357/aaa8de}
+
 \bibitem[{{Shen} \& {Moore}(2014)}]{Shen_DD_2014}
 {Shen}, K.~J., \& {Moore}, K. 2014, \apj, 797, 46,
   \dodoi{10.1088/0004-637X/797/1/46}
@@ -535,6 +538,11 @@ Prochaska, J.~X., Hennawi, J.~F., Westfall, K.~B., {et~al.} 2020, Journal of
   \& {Hillebrandt}}]{Sim_2012}
 {Sim}, S.~A., {Fink}, M., {Kromer}, M., {et~al.} 2012, \mnras, 420, 3003,
   \dodoi{10.1111/j.1365-2966.2011.20162.x}
+
+\bibitem[{{Sim} {et~al.}(2010){Sim}, {R{\"o}pke}, {Hillebrandt}, {Kromer},
+  {Pakmor}, {Fink}, {Ruiter}, \& {Seitenzahl}}]{Sim_2010}
+{Sim}, S.~A., {R{\"o}pke}, F.~K., {Hillebrandt}, W., {et~al.} 2010, \apjl, 714,
+  L52, \dodoi{10.1088/2041-8205/714/1/L52}
 
 \bibitem[{{Smith} {et~al.}(2012){Smith}, {Nichol}, {Dilday}, {Marriner},
   {Kessler}, {Bassett}, {Cinabro}, {Frieman}, {Garnavich}, {Jha}, {Lampeitl},
