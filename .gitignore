@@ -139,7 +139,7 @@ setup_files/
 # LaTeX
 *.aux
 *.blg
-*.bib
+#*.bib
 *.fdb_latexmk
 *.out
 *.synctex.gz
@@ -151,6 +151,19 @@ orcid-ID.png
 # SDSS catalog
 galSpec*.fits
 
+
 rv/ZTF18aaqeasu/
 rv/SN2016hnk/
 rv/SN2022an/
+
+# Prospector posterior
+*_posteriors.csv
+*norm*.csv
+
+# vscode
+.vscode/
+
+rv/ZTF22aajijjf/
+rv/SN2022an/
+rv/SN2016hnk/absorption_line_velocity*ipynb
+
