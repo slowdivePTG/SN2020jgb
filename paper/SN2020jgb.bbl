@@ -67,6 +67,11 @@
 {Bellm}, E.~C., {Kulkarni}, S.~R., {Graham}, M.~J., {et~al.} 2019, \pasp, 131,
   018002, \dodoi{10.1088/1538-3873/aaecbe}
 
+\bibitem[{{Bildsten} {et~al.}(2007){Bildsten}, {Shen}, {Weinberg}, \&
+  {Nelemans}}]{Bildsten_2007}
+{Bildsten}, L., {Shen}, K.~J., {Weinberg}, N.~N., \& {Nelemans}, G. 2007,
+  \apjl, 662, L95, \dodoi{10.1086/519489}
+
 \bibitem[{{Blagorodnova} {et~al.}(2018){Blagorodnova}, {Neill}, {Walters},
   {Kulkarni}, {Fremling}, {Ben-Ami}, {Dekany}, {Fucik}, {Konidaris}, {Nash},
   {Ngeow}, {Ofek}, {O' Sullivan}, {Quimby}, {Ritter}, \&
@@ -164,6 +169,13 @@ De, K., Kasliwal, M.~M., Tzanidakis, A., {et~al.} 2020, The Astrophysical
 de~los Reyes, M. A.~C., Kirby, E.~N., Seitenzahl, I.~R., \& Shen, K.~J. 2020,
   \apj, 891, 85, \dodoi{10.3847/1538-4357/ab736f}
 
+\bibitem[{{Deckers} {et~al.}(2022){Deckers}, {Maguire}, {Magee}, {Dimitriadis},
+  {Smith}, {Sainz de Murieta}, {Miller}, {Goobar}, {Nordin}, {Rigault},
+  {Bellm}, {Coughlin}, {Laher}, {Shupe}, {Graham}, {Kasliwal}, \&
+  {Walters}}]{Deckers_2022}
+{Deckers}, M., {Maguire}, K., {Magee}, M.~R., {et~al.} 2022, \mnras, 512, 1317,
+  \dodoi{10.1093/mnras/stac558}
+
 \bibitem[{{Dessart} \& {Hillier}(2015)}]{Dessart_2015}
 {Dessart}, L., \& {Hillier}, D.~J. 2015, \mnras, 447, 1370,
   \dodoi{10.1093/mnras/stu2520}
@@ -232,6 +244,12 @@ de~los Reyes, M. A.~C., Kirby, E.~N., Seitenzahl, I.~R., \& Shen, K.~J. 2020,
   4841, Instrument Design and Performance for Optical/Infrared Ground-based
   Telescopes, ed. M.~{Iye} \& A.~F.~M. {Moorwood}, 1657--1669,
   \dodoi{10.1117/12.460346}
+
+\bibitem[{{Filippenko} {et~al.}(1992){Filippenko}, {Richmond}, {Branch},
+  {Gaskell}, {Herbst}, {Ford}, {Treffers}, {Matheson}, {Ho}, {Dey}, {Sargent},
+  {Small}, \& {van Breugel}}]{Filippenko_91bg_1992}
+{Filippenko}, A.~V., {Richmond}, M.~W., {Branch}, D., {et~al.} 1992, \aj, 104,
+  1543, \dodoi{10.1086/116339}
 
 \bibitem[{{Fink} {et~al.}(2010){Fink}, {R{\"o}pke}, {Hillebrandt},
   {Seitenzahl}, {Sim}, \& {Kromer}}]{Fink_DD_2010}
@@ -374,6 +392,12 @@ Jiang, J.-a., Doi, M., Maeda, K., {et~al.} 2017, Nature, 550, 80,
 {Kupfer}, T., {Bauer}, E.~B., {van Roestel}, J., {et~al.} 2022, \apjl, 925,
   L12, \dodoi{10.3847/2041-8213/ac48f1}
 
+\bibitem[{{Livne}(1990)}]{Livne_1990}
+{Livne}, E. 1990, \apjl, 354, L53, \dodoi{10.1086/185721}
+
+\bibitem[{{Livne} \& {Arnett}(1995)}]{Livne_1995}
+{Livne}, E., \& {Arnett}, D. 1995, \apj, 452, 62, \dodoi{10.1086/176279}
+
 \bibitem[{{Lunnan} {et~al.}(2017){Lunnan}, {Kasliwal}, {Cao}, {Hangard},
   {Yaron}, {Parrent}, {McCully}, {Gal-Yam}, {Mulchaey}, {Ben-Ami},
   {Filippenko}, {Fremling}, {Fruchter}, {Howell}, {Koda}, {Kupfer}, {Kulkarni},
@@ -445,6 +469,12 @@ Miller, J., \& Stone, R. 1994, The Kast Double Spectograph, Lick Observatory
   {Reichart}, {Rich}, {Ryder}, {Smith}, {Wyatt}, \& {Yang}}]{Ni_2022}
 {Ni}, Y.~Q., {Moon}, D.-S., {Drout}, M.~R., {et~al.} 2022, Nature Astronomy,
   \dodoi{10.1038/s41550-022-01603-4}
+
+\bibitem[{{Nomoto}(1982{\natexlab{a}})}]{Nomoto_1982a}
+{Nomoto}, K. 1982{\natexlab{a}}, \apj, 253, 798, \dodoi{10.1086/159682}
+
+\bibitem[{{Nomoto}(1982{\natexlab{b}})}]{Nomoto_1982b}
+---. 1982{\natexlab{b}}, \apj, 257, 780, \dodoi{10.1086/160031}
 
 \bibitem[{{Nugent} {et~al.}(2011){Nugent}, {Sullivan}, {Cenko}, {Thomas},
   {Kasen}, {Howell}, {Bersier}, {Bloom}, {Kulkarni}, {Kandrashoff},
@@ -580,6 +610,15 @@ Prochaska, J.~X., Hennawi, J.~F., Westfall, K.~B., {et~al.} 2020, Journal of
 \bibitem[{Waskom(2021)}]{Waskom_seaborn_2021}
 Waskom, M.~L. 2021, Journal of Open Source Software, 6, 3021,
   \dodoi{10.21105/joss.03021}
+
+\bibitem[{{Woosley} {et~al.}(1986){Woosley}, {Taam}, \&
+  {Weaver}}]{Woosley_1986}
+{Woosley}, S.~E., {Taam}, R.~E., \& {Weaver}, T.~A. 1986, \apj, 301, 601,
+  \dodoi{10.1086/163926}
+
+\bibitem[{{Woosley} \& {Weaver}(1994)}]{Woosley_1994}
+{Woosley}, S.~E., \& {Weaver}, T.~A. 1994, \apj, 423, 371,
+  \dodoi{10.1086/173813}
 
 \bibitem[{{Yaron} \& {Gal-Yam}(2012)}]{wiserep_2012}
 {Yaron}, O., \& {Gal-Yam}, A. 2012, \pasp, 124, 668, \dodoi{10.1086/666656}
