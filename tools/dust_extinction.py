@@ -1,10 +1,17 @@
 '''
 Extinction models
+<<<<<<< HEAD
+https://github.com/adamamiller/dust_extinction
+'''
+
+import numpy as np
+=======
 '''
 
 from lib2to3.pgen2.token import OP
 import numpy as np
 from pyparsing import Opt
+>>>>>>> 789276ea70e52fa3f7754c2ae0f37ca2d10f316e
 from scipy import interpolate
 
 def fm90( wv, c1, c2, c3, c4, x0, gamma ):
@@ -30,7 +37,7 @@ def fm90( wv, c1, c2, c3, c4, x0, gamma ):
     return c1 + c2 * x + \
         c3 * x * x / ( ( x * x - x0 * x0 ) * ( x * x - x0 * x0 ) + x * x * gamma * gamma ) + \
         c4 * F(x)
-
+    '''
 
 def ftz( wv, RV ):
     '''
