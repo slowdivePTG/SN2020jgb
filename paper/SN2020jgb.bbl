@@ -126,6 +126,23 @@
   e-prints, arXiv:1612.05560.
 \newblock \doarXiv{1612.05560}
 
+\bibitem[{{Childress} {et~al.}(2014){Childress}, {Filippenko}, {Ganeshalingam},
+  \& {Schmidt}}]{Childress_2014}
+{Childress}, M.~J., {Filippenko}, A.~V., {Ganeshalingam}, M., \& {Schmidt},
+  B.~P. 2014, \mnras, 437, 338, \dodoi{10.1093/mnras/stt1892}
+
+\bibitem[{{Childress} {et~al.}(2013){Childress}, {Scalzo}, {Sim}, {Tucker},
+  {Yuan}, {Schmidt}, {Cenko}, {Silverman}, {Contreras}, {Hsiao}, {Phillips},
+  {Morrell}, {Jha}, {McCully}, {Filippenko}, {Anderson}, {Benetti}, {Bufano},
+  {de Jaeger}, {Forster}, {Gal-Yam}, {Le Guillou}, {Maguire}, {Maund},
+  {Mazzali}, {Pignata}, {Smartt}, {Spyromilio}, {Sullivan}, {Taddia},
+  {Valenti}, {Bayliss}, {Bessell}, {Blanc}, {Carson}, {Clubb}, {de Burgh-Day},
+  {Desjardins}, {Fang}, {Fox}, {Gates}, {Ho}, {Keller}, {Kelly}, {Lidman},
+  {Loaring}, {Mould}, {Owers}, {Ozbilgen}, {Pei}, {Pickering}, {Pracy}, {Rich},
+  {Schaefer}, {Scott}, {Stritzinger}, {Vogt}, \& {Zhou}}]{Childress_2013}
+{Childress}, M.~J., {Scalzo}, R.~A., {Sim}, S.~A., {et~al.} 2013, \apj, 770,
+  29, \dodoi{10.1088/0004-637X/770/1/29}
+
 \bibitem[{{Dahiwale} \& {Fremling}(2020)}]{TNS_2020}
 {Dahiwale}, A., \& {Fremling}, C. 2020, Transient Name Server Classification
   Report, 2020-1624, 1
@@ -219,6 +236,12 @@ de~los Reyes, M. A.~C., Kirby, E.~N., Seitenzahl, I.~R., \& Shen, K.~J. 2020,
   \& {Ward}}]{Duev_ZTFML_2019}
 {Duev}, D.~A., {Mahabal}, A., {Masci}, F.~J., {et~al.} 2019, \mnras, 489, 3582,
   \dodoi{10.1093/mnras/stz2357}
+
+\bibitem[{{Eitner} {et~al.}(2022){Eitner}, {Bergemann}, {Ruiter}, {Seitenzahl},
+  {Gent}, \& {C{\^o}t{\'e}}}]{Eitner_2022}
+{Eitner}, P., {Bergemann}, M., {Ruiter}, A.~J., {et~al.} 2022, arXiv e-prints,
+  arXiv:2206.10258.
+\newblock \doarXiv{2206.10258}
 
 \bibitem[{{Elias} {et~al.}(1998){Elias}, {Vukobratovich}, {Andrew}, {Cho},
   {Cuberly}, {Don}, {Gerzoff}, {Harmer}, {Harris}, {Heynssens}, {Hicks},
@@ -445,6 +468,15 @@ Jiang, J.-a., Doi, M., Maeda, K., {et~al.} 2017, Nature, 550, 80,
 {Matheson}, T., {Filippenko}, A.~V., {Barth}, A.~J., {et~al.} 2000, \aj, 120,
   1487, \dodoi{10.1086/301518}
 
+\bibitem[{{Mazzali} {et~al.}(2005){Mazzali}, {Benetti}, {Altavilla}, {Blanc},
+  {Cappellaro}, {Elias-Rosa}, {Garavini}, {Goobar}, {Harutyunyan}, {Kotak},
+  {Leibundgut}, {Lundqvist}, {Mattila}, {Mendez}, {Nobili}, {Pain},
+  {Pastorello}, {Patat}, {Pignata}, {Podsiadlowski}, {Ruiz-Lapuente}, {Salvo},
+  {Schmidt}, {Sollerman}, {Stanishev}, {Stehle}, {Tout}, {Turatto}, \&
+  {Hillebrandt}}]{Mazzali_2005}
+{Mazzali}, P.~A., {Benetti}, S., {Altavilla}, G., {et~al.} 2005, \apjl, 623,
+  L37, \dodoi{10.1086/429874}
+
 \bibitem[{{McMahon} {et~al.}(2013){McMahon}, {Banerji}, {Gonzalez}, {Koposov},
   {Bejar}, {Lodieu}, {Rebolo}, \& {VHS Collaboration}}]{VHS_2013}
 {McMahon}, R.~G., {Banerji}, M., {Gonzalez}, E., {et~al.} 2013, The Messenger,
@@ -562,6 +594,16 @@ Prochaska, J.~X., Hennawi, J.~F., Westfall, K.~B., {et~al.} 2020, Journal of
   {Filippenko}}]{Silverman_HVF_2015}
 {Silverman}, J.~M., {Vink{\'o}}, J., {Marion}, G.~H., {et~al.} 2015, \mnras,
   451, 1973, \dodoi{10.1093/mnras/stv1011}
+
+\bibitem[{{Silverman} {et~al.}(2012){Silverman}, {Foley}, {Filippenko},
+  {Ganeshalingam}, {Barth}, {Chornock}, {Griffith}, {Kong}, {Lee}, {Leonard},
+  {Matheson}, {Miller}, {Steele}, {Barris}, {Bloom}, {Cobb}, {Coil},
+  {Desroches}, {Gates}, {Ho}, {Jha}, {Kandrashoff}, {Li}, {Mandel}, {Modjaz},
+  {Moore}, {Mostardi}, {Papenkova}, {Park}, {Perley}, {Poznanski}, {Reuter},
+  {Scala}, {Serduke}, {Shields}, {Swift}, {Tonry}, {Van Dyk}, {Wang}, \&
+  {Wong}}]{Silverman_2012}
+{Silverman}, J.~M., {Foley}, R.~J., {Filippenko}, A.~V., {et~al.} 2012, \mnras,
+  425, 1789, \dodoi{10.1111/j.1365-2966.2012.21270.x}
 
 \bibitem[{{Sim} {et~al.}(2012){Sim}, {Fink}, {Kromer}, {R{\"o}pke}, {Ruiter},
   \& {Hillebrandt}}]{Sim_2012}
