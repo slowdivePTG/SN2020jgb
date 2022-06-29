@@ -527,12 +527,6 @@ Miller, J., \& Stone, R. 1994, The Kast Double Spectograph, Lick Observatory
 {Patterson}, M.~T., {Bellm}, E.~C., {Rusholme}, B., {et~al.} 2019, \pasp, 131,
   018001, \dodoi{10.1088/1538-3873/aae904}
 
-\bibitem[{Pedregosa {et~al.}(2011)Pedregosa, Varoquaux, Gramfort, Michel,
-  Thirion, Grisel, Blondel, Prettenhofer, Weiss, Dubourg, Vanderplas, Passos,
-  Cournapeau, Brucher, Perrot, \& Duchesnay}]{scikit-learn}
-Pedregosa, F., Varoquaux, G., Gramfort, A., {et~al.} 2011, Journal of Machine
-  Learning Research, 12, 2825
-
 \bibitem[{Polin {et~al.}(2019)Polin, Nugent, \&
   Kasen}]{polin_observational_2019}
 Polin, A., Nugent, P., \& Kasen, D. 2019, \apj, 873, 84,
@@ -572,7 +566,7 @@ Prochaska, J.~X., Hennawi, J.~F., Westfall, K.~B., {et~al.} 2020, Journal of
   \dodoi{10.3847/1538-4357/ac4030}
 
 \bibitem[{{Shen} {et~al.}(2021){Shen}, {Boos}, {Townsley}, \&
-  {Kasen}}]{Shen_2021}
+  {Kasen}}]{Shen_2D_2021}
 {Shen}, K.~J., {Boos}, S.~J., {Townsley}, D.~M., \& {Kasen}, D. 2021, \apj,
   922, 68, \dodoi{10.3847/1538-4357/ac2304}
 
