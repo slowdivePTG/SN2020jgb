@@ -487,15 +487,25 @@ Miller, J., \& Stone, R. 1994, The Kast Double Spectograph, Lick Observatory
   technical reports (University of California Observatories/Lick Observatory).
 \newblock \url{https://books.google.com/books?id=QXk2AQAAIAAJ}
 
-\bibitem[{{Ni} {et~al.}(2022){Ni}, {Moon}, {Drout}, {Polin}, {Sand},
-  {Gonz{\'a}lez-Gait{\'a}n}, {Kim}, {Lee}, {Park}, {Howell}, {Nugent}, {Piro},
-  {Brown}, {Galbany}, {Burke}, {Hiramatsu}, {Hosseinzadeh}, {Valenti},
+\bibitem[{{Ni} {et~al.}(2022{\natexlab{a}}){Ni}, {Moon}, {Drout}, {Polin},
+  {Sand}, {Gonz{\'a}lez-Gait{\'a}n}, {Kim}, {Lee}, {Park}, {Howell}, {Nugent},
+  {Piro}, {Brown}, {Galbany}, {Burke}, {Hiramatsu}, {Hosseinzadeh}, {Valenti},
   {Afsariardchi}, {Andrews}, {Antoniadis}, {Arcavi}, {Beaton}, {Bostroem},
   {Carlberg}, {Cenko}, {Cha}, {Dong}, {Gal-Yam}, {Haislip}, {Holoien},
   {Johnson}, {Kouprianov}, {Lee}, {Matzner}, {Morrell}, {McCully}, {Pignata},
   {Reichart}, {Rich}, {Ryder}, {Smith}, {Wyatt}, \& {Yang}}]{Ni_2022}
-{Ni}, Y.~Q., {Moon}, D.-S., {Drout}, M.~R., {et~al.} 2022, Nature Astronomy,
-  \dodoi{10.1038/s41550-022-01603-4}
+{Ni}, Y.~Q., {Moon}, D.-S., {Drout}, M.~R., {et~al.} 2022{\natexlab{a}}, Nature
+  Astronomy, \dodoi{10.1038/s41550-022-01603-4}
+
+\bibitem[{{Ni} {et~al.}(2022{\natexlab{b}}){Ni}, {Moon}, {Drout}, {Polin},
+  {Sand}, {Gonz{\'A}lez-Gait{\'A}n}, {Kim}, {Lee}, {Park}, {Howell}, {Nugent},
+  {Piro}, {Brown}, {Galbany}, {Burke}, {Hiramatsu}, {Hosseinzadeh}, {Valenti},
+  {Afsariardchi}, {Andrews}, {Antoniadis}, {Beaton}, {Bostroem}, {Carlberg},
+  {Cenko}, {Cha}, {Dong}, {Gal-Yam}, {Haislip}, {Holoien}, {Johnson},
+  {Kouprianov}, {Lee}, {Matzner}, {Morrell}, {Mccully}, {Pignata}, {Reichart},
+  {Rich}, {Ryder}, {Smith}, {Wyatt}, \& {Yang}}]{Ni_2022b}
+---. 2022{\natexlab{b}}, arXiv e-prints, arXiv:2206.12437.
+\newblock \doarXiv{2206.12437}
 
 \bibitem[{{Nomoto}(1982{\natexlab{a}})}]{Nomoto_1982a}
 {Nomoto}, K. 1982{\natexlab{a}}, \apj, 253, 798, \dodoi{10.1086/159682}
@@ -551,6 +561,11 @@ Prochaska, J.~X., Hennawi, J.~F., Westfall, K.~B., {et~al.} 2020, Journal of
   {Fl{\"o}rs}, {Sandford}, {Vasovi{\'c}}, {Betts}, \& {Holden}}]{pypeit:zenodo}
 {Prochaska}, J.~X., {Hennawi}, J., {Cooke}, R., {et~al.} 2020, {pypeit/PypeIt:
   Release 1.0.0}, v1.0.0,  Zenodo, \dodoi{10.5281/zenodo.3743493}
+
+\bibitem[{{Sanders} {et~al.}(2021){Sanders}, {Belokurov}, \&
+  {Man}}]{Sanders_2021}
+{Sanders}, J.~L., {Belokurov}, V., \& {Man}, K. T.~F. 2021, \mnras, 506, 4321,
+  \dodoi{10.1093/mnras/stab1951}
 
 \bibitem[{{Schlafly} \& {Finkbeiner}(2011)}]{Schlafly2011}
 {Schlafly}, E.~F., \& {Finkbeiner}, D.~P. 2011, \apj, 737, 103,
