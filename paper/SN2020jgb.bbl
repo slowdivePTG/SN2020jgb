@@ -221,15 +221,21 @@ de~los Reyes, M. A.~C., Kirby, E.~N., Seitenzahl, I.~R., \& Shen, K.~J. 2020,
 {Dey}, A., {Schlegel}, D.~J., {Lang}, D., {et~al.} 2019, \aj, 157, 168,
   \dodoi{10.3847/1538-3881/ab089d}
 
-\bibitem[{{Dong} {et~al.}(2022){Dong}, {Valenti}, {Polin}, {Boyle},
-  {fl{\"o}rs}, {Vogl}, {Kerzendorf}, {Sand}, {Jha}, {Wyrzykowski}, {Bostroem},
-  {Pearson}, {McCully}, {Andrew}, {Benettii}, {Blondin}, {Galbany},
+\bibitem[{{Dong} {et~al.}(2022{\natexlab{a}}){Dong}, {Valenti}, {Polin},
+  {Boyle}, {fl{\"o}rs}, {Vogl}, {Kerzendorf}, {Sand}, {Jha}, {Wyrzykowski},
+  {Bostroem}, {Pearson}, {McCully}, {Andrew}, {Benettii}, {Blondin}, {Galbany},
   {Gromadzki}, {Hosseinzadeh}, {Howell}, {Inserra}, {Jencson}, {Lundquist},
   {Lyman}, {Magee}, {Maguire}, {Meza}, {Srivastav}, {Taubenberger}, {Terwel},
   {Wyatt}, \& {Young}}]{Dong_16dsg_2022}
-{Dong}, Y., {Valenti}, S., {Polin}, A., {et~al.} 2022, arXiv e-prints,
-  arXiv:2206.07065.
+{Dong}, Y., {Valenti}, S., {Polin}, A., {et~al.} 2022{\natexlab{a}}, arXiv
+  e-prints, arXiv:2206.07065.
 \newblock \doarXiv{2206.07065}
+
+\bibitem[{{Dong} {et~al.}(2022{\natexlab{b}}){Dong}, {Milisavljevic}, {Leja},
+  {Sarbadhicary}, {Nugent}, {Margutti}, {Jacobson-Gal{\'a}n}, {Polin},
+  {Banovetz}, {Reynolds}, \& {Subrayan}}]{Dong_Ca-rich_2022}
+{Dong}, Y., {Milisavljevic}, D., {Leja}, J., {et~al.} 2022{\natexlab{b}}, \apj,
+  927, 199, \dodoi{10.3847/1538-4357/ac5257}
 
 \bibitem[{{Duev} {et~al.}(2019){Duev}, {Mahabal}, {Masci}, {Graham},
   {Rusholme}, {Walters}, {Karmarkar}, {Frederick}, {Kasliwal}, {Rebbapragada},
@@ -287,14 +293,6 @@ de~los Reyes, M. A.~C., Kirby, E.~N., Seitenzahl, I.~R., \& Shen, K.~J. 2020,
 
 \bibitem[{{Fremling}(2020)}]{Fremling_report_2020}
 {Fremling}, C. 2020, Transient Name Server Discovery Report, 2020-1247, 1
-
-\bibitem[{{Galbany} {et~al.}(2018){Galbany}, {Anderson}, {S{\'a}nchez},
-  {Kuncarayakti}, {Pedraz}, {Gonz{\'a}lez-Gait{\'a}n}, {Stanishev},
-  {Dom{\'\i}nguez}, {Moreno-Raya}, {Wood-Vasey}, {Mour{\~a}o}, {Ponder},
-  {Badenes}, {Moll{\'a}}, {L{\'o}pez-S{\'a}nchez}, {Rosales-Ortega},
-  {V{\'\i}lchez}, {Garc{\'\i}a-Benito}, \& {Marino}}]{Galbany_PISCO_2018}
-{Galbany}, L., {Anderson}, J.~P., {S{\'a}nchez}, S.~F., {et~al.} 2018, \apj,
-  855, 107, \dodoi{10.3847/1538-4357/aaaf20}
 
 \bibitem[{Galbany {et~al.}(2019)Galbany, Ashall, Höflich, González-Gaitán,
   Taubenberger, Stritzinger, Hsiao, Mazzali, Baron, Blondin, Bose, Bulla,
@@ -410,6 +408,12 @@ Jiang, J.-a., Doi, M., Maeda, K., {et~al.} 2017, Nature, 550, 80,
 {Kupfer}, T., {Bauer}, E.~B., {van Roestel}, J., {et~al.} 2022, \apjl, 925,
   L12, \dodoi{10.3847/2041-8213/ac48f1}
 
+\bibitem[{{Leroy} {et~al.}(2019){Leroy}, {Sandstrom}, {Lang}, {Lewis}, {Salim},
+  {Behrens}, {Chastenet}, {Chiang}, {Gallagher}, {Kessler}, \&
+  {Utomo}}]{Leroy_2019}
+{Leroy}, A.~K., {Sandstrom}, K.~M., {Lang}, D., {et~al.} 2019, \apjs, 244, 24,
+  \dodoi{10.3847/1538-4365/ab3925}
+
 \bibitem[{{Livne}(1990)}]{Livne_1990}
 {Livne}, E. 1990, \apjl, 354, L53, \dodoi{10.1086/185721}
 
@@ -449,6 +453,14 @@ Jiang, J.-a., Doi, M., Maeda, K., {et~al.} 2017, Nature, 550, 80,
   {Wheeler}, \& {Robinson}}]{Marion2009_NIR}
 {Marion}, G.~H., {H{\"o}flich}, P., {Gerardy}, C.~L., {et~al.} 2009, \aj, 138,
   727, \dodoi{10.1088/0004-6256/138/3/727}
+
+\bibitem[{{Martin} {et~al.}(2005){Martin}, {Fanson}, {Schiminovich},
+  {Morrissey}, {Friedman}, {Barlow}, {Conrow}, {Grange}, {Jelinsky},
+  {Milliard}, {Siegmund}, {Bianchi}, {Byun}, {Donas}, {Forster}, {Heckman},
+  {Lee}, {Madore}, {Malina}, {Neff}, {Rich}, {Small}, {Surber}, {Szalay},
+  {Welsh}, \& {Wyder}}]{GALEX_2005}
+{Martin}, D.~C., {Fanson}, J., {Schiminovich}, D., {et~al.} 2005, \apjl, 619,
+  L1, \dodoi{10.1086/426387}
 
 \bibitem[{{Masci} {et~al.}(2019){Masci}, {Laher}, {Rusholme}, {Shupe}, {Groom},
   {Surace}, {Jackson}, {Monkewitz}, {Beck}, {Flynn}, {Terek}, {Landry},
@@ -665,6 +677,15 @@ Waskom, M.~L. 2021, Journal of Open Source Software, 6, 3021,
 \bibitem[{{Woosley} \& {Weaver}(1994)}]{Woosley_1994}
 {Woosley}, S.~E., \& {Weaver}, T.~A. 1994, \apj, 423, 371,
   \dodoi{10.1086/173813}
+
+\bibitem[{{Wright} {et~al.}(2010){Wright}, {Eisenhardt}, {Mainzer}, {Ressler},
+  {Cutri}, {Jarrett}, {Kirkpatrick}, {Padgett}, {McMillan}, {Skrutskie},
+  {Stanford}, {Cohen}, {Walker}, {Mather}, {Leisawitz}, {Gautier}, {McLean},
+  {Benford}, {Lonsdale}, {Blain}, {Mendez}, {Irace}, {Duval}, {Liu}, {Royer},
+  {Heinrichsen}, {Howard}, {Shannon}, {Kendall}, {Walsh}, {Larsen}, {Cardon},
+  {Schick}, {Schwalm}, {Abid}, {Fabinsky}, {Naes}, \& {Tsai}}]{WISE_2010}
+{Wright}, E.~L., {Eisenhardt}, P. R.~M., {Mainzer}, A.~K., {et~al.} 2010, \aj,
+  140, 1868, \dodoi{10.1088/0004-6256/140/6/1868}
 
 \bibitem[{{Yaron} \& {Gal-Yam}(2012)}]{wiserep_2012}
 {Yaron}, O., \& {Gal-Yam}, A. 2012, \pasp, 124, 668, \dodoi{10.1086/666656}
