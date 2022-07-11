@@ -26,8 +26,35 @@
 
 \author{Friends}
 
-\begin{abstract}
-    The detonation of a thin ($\lesssim$0.03\,$\mathrm{M_\odot}$) helium shell (He-shell) atop a white dwarf (WD) is one of the most promising mechanisms to trigger normal Type Ia supernovae (SNe Ia), while a thicker ($>$0.03\,$\mathrm{M_\odot}$) He-shell is believed to bring peculiarities to the resultant SN. We present observations of \sn, a peculiar SN Ia discovered by the Zwicky Transient Facility (ZTF). Near peak light, \sn\ is sub-luminous (ZTF $g$-band absolute magnitude $M_g\approx -18.2$\,mag) and shows an unusually red color ($g_\mathrm{ZTF}-r_\mathrm{ZTF}\approx 0.5$\,mag) due to the strong line-blanketing bluewards of $\approx$5000\,\AA\ in its spectrum. These properties highly resemble SN\,2018byg, which is believed to emerge from the detonation of a massive He-shell. We show the photometry and spectroscopic properties of \sn\ could be explained by the detonation of a He-shell of $\approx$0.08\,$\mathrm{M_\odot}$ above a carbon-oxygen WD of $\approx$0.87\,$\mathrm{M_\odot}$. We detect a prominent absorption feature at $\sim$1\,\micron\ in the near infrared (NIR) spectrum of this object, which could originate from the unburnt helium in the outermost ejecta. Similar 1\,\micron\ features have been detected in all the thick He-shell DDet candidates with NIR spectra obtained to date, while the sample size is limited. \sn\ is also the first He-shell DDet SN discovered in a star-forming dwarf galaxy, indisputably showing that He-shell DDet could occur in both star-forming and passive environments, consistent with the normal SNe Ia population. This favors the scenario that a substantial fraction of normal SNe Ia are triggered by He-shell DDet.
+\begin{abstract} 
+%
+The detonation of a thin ($\lesssim$0.03\,$\mathrm{M_\odot}$) helium shell
+(He-shell) atop a white dwarf (WD) is a promising mechanism to explain normal
+Type Ia supernovae (SNe Ia), while thicker He-shells
+($>$0.03\,$\mathrm{M_\odot}$) may explain some recently observed peculiar
+SNe\,Ia. We present observations of \sn, a peculiar SN\,Ia discovered by the
+Zwicky Transient Facility (ZTF). Near maximum light, \sn\ is sub-luminous (ZTF
+$g$-band absolute magnitude $M_g\approx -18.2$\,mag) and shows an unusually red
+color ($g_\mathrm{ZTF}-r_\mathrm{ZTF}\approx 0.5$\,mag) due to the strong
+line-blanketing bluewards of $\approx$5000\,\AA. These properties resemble
+SN\,2018byg, a peculiar SN\,Ia resulting from a ``thick-shell'' double
+detonation \chang{the phrase double detonation should be in here somewhere, but
+my edited sentence is somewhat awkward}. Using detailed radiation transport
+models, we show that the optical spectroscopic and photometric evolution of
+\sn\ are broadly consistent with a He-shell of
+$\approx$0.08\,$\mathrm{M_\odot}$ detonating above a carbon-oxygen WD of
+$\approx$0.87\,$\mathrm{M_\odot}$. We detect a prominent absorption feature at
+$\sim$1\,\micron\ in the near infrared (NIR) spectrum of \sn, which could
+originate from the unburnt helium in the outermost ejecta. While the sample
+size is limited, similar 1\,\micron\ features have been detected in all the
+thick He-shell DDet \chang{DDet is not defined at this point} candidates with
+NIR spectra obtained to date. \sn\ is also the first He-shell DDet SN
+discovered in a star-forming dwarf galaxy, indisputably showing that He-shell
+DDet occur in both star-forming and passive environments, consistent with the
+normal SNe Ia population. This favors the scenario that a substantial fraction
+of normal SNe Ia are triggered by He-shell DDet. \chang{let's discuss this
+point, because this particular SN is clearly not normal}
+%
 \end{abstract}
 
 \keywords{Supernovae(1668), Type Ia supernovae(1728), White dwarf stars(1799), Observational astronomy(1145), Surveys(1671)}
@@ -188,7 +215,7 @@ We model the stellar population of the host galaxy of \sn\ using \texttt{prospec
 
 In Figure~\ref{fig:host}, we show the sSFR and the stellar mass for the host galaxies of six He-shell DDet candidates. Again using \texttt{prospector}, we fit the stellar properties for all the other candidates with optical spectra from the Sloan Digital Sky Survey \citep[SDSS;][]{York_2000} and photometry from the DESI Legacy Imaging Surveys \citep[][{\it g, r, z, $W_1$, $W_2$, $W_3$, $W_4$} magnitudes]{Dey_2019}. With mid-infrared photometry available, \texttt{prospector} can better estimate the overall dust extinction in the host galaxy and the contribution of an active galactic nucleus (AGN) to the spectral energy distribution (SED). Unfortunately, two (SN\,2016hnk and SN\,2019ofm) out of six hosts are close-by ($z\lesssim 0.03$) late-type galaxies with extended, spatially resolvable spiral structures. In both surveys, only photons from their red, concentrated bulges were fed to the detectors, while the lights from the blue, diffuse star-forming regions were completely missed. We would inevitably underestimate their SFR should we naively fit the SEDs from these surveys. Therefore, for the host of SN\,2016hnk, we adopt the results in \citet{galbany_16hnk_2019} as part of the PMAS/PPak Integral-field Supernova Hosts Compilation \citep[PISCO;][]{Galbany_PISCO_2018}, where the photons from the \ion{H}{2} regions in the spiral arms were also collected using integral field spectroscopy (IFS). For the host of SN\,2019ofm, there are no IFS data available, so we still show our best-fit stellar mass and sSFR in Figure~\ref{fig:host}, with the caveat that the sSFR should be regarded as a lower limit. The host of SN\,2018aoz (NGC\,3923) is a local ($z=0.00580$) early-type galaxy and is outside the SDSS footprint, so we adopt its stellar population properties from the Census of the Local Universe (CLU) catalog \adam{References?}.
 
-With only a handful of He-shell DDet objects classified, they have been discovered in all kinds of host environments. Figure~\ref{fig:host} reveals that DDet SNe emerge in both star-forming and passive galaxies, which is true for both thin He-shell objects of normal luminosity (SN\,2016jhr in a star-forming host; SN\,2018aoz in a passive host) and thick He-shell, sub-luminous objects (SN\,2020jgb in a star-forming host; SN\,2018byg in a passive host), even when the natures of SN\,2016hnk and SN\,2019ofm remain ambiguous. There are also diversities in their locations in their hosts. SN\,2020jgb has a small projected physical offset ($\sim$0.2\,kpc) to the center of its host, a star-forming dwarf galaxy, so it is highly likely to originate from a young, star-forming environment. SN\,2016hnk has a moderate projected host offset ($\sim$4\,kpc) and a potential origin in an \ion{H}{2} region with ongoing star-formation \citep{galbany_16hnk_2019}. SN\,2019ofm has a large projected offset ($\sim$11\,kpc) but is still on the blue, diffuse spiral arm \adam{How can I refer to the DECaLS image?}. Other objects, including the recently discovered SN\,2016dsg and OGLE-2013-SN-079 \citep{Dong_16dsg_2022}, show large projected host offsets ($\gtrsim$10\,kpc) and lie in the galaxy outskirts, which usually indicates origin in old stellar population.
+With only a handful of He-shell DDet objects classified, they have been discovered in all kinds of host environments. Figure~\ref{fig:host} reveals that DDet SNe emerge in both star-forming and passive galaxies, which is true for both thin He-shell objects of normal luminosity (SN\,2016jhr in a star-forming host; SN\,2018aoz in a passive host) and thick He-shell, sub-luminous objects (SN\,2020jgb in a star-forming host; SN\,2018byg in a passive host), even when the natures of SN\,2016hnk and SN\,2019ofm remain ambiguous. There are also diversities in their locations in their hosts. SN\,2020jgb has a small projected physical offset ($\sim$0.2\,kpc) to the center of its host, a star-forming dwarf galaxy, so it is highly likely to originate from a young, star-forming environment. SN\,2016hnk has a moderate projected host offset ($\sim$4\,kpc) and a potential origin in an \ion{H}{2} region with ongoing star-formation \citep{galbany_16hnk_2019}. SN\,2019ofm has a large projected offset ($\sim$11\,kpc) but is still on the blue, diffuse spiral arm \adam{How can I refer to the DECaLS image?} \chang{This should be the LS paper that you mentioned before -- you could also provide a link to the LS image server, but I'd be a little worried that link may change in the future}. Other objects, including the recently discovered SN\,2016dsg and OGLE-2013-SN-079 \citep{Dong_16dsg_2022}, show large projected host offsets ($\gtrsim$10\,kpc) and lie in the galaxy outskirts, which usually indicates origin in old stellar population.
 
 In this sense, the He-shell DDet sample resembles the normal SNe Ia population, which can occur in both star-forming and quenched galaxies \citep[e.g.,][]{Sullivan_2006, Smith_2012}, and is very different from some other types thermonuclear supernovae, such as Type-Iax supernovae (SNe Iax) which almost only appear in star-forming galaxies, or SN\,1991bg-like and SN\,2002es-like objects, which prefer old stellar environments \citep[see the review in][]{Jha_2019}. This favors the postulated sequence that He-shell DDet SNe may make up a substantial fraction of the normal SNe Ia, which is supported by studies on stellar metallicity observations \citep{Sanders_2021, Eitner_2022} or stellar population synthesis (\textbf{need references}).
 
@@ -199,7 +226,7 @@ The robust detection of \sn\ in a star-forming region also agrees with independe
 \begin{figure}
     \centering
     \includegraphics[width=\linewidth]{host.pdf}
-    \caption{The specific star-formation rate (sSFR) and the stellar mass for the host galaxies of He-shell DDet candidates. The properties for the hosts of SN\,2016hnk and SN\,2018aoz are taken from \citet{galbany_16hnk_2019} and the CLU catalog \adam{References?}, respectively. For the sSFR in the host of SN\,2019ofm, only a lower limit is shown (the triangle). The background is a sample of galaxies from the SDSS MPA-JHU DR8 catalog \citep{Kauffmann_SDSS_2003,Brinchmann_SDSS_2004}. Galaxies with BPT classification as AGNs or LINERs are excluded, since certain spectral features (e.g., H$\alpha$ emission) due to nuclear activities might be misinterpreted as star formation.}
+    \caption{The specific star-formation rate (sSFR) and the stellar mass for the host galaxies of He-shell DDet candidates. The properties for the hosts of SN\,2016hnk and SN\,2018aoz are taken from \citet{galbany_16hnk_2019} and the CLU catalog \adam{References?} \change{Kishalay's big paper on Ca rich events is the only relevant reference}, respectively. For the sSFR in the host of SN\,2019ofm, only a lower limit is shown (the triangle). The background is a sample of galaxies from the SDSS MPA-JHU DR8 catalog \citep{Kauffmann_SDSS_2003,Brinchmann_SDSS_2004}. Galaxies with BPT classification as AGNs or LINERs are excluded, since certain spectral features (e.g., H$\alpha$ emission) due to nuclear activities might be misinterpreted as star formation.}
     \label{fig:host}
 \end{figure}
 
@@ -214,7 +241,7 @@ Ideally, one will need a NIR spectrum covering both the 1\,\micron\ and 2\,\micr
 The He-shell DDet SNe in the tiny sample show diversities in various observational properties, including the peak luminosity, color evolution, chemical abundances and line velocities, which could be explained by a large variety of He-shell masses, WD masses, viewing angles, and the initial chemical compositions in the shell. In addition, they are discovered in both old and young stellar populations, \sn\ being the first unambiguous thick He-shell DDet candidate detected in a star-forming galaxy, similar to the normal SNe Ia population. This is in favor of the scenario that a significant fraction of normal SNe Ia are triggered by He-shell DDet. Multiple formation channels and progenitor systems may be required to explain the He-shell DDet population.
 
 \begin{acknowledgements}
-    I am acknowledgements.
+    I am acknowledgements. \chang{ZTF acknowledgement. Did you use Quest at all?}
 \end{acknowledgements}
 
 \facility{PO:1.2m (ZTF), PO:1.5m (SEDM), Hale (DBSP), NOT (ALFOSC), Shane (Kast Double spectrograph), Keck:I (LRIS), Keck:II (DEIMOS), Gemini:Gillett (GNIRS).}
