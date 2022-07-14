@@ -92,6 +92,11 @@
 {Bulla}, M., {Miller}, A.~A., {Yao}, Y., {et~al.} 2020, \apj, 902, 48,
   \dodoi{10.3847/1538-4357/abb13c}
 
+\bibitem[{{Cardelli} {et~al.}(1989){Cardelli}, {Clayton}, \&
+  {Mathis}}]{Cardelli_1989}
+{Cardelli}, J.~A., {Clayton}, G.~C., \& {Mathis}, J.~S. 1989, \apj, 345, 245,
+  \dodoi{10.1086/167900}
+
 \bibitem[{{Carrick} {et~al.}(2015){Carrick}, {Turnbull}, {Lavaux}, \&
   {Hudson}}]{Carrick2015_2M++}
 {Carrick}, J., {Turnbull}, S.~J., {Lavaux}, G., \& {Hudson}, M.~J. 2015,
@@ -102,6 +107,9 @@
   {Gal-Yam}, {Soderberg}, {Anagnostou}, \& {Laity}}]{P60_2006}
 {Cenko}, S.~B., {Fox}, D.~B., {Moon}, D.-S., {et~al.} 2006, \pasp, 118, 1396,
   \dodoi{10.1086/508366}
+
+\bibitem[{{Chabrier}(2003)}]{Chabrier_2003}
+{Chabrier}, G. 2003, \pasp, 115, 763, \dodoi{10.1086/376392}
 
 \bibitem[{{Chambers} {et~al.}(2016){Chambers}, {Magnier}, {Metcalfe},
   {Flewelling}, {Huber}, {Waters}, {Denneau}, {Draper}, {Farrow}, {Finkbeiner},
@@ -142,6 +150,14 @@
   {Schaefer}, {Scott}, {Stritzinger}, {Vogt}, \& {Zhou}}]{Childress_2013}
 {Childress}, M.~J., {Scalzo}, R.~A., {Sim}, S.~A., {et~al.} 2013, \apj, 770,
   29, \dodoi{10.1088/0004-637X/770/1/29}
+
+\bibitem[{{Conroy} \& {Gunn}(2010)}]{Conroy_2010}
+{Conroy}, C., \& {Gunn}, J.~E. 2010, \apj, 712, 833,
+  \dodoi{10.1088/0004-637X/712/2/833}
+
+\bibitem[{{Conroy} {et~al.}(2009){Conroy}, {Gunn}, \& {White}}]{Conroy_2009}
+{Conroy}, C., {Gunn}, J.~E., \& {White}, M. 2009, \apj, 699, 486,
+  \dodoi{10.1088/0004-637X/699/1/486}
 
 \bibitem[{{Dahiwale} \& {Fremling}(2020)}]{TNS_2020}
 {Dahiwale}, A., \& {Fremling}, C. 2020, Transient Name Server Classification
@@ -303,6 +319,12 @@ de~los Reyes, M. A.~C., Kirby, E.~N., Seitenzahl, I.~R., \& Shen, K.~J. 2020,
   Villanueva, Wang, Wheeler, Zhai, \& Zhang}]{galbany_16hnk_2019}
 Galbany, L., Ashall, C., Höflich, P., {et~al.} 2019, Astronomy \&
   Astrophysics, 630, A76, \dodoi{10.1051/0004-6361/201935537}
+
+\bibitem[{{Gallazzi} {et~al.}(2005){Gallazzi}, {Charlot}, {Brinchmann},
+  {White}, \& {Tremonti}}]{Gallazzi_2005}
+{Gallazzi}, A., {Charlot}, S., {Brinchmann}, J., {White}, S. D.~M., \&
+  {Tremonti}, C.~A. 2005, \mnras, 362, 41,
+  \dodoi{10.1111/j.1365-2966.2005.09321.x}
 
 \bibitem[{{Geier} {et~al.}(2013){Geier}, {Marsh}, {Wang}, {Dunlap}, {Barlow},
   {Schaffenroth}, {Chen}, {Irrgang}, {Maxted}, {Ziegerer}, {Kupfer},
@@ -481,6 +503,12 @@ Jiang, J.-a., Doi, M., Maeda, K., {et~al.} 2017, Nature, 550, 80,
 {Mazzali}, P.~A., {Benetti}, S., {Altavilla}, G., {et~al.} 2005, \apjl, 623,
   L37, \dodoi{10.1086/429874}
 
+\bibitem[{{Mazzali} {et~al.}(2014){Mazzali}, {Sullivan}, {Hachinger}, {Ellis},
+  {Nugent}, {Howell}, {Gal-Yam}, {Maguire}, {Cooke}, {Thomas}, {Nomoto}, \&
+  {Walker}}]{Mazzali_2014}
+{Mazzali}, P.~A., {Sullivan}, M., {Hachinger}, S., {et~al.} 2014, \mnras, 439,
+  1959, \dodoi{10.1093/mnras/stu077}
+
 \bibitem[{{McMahon} {et~al.}(2013){McMahon}, {Banerji}, {Gonzalez}, {Koposov},
   {Bejar}, {Lodieu}, {Rebolo}, \& {VHS Collaboration}}]{VHS_2013}
 {McMahon}, R.~G., {Banerji}, M., {Gonzalez}, E., {et~al.} 2013, The Messenger,
@@ -516,6 +544,19 @@ Miller, J., \& Stone, R. 1994, The Kast Double Spectograph, Lick Observatory
 
 \bibitem[{{Nomoto}(1982{\natexlab{b}})}]{Nomoto_1982b}
 ---. 1982{\natexlab{b}}, \apj, 257, 780, \dodoi{10.1086/160031}
+
+\bibitem[{{Nugent} {et~al.}(2020){Nugent}, {Fong}, {Dong}, {Palmese}, {Leja},
+  {Escorial}, {Blanchard}, {Paterson}, {Chornock}, {Monson}, {Nicholl}, \&
+  {Berger}}]{Nugent_2020}
+{Nugent}, A.~E., {Fong}, W., {Dong}, Y., {et~al.} 2020, \apj, 904, 52,
+  \dodoi{10.3847/1538-4357/abc24a}
+
+\bibitem[{{Nugent} {et~al.}(2022){Nugent}, {Fong}, {Dong}, {Leja}, {Berger},
+  {Zevin}, {Chornock}, {Cobb}, {Kelley}, {Kilpatrick}, {Levan}, {Margutti},
+  {Paterson}, {Perley}, {Rouco Escorial}, {Smith}, \& {Tanvir}}]{Nugent_2022}
+{Nugent}, A.~E., {Fong}, W.-f., {Dong}, Y., {et~al.} 2022, arXiv e-prints,
+  arXiv:2206.01764.
+\newblock \doarXiv{2206.01764}
 
 \bibitem[{{Nugent} {et~al.}(2011){Nugent}, {Sullivan}, {Cenko}, {Thomas},
   {Kasen}, {Howell}, {Bersier}, {Bloom}, {Kulkarni}, {Kandrashoff},
@@ -634,6 +675,9 @@ Prochaska, J.~X., Hennawi, J.~F., Westfall, K.~B., {et~al.} 2020, Journal of
 {Smith}, M., {Nichol}, R.~C., {Dilday}, B., {et~al.} 2012, \apj, 755, 61,
   \dodoi{10.1088/0004-637X/755/1/61}
 
+\bibitem[{{Speagle}(2020)}]{Speagle_dynesty_2020}
+{Speagle}, J.~S. 2020, \mnras, 493, 3132, \dodoi{10.1093/mnras/staa278}
+
 \bibitem[{{Sullivan} {et~al.}(2006){Sullivan}, {Le Borgne}, {Pritchet},
   {Hodsman}, {Neill}, {Howell}, {Carlberg}, {Astier}, {Aubourg}, {Balam},
   {Basa}, {Conley}, {Fabbro}, {Fouchez}, {Guy}, {Hook}, {Pain},
@@ -678,9 +722,6 @@ Waskom, M.~L. 2021, Journal of Open Source Software, 6, 3021,
   {Walters}, \& {Yan}}]{Yao_2019}
 {Yao}, Y., {Miller}, A.~A., {Kulkarni}, S.~R., {et~al.} 2019, \apj, 886, 152,
   \dodoi{10.3847/1538-4357/ab4cf5}
-
-\bibitem[{{Yaron} \& {Gal-Yam}(2012)}]{wiserep_2012}
-{Yaron}, O., \& {Gal-Yam}, A. 2012, \pasp, 124, 668, \dodoi{10.1086/666656}
 
 \bibitem[{{York} {et~al.}(2000){York}, {Adelman}, {Anderson}, {Anderson},
   {Annis}, {Bahcall}, {Bakken}, {Barkhouser}, {Bastian}, {Berman}, {Boroski},
