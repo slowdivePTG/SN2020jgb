@@ -5,6 +5,12 @@
 \providecommand{\doeprint}[1]{\href{http://ascl.net/#1}{\nolinkurl{http://ascl.net/#1}}}
 \providecommand{\doarXiv}[1]{\href{https://arxiv.org/abs/#1}{\nolinkurl{https://arxiv.org/abs/#1}}}
 
+\bibitem[{{Almgren} {et~al.}(2010){Almgren}, {Beckner}, {Bell}, {Day},
+  {Howell}, {Joggerst}, {Lijewski}, {Nonaka}, {Singer}, \&
+  {Zingale}}]{Almgren_Castro_2010}
+{Almgren}, A.~S., {Beckner}, V.~E., {Bell}, J.~B., {et~al.} 2010, \apj, 715,
+  1221, \dodoi{10.1088/0004-637X/715/2/1221}
+
 \bibitem[{{Astropy Collaboration} {et~al.}(2013){Astropy Collaboration},
   {Robitaille}, {Tollerud}, {Greenfield}, {Droettboom}, {Bray}, {Aldcroft},
   {Davis}, {Ginsburg}, {Price-Whelan}, {Kerzendorf}, {Conley}, {Crighton},
@@ -411,6 +417,19 @@ Jiang, J.-a., Doi, M., Maeda, K., {et~al.} 2017, Nature, 550, 80,
 {Johnson}, B.~D., {Leja}, J., {Conroy}, C., \& {Speagle}, J.~S. 2021, \apjs,
   254, 22, \dodoi{10.3847/1538-4365/abef67}
 
+\bibitem[{{Kasen} {et~al.}(2006){Kasen}, {Thomas}, \&
+  {Nugent}}]{Kasen_Sedona_2006}
+{Kasen}, D., {Thomas}, R.~C., \& {Nugent}, P. 2006, \apj, 651, 366,
+  \dodoi{10.1086/506190}
+
+\bibitem[{{Kasliwal} {et~al.}(2012){Kasliwal}, {Kulkarni}, {Gal-Yam}, {Nugent},
+  {Sullivan}, {Bildsten}, {Yaron}, {Perets}, {Arcavi}, {Ben-Ami}, {Bhalerao},
+  {Bloom}, {Cenko}, {Filippenko}, {Frail}, {Ganeshalingam}, {Horesh}, {Howell},
+  {Law}, {Leonard}, {Li}, {Ofek}, {Polishook}, {Poznanski}, {Quimby},
+  {Silverman}, {Sternberg}, \& {Xu}}]{Kasliwal_2012}
+{Kasliwal}, M.~M., {Kulkarni}, S.~R., {Gal-Yam}, A., {et~al.} 2012, \apj, 755,
+  161, \dodoi{10.1088/0004-637X/755/2/161}
+
 \bibitem[{{Kauffmann} {et~al.}(2003){Kauffmann}, {Heckman}, {White}, {Charlot},
   {Tremonti}, {Brinchmann}, {Bruzual}, {Peng}, {Seibert}, {Bernardi},
   {Blanton}, {Brinkmann}, {Castander}, {Cs{\'a}bai}, {Fukugita}, {Ivezic},
@@ -686,6 +705,13 @@ Prochaska, J.~X., Hennawi, J.~F., Westfall, K.~B., {et~al.} 2020, Journal of
   {Tao}}]{Sullivan_2006}
 {Sullivan}, M., {Le Borgne}, D., {Pritchet}, C.~J., {et~al.} 2006, \apj, 648,
   868, \dodoi{10.1086/506137}
+
+\bibitem[{{Sullivan} {et~al.}(2011){Sullivan}, {Kasliwal}, {Nugent}, {Howell},
+  {Thomas}, {Ofek}, {Arcavi}, {Blake}, {Cooke}, {Gal-Yam}, {Hook}, {Mazzali},
+  {Podsiadlowski}, {Quimby}, {Bildsten}, {Bloom}, {Cenko}, {Kulkarni}, {Law},
+  \& {Poznanski}}]{Sullivan_2011}
+{Sullivan}, M., {Kasliwal}, M.~M., {Nugent}, P.~E., {et~al.} 2011, \apj, 732,
+  118, \dodoi{10.1088/0004-637X/732/2/118}
 
 \bibitem[{{Veilleux} \& {Osterbrock}(1987)}]{Veilleux_1987}
 {Veilleux}, S., \& {Osterbrock}, D.~E. 1987, \apjs, 63, 295,
