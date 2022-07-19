@@ -53,25 +53,32 @@
 {Baldwin}, J.~A., {Phillips}, M.~M., \& {Terlevich}, R. 1981, \pasp, 93, 5,
   \dodoi{10.1086/130766}
 
-\bibitem[{{Bellm} {et~al.}(2019){Bellm}, {Kulkarni}, {Graham}, {Dekany},
-  {Smith}, {Riddle}, {Masci}, {Helou}, {Prince}, {Adams}, {Barbarino},
-  {Barlow}, {Bauer}, {Beck}, {Belicki}, {Biswas}, {Blagorodnova}, {Bodewits},
-  {Bolin}, {Brinnel}, {Brooke}, {Bue}, {Bulla}, {Burruss}, {Cenko}, {Chang},
-  {Connolly}, {Coughlin}, {Cromer}, {Cunningham}, {De}, {Delacroix}, {Desai},
-  {Duev}, {Eadie}, {Farnham}, {Feeney}, {Feindt}, {Flynn}, {Franckowiak},
-  {Frederick}, {Fremling}, {Gal-Yam}, {Gezari}, {Giomi}, {Goldstein},
-  {Golkhou}, {Goobar}, {Groom}, {Hacopians}, {Hale}, {Henning}, {Ho}, {Hover},
-  {Howell}, {Hung}, {Huppenkothen}, {Imel}, {Ip}, {Ivezi{\'c}}, {Jackson},
-  {Jones}, {Juric}, {Kasliwal}, {Kaspi}, {Kaye}, {Kelley}, {Kowalski},
-  {Kramer}, {Kupfer}, {Landry}, {Laher}, {Lee}, {Lin}, {Lin}, {Lunnan},
-  {Giomi}, {Mahabal}, {Mao}, {Miller}, {Monkewitz}, {Murphy}, {Ngeow},
-  {Nordin}, {Nugent}, {Ofek}, {Patterson}, {Penprase}, {Porter}, {Rauch},
-  {Rebbapragada}, {Reiley}, {Rigault}, {Rodriguez}, {van Roestel}, {Rusholme},
-  {van Santen}, {Schulze}, {Shupe}, {Singer}, {Soumagnac}, {Stein}, {Surace},
-  {Sollerman}, {Szkody}, {Taddia}, {Terek}, {Van Sistine}, {van Velzen},
-  {Vestrand}, {Walters}, {Ward}, {Ye}, {Yu}, {Yan}, \& {Zolkower}}]{ZTF2019a}
-{Bellm}, E.~C., {Kulkarni}, S.~R., {Graham}, M.~J., {et~al.} 2019, \pasp, 131,
-  018002, \dodoi{10.1088/1538-3873/aaecbe}
+\bibitem[{{Bellm} {et~al.}(2019{\natexlab{a}}){Bellm}, {Kulkarni}, {Graham},
+  {Dekany}, {Smith}, {Riddle}, {Masci}, {Helou}, {Prince}, {Adams},
+  {Barbarino}, {Barlow}, {Bauer}, {Beck}, {Belicki}, {Biswas}, {Blagorodnova},
+  {Bodewits}, {Bolin}, {Brinnel}, {Brooke}, {Bue}, {Bulla}, {Burruss}, {Cenko},
+  {Chang}, {Connolly}, {Coughlin}, {Cromer}, {Cunningham}, {De}, {Delacroix},
+  {Desai}, {Duev}, {Eadie}, {Farnham}, {Feeney}, {Feindt}, {Flynn},
+  {Franckowiak}, {Frederick}, {Fremling}, {Gal-Yam}, {Gezari}, {Giomi},
+  {Goldstein}, {Golkhou}, {Goobar}, {Groom}, {Hacopians}, {Hale}, {Henning},
+  {Ho}, {Hover}, {Howell}, {Hung}, {Huppenkothen}, {Imel}, {Ip}, {Ivezi{\'c}},
+  {Jackson}, {Jones}, {Juric}, {Kasliwal}, {Kaspi}, {Kaye}, {Kelley},
+  {Kowalski}, {Kramer}, {Kupfer}, {Landry}, {Laher}, {Lee}, {Lin}, {Lin},
+  {Lunnan}, {Giomi}, {Mahabal}, {Mao}, {Miller}, {Monkewitz}, {Murphy},
+  {Ngeow}, {Nordin}, {Nugent}, {Ofek}, {Patterson}, {Penprase}, {Porter},
+  {Rauch}, {Rebbapragada}, {Reiley}, {Rigault}, {Rodriguez}, {van Roestel},
+  {Rusholme}, {van Santen}, {Schulze}, {Shupe}, {Singer}, {Soumagnac}, {Stein},
+  {Surace}, {Sollerman}, {Szkody}, {Taddia}, {Terek}, {Van Sistine}, {van
+  Velzen}, {Vestrand}, {Walters}, {Ward}, {Ye}, {Yu}, {Yan}, \&
+  {Zolkower}}]{ZTF2019a}
+{Bellm}, E.~C., {Kulkarni}, S.~R., {Graham}, M.~J., {et~al.}
+  2019{\natexlab{a}}, \pasp, 131, 018002, \dodoi{10.1088/1538-3873/aaecbe}
+
+\bibitem[{{Bellm} {et~al.}(2019{\natexlab{b}}){Bellm}, {Kulkarni}, {Barlow},
+  {Feindt}, {Graham}, {Goobar}, {Kupfer}, {Ngeow}, {Nugent}, {Ofek}, {Prince},
+  {Riddle}, {Walters}, \& {Ye}}]{Bellm_2019}
+{Bellm}, E.~C., {Kulkarni}, S.~R., {Barlow}, T., {et~al.} 2019{\natexlab{b}},
+  \pasp, 131, 068003, \dodoi{10.1088/1538-3873/ab0c2a}
 
 \bibitem[{{Blagorodnova} {et~al.}(2018){Blagorodnova}, {Neill}, {Walters},
   {Kulkarni}, {Fremling}, {Ben-Ami}, {Dekany}, {Fucik}, {Konidaris}, {Nash},
@@ -573,8 +580,7 @@ Miller, J., \& Stone, R. 1994, The Kast Double Spectograph, Lick Observatory
 \bibitem[{{Nugent} {et~al.}(2022){Nugent}, {Fong}, {Dong}, {Leja}, {Berger},
   {Zevin}, {Chornock}, {Cobb}, {Kelley}, {Kilpatrick}, {Levan}, {Margutti},
   {Paterson}, {Perley}, {Rouco Escorial}, {Smith}, \& {Tanvir}}]{Nugent_2022}
-{Nugent}, A.~E., {Fong}, W.-f., {Dong}, Y., {et~al.} 2022, arXiv e-prints,
-  arXiv:2206.01764.
+---. 2022, arXiv e-prints, arXiv:2206.01764.
 \newblock \doarXiv{2206.01764}
 
 \bibitem[{{Nugent} {et~al.}(2011){Nugent}, {Sullivan}, {Cenko}, {Thomas},
@@ -625,6 +631,12 @@ Prochaska, J.~X., Hennawi, J.~F., Westfall, K.~B., {et~al.} 2020, Journal of
   {Fl{\"o}rs}, {Sandford}, {Vasovi{\'c}}, {Betts}, \& {Holden}}]{pypeit:zenodo}
 {Prochaska}, J.~X., {Hennawi}, J., {Cooke}, R., {et~al.} 2020, {pypeit/PypeIt:
   Release 1.0.0}, v1.0.0,  Zenodo, \dodoi{10.5281/zenodo.3743493}
+
+\bibitem[{{Rigault} {et~al.}(2019){Rigault}, {Neill}, {Blagorodnova}, {Dugas},
+  {Feeney}, {Walters}, {Brinnel}, {Copin}, {Fremling}, {Nordin}, \&
+  {Sollerman}}]{Rigault_pysedm_2019}
+{Rigault}, M., {Neill}, J.~D., {Blagorodnova}, N., {et~al.} 2019, \aap, 627,
+  A115, \dodoi{10.1051/0004-6361/201935344}
 
 \bibitem[{{Sanders} {et~al.}(2021){Sanders}, {Belokurov}, \&
   {Man}}]{Sanders_2021}
