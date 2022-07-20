@@ -372,11 +372,6 @@ Galbany, L., Ashall, C., Höflich, P., {et~al.} 2019, Astronomy \&
 {Gronow}, S., {Collins}, C., {Ohlmann}, S.~T., {et~al.} 2020, \aap, 635, A169,
   \dodoi{10.1051/0004-6361/201936494}
 
-\bibitem[{{Guillochon} {et~al.}(2017){Guillochon}, {Parrent}, {Kelley}, \&
-  {Margutti}}]{Guillochon_2017}
-{Guillochon}, J., {Parrent}, J., {Kelley}, L.~Z., \& {Margutti}, R. 2017, \apj,
-  835, 64, \dodoi{10.3847/1538-4357/835/1/64}
-
 \bibitem[{{Hsiao} {et~al.}(2019){Hsiao}, {Phillips}, {Marion}, {Kirshner},
   {Morrell}, {Sand}, {Burns}, {Contreras}, {Hoeflich}, {Stritzinger},
   {Valenti}, {Anderson}, {Ashall}, {Baltay}, {Baron}, {Banerjee}, {Davis},
@@ -583,16 +578,6 @@ Miller, J., \& Stone, R. 1994, The Kast Double Spectograph, Lick Observatory
 ---. 2022, arXiv e-prints, arXiv:2206.01764.
 \newblock \doarXiv{2206.01764}
 
-\bibitem[{{Nugent} {et~al.}(2011){Nugent}, {Sullivan}, {Cenko}, {Thomas},
-  {Kasen}, {Howell}, {Bersier}, {Bloom}, {Kulkarni}, {Kandrashoff},
-  {Filippenko}, {Silverman}, {Marcy}, {Howard}, {Isaacson}, {Maguire},
-  {Suzuki}, {Tarlton}, {Pan}, {Bildsten}, {Fulton}, {Parrent}, {Sand},
-  {Podsiadlowski}, {Bianco}, {Dilday}, {Graham}, {Lyman}, {James}, {Kasliwal},
-  {Law}, {Quimby}, {Hook}, {Walker}, {Mazzali}, {Pian}, {Ofek}, {Gal-Yam}, \&
-  {Poznanski}}]{Nugent_11fe_2011}
-{Nugent}, P.~E., {Sullivan}, M., {Cenko}, S.~B., {et~al.} 2011, \nat, 480, 344,
-  \dodoi{10.1038/nature10644}
-
 \bibitem[{{Oke} \& {Gunn}(1982)}]{P200_1982}
 {Oke}, J.~B., \& {Gunn}, J.~E. 1982, \pasp, 94, 586, \dodoi{10.1086/131027}
 
@@ -606,6 +591,16 @@ Miller, J., \& Stone, R. 1994, The Kast Double Spectograph, Lick Observatory
   Transient Facility Collaboration}}]{Patterson_ZTFalert_2019}
 {Patterson}, M.~T., {Bellm}, E.~C., {Rusholme}, B., {et~al.} 2019, \pasp, 131,
   018001, \dodoi{10.1088/1538-3873/aae904}
+
+\bibitem[{{Pereira} {et~al.}(2013){Pereira}, {Thomas}, {Aldering}, {Antilogus},
+  {Baltay}, {Benitez-Herrera}, {Bongard}, {Buton}, {Canto}, {Cellier-Holzem},
+  {Chen}, {Childress}, {Chotard}, {Copin}, {Fakhouri}, {Fink}, {Fouchez},
+  {Gangler}, {Guy}, {Hillebrandt}, {Hsiao}, {Kerschhaggl}, {Kowalski},
+  {Kromer}, {Nordin}, {Nugent}, {Paech}, {Pain}, {P{\'e}contal}, {Perlmutter},
+  {Rabinowitz}, {Rigault}, {Runge}, {Saunders}, {Smadja}, {Tao},
+  {Taubenberger}, {Tilquin}, \& {Wu}}]{Pereira_2013}
+{Pereira}, R., {Thomas}, R.~C., {Aldering}, G., {et~al.} 2013, \aap, 554, A27,
+  \dodoi{10.1051/0004-6361/201221008}
 
 \bibitem[{Polin {et~al.}(2019)Polin, Nugent, \&
   Kasen}]{polin_observational_2019}
