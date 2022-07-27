@@ -172,6 +172,12 @@
 {Conroy}, C., {Gunn}, J.~E., \& {White}, M. 2009, \apj, 699, 486,
   \dodoi{10.1088/0004-637X/699/1/486}
 
+\bibitem[{{Cook} {et~al.}(2019){Cook}, {Kasliwal}, {Van Sistine}, {Kaplan},
+  {Sutter}, {Kupfer}, {Shupe}, {Laher}, {Masci}, {Dale}, {Sesar}, {Brady},
+  {Yan}, {Ofek}, {Reitze}, \& {Kulkarni}}]{Cook_2019}
+{Cook}, D.~O., {Kasliwal}, M.~M., {Van Sistine}, A., {et~al.} 2019, \apj, 880,
+  7, \dodoi{10.3847/1538-4357/ab2131}
+
 \bibitem[{{Dahiwale} \& {Fremling}(2020)}]{TNS_2020}
 {Dahiwale}, A., \& {Fremling}, C. 2020, Transient Name Server Classification
   Report, 2020-1624, 1
@@ -298,6 +304,15 @@ de~los Reyes, M. A.~C., Kirby, E.~N., Seitenzahl, I.~R., \& Shen, K.~J. 2020,
   Telescopes, ed. M.~{Iye} \& A.~F.~M. {Moorwood}, 1657--1669,
   \dodoi{10.1117/12.460346}
 
+\bibitem[{{Filippenko}(1997)}]{Filippenko97}
+{Filippenko}, A.~V. 1997, \araa, 35, 309,
+  \dodoi{10.1146/annurev.astro.35.1.309}
+
+\bibitem[{{Filippenko} {et~al.}(2003){Filippenko}, {Chornock}, {Swift},
+  {Modjaz}, {Simcoe}, \& {Rauch}}]{Filippenko_2003}
+{Filippenko}, A.~V., {Chornock}, R., {Swift}, B., {et~al.} 2003, \iaucirc,
+  8159, 2
+
 \bibitem[{{Filippenko} {et~al.}(1992){Filippenko}, {Richmond}, {Branch},
   {Gaskell}, {Herbst}, {Ford}, {Treffers}, {Matheson}, {Ho}, {Dey}, {Sargent},
   {Small}, \& {van Breugel}}]{Filippenko_91bg_1992}
@@ -338,6 +353,12 @@ Galbany, L., Ashall, C., Höflich, P., {et~al.} 2019, Astronomy \&
 {Gallazzi}, A., {Charlot}, S., {Brinchmann}, J., {White}, S. D.~M., \&
   {Tremonti}, C.~A. 2005, \mnras, 362, 41,
   \dodoi{10.1111/j.1365-2966.2005.09321.x}
+
+\bibitem[{{Ganeshalingam} {et~al.}(2012){Ganeshalingam}, {Li}, {Filippenko},
+  {Silverman}, {Chornock}, {Foley}, {Matheson}, {Kirshner}, {Milne}, {Calkins},
+  \& {Shen}}]{Ganeshalingam_2012}
+{Ganeshalingam}, M., {Li}, W., {Filippenko}, A.~V., {et~al.} 2012, \apj, 751,
+  142, \dodoi{10.1088/0004-637X/751/2/142}
 
 \bibitem[{{Geier} {et~al.}(2013){Geier}, {Marsh}, {Wang}, {Dunlap}, {Barlow},
   {Schaffenroth}, {Chen}, {Irrgang}, {Maxted}, {Ziegerer}, {Kupfer},
