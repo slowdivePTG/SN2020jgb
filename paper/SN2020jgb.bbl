@@ -491,6 +491,16 @@ Jiang, J.-a., Doi, M., Maeda, K., {et~al.} 2017, Nature, 550, 80,
 {Lunnan}, R., {Kasliwal}, M.~M., {Cao}, Y., {et~al.} 2017, \apj, 836, 60,
   \dodoi{10.3847/1538-4357/836/1/60}
 
+\bibitem[{{Lyman} {et~al.}(2014){Lyman}, {Levan}, {Church}, {Davies}, \&
+  {Tanvir}}]{Lyman_2014}
+{Lyman}, J.~D., {Levan}, A.~J., {Church}, R.~P., {Davies}, M.~B., \& {Tanvir},
+  N.~R. 2014, \mnras, 444, 2157, \dodoi{10.1093/mnras/stu1574}
+
+\bibitem[{{Magee} {et~al.}(2021){Magee}, {Maguire}, {Kotak}, \&
+  {Sim}}]{Magee_2021}
+{Magee}, M.~R., {Maguire}, K., {Kotak}, R., \& {Sim}, S.~A. 2021, \mnras, 502,
+  3533, \dodoi{10.1093/mnras/stab201}
+
 \bibitem[{{Maguire} {et~al.}(2014){Maguire}, {Sullivan}, {Pan}, {Gal-Yam},
   {Hook}, {Howell}, {Nugent}, {Mazzali}, {Chotard}, {Clubb}, {Filippenko},
   {Kasliwal}, {Kandrashoff}, {Poznanski}, {Saunders}, {Silverman}, {Walker}, \&
@@ -550,6 +560,12 @@ Jiang, J.-a., Doi, M., Maeda, K., {et~al.} 2017, Nature, 550, 80,
   {Walker}}]{Mazzali_2014}
 {Mazzali}, P.~A., {Sullivan}, M., {Hachinger}, S., {et~al.} 2014, \mnras, 439,
   1959, \dodoi{10.1093/mnras/stu077}
+
+\bibitem[{{Mazzali} {et~al.}(2015){Mazzali}, {Sullivan}, {Filippenko},
+  {Garnavich}, {Clubb}, {Maguire}, {Pan}, {Shappee}, {Silverman}, {Benetti},
+  {Hachinger}, {Nomoto}, \& {Pian}}]{Mazzali_2015}
+{Mazzali}, P.~A., {Sullivan}, M., {Filippenko}, A.~V., {et~al.} 2015, \mnras,
+  450, 2631, \dodoi{10.1093/mnras/stv761}
 
 \bibitem[{{McMahon} {et~al.}(2013){McMahon}, {Banerji}, {Gonzalez}, {Koposov},
   {Bejar}, {Lodieu}, {Rebolo}, \& {VHS Collaboration}}]{VHS_2013}
@@ -740,6 +756,15 @@ Prochaska, J.~X., Hennawi, J.~F., Westfall, K.~B., {et~al.} 2020, Journal of
   \& {Poznanski}}]{Sullivan_2011}
 {Sullivan}, M., {Kasliwal}, M.~M., {Nugent}, P.~E., {et~al.} 2011, \apj, 732,
   118, \dodoi{10.1088/0004-637X/732/2/118}
+
+\bibitem[{{Valenti} {et~al.}(2014){Valenti}, {Yuan}, {Taubenberger}, {Maguire},
+  {Pastorello}, {Benetti}, {Smartt}, {Cappellaro}, {Howell}, {Bildsten},
+  {Moore}, {Stritzinger}, {Anderson}, {Benitez-Herrera}, {Bufano},
+  {Gonzalez-Gaitan}, {McCrum}, {Pignata}, {Fraser}, {Gal-Yam}, {Le Guillou},
+  {Inserra}, {Reichart}, {Scalzo}, {Sullivan}, {Yaron}, \&
+  {Young}}]{Valenti_12hn_2014}
+{Valenti}, S., {Yuan}, F., {Taubenberger}, S., {et~al.} 2014, \mnras, 437,
+  1519, \dodoi{10.1093/mnras/stt1983}
 
 \bibitem[{{Veilleux} \& {Osterbrock}(1987)}]{Veilleux_1987}
 {Veilleux}, S., \& {Osterbrock}, D.~E. 1987, \apjs, 63, 295,
