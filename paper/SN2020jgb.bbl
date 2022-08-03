@@ -70,13 +70,13 @@
   {Rusholme}, {van Santen}, {Schulze}, {Shupe}, {Singer}, {Soumagnac}, {Stein},
   {Surace}, {Sollerman}, {Szkody}, {Taddia}, {Terek}, {Van Sistine}, {van
   Velzen}, {Vestrand}, {Walters}, {Ward}, {Ye}, {Yu}, {Yan}, \&
-  {Zolkower}}]{ZTF2019a}
+  {Zolkower}}]{Bellm_ZTF_2019a}
 {Bellm}, E.~C., {Kulkarni}, S.~R., {Graham}, M.~J., {et~al.}
   2019{\natexlab{a}}, \pasp, 131, 018002, \dodoi{10.1088/1538-3873/aaecbe}
 
 \bibitem[{{Bellm} {et~al.}(2019{\natexlab{b}}){Bellm}, {Kulkarni}, {Barlow},
   {Feindt}, {Graham}, {Goobar}, {Kupfer}, {Ngeow}, {Nugent}, {Ofek}, {Prince},
-  {Riddle}, {Walters}, \& {Ye}}]{Bellm_2019}
+  {Riddle}, {Walters}, \& {Ye}}]{Bellm_ZTF_2019b}
 {Bellm}, E.~C., {Kulkarni}, S.~R., {Barlow}, T., {et~al.} 2019{\natexlab{b}},
   \pasp, 131, 068003, \dodoi{10.1088/1538-3873/ab0c2a}
 
@@ -222,6 +222,14 @@ de~los Reyes, M. A.~C., Kirby, E.~N., Seitenzahl, I.~R., \& Shen, K.~J. 2020,
   {Walters}}]{Deckers_2022}
 {Deckers}, M., {Maguire}, K., {Magee}, M.~R., {et~al.} 2022, \mnras, 512, 1317,
   \dodoi{10.1093/mnras/stac558}
+
+\bibitem[{{Dekany} {et~al.}(2020){Dekany}, {Smith}, {Riddle}, {Feeney},
+  {Porter}, {Hale}, {Zolkower}, {Belicki}, {Kaye}, {Henning}, {Walters},
+  {Cromer}, {Delacroix}, {Rodriguez}, {Reiley}, {Mao}, {Hover}, {Murphy},
+  {Burruss}, {Baker}, {Kowalski}, {Reif}, {Mueller}, {Bellm}, {Graham}, \&
+  {Kulkarni}}]{Dekany_ZTF_2020}
+{Dekany}, R., {Smith}, R.~M., {Riddle}, R., {et~al.} 2020, \pasp, 132, 038001,
+  \dodoi{10.1088/1538-3873/ab4ca2}
 
 \bibitem[{{Dessart} \& {Hillier}(2015)}]{Dessart_2015}
 {Dessart}, L., \& {Hillier}, D.~J. 2015, \mnras, 447, 1370,
@@ -384,7 +392,7 @@ Galbany, L., Ashall, C., Höflich, P., {et~al.} 2019, Astronomy \&
   {Rebbapragada}, {Reiley}, {Riddle}, {Rigault}, {Rodriguez}, {Rusholme}, {van
   Santen}, {Shupe}, {Smith}, {Soumagnac}, {Stein}, {Surace}, {Szkody}, {Terek},
   {Van Sistine}, {van Velzen}, {Vestrand}, {Walters}, {Ward}, {Zhang}, \&
-  {Zolkower}}]{ZTF2019b}
+  {Zolkower}}]{Graham_ZTF_2019}
 {Graham}, M.~J., {Kulkarni}, S.~R., {Bellm}, E.~C., {et~al.} 2019, \pasp, 131,
   078001, \dodoi{10.1088/1538-3873/ab006c}
 
@@ -535,7 +543,7 @@ Jiang, J.-a., Doi, M., Maeda, K., {et~al.} 2017, Nature, 550, 80,
   {Patterson}, {Juri{\'c}}, {Golkhou}, {Ofek}, {Walters}, {Graham}, {Kasliwal},
   {Dekany}, {Kupfer}, {Burdge}, {Cannella}, {Barlow}, {Van Sistine}, {Giomi},
   {Fremling}, {Blagorodnova}, {Levitan}, {Riddle}, {Smith}, {Helou}, {Prince},
-  \& {Kulkarni}}]{Masci_2019}
+  \& {Kulkarni}}]{Masci_ZTF_2019}
 {Masci}, F.~J., {Laher}, R.~R., {Rusholme}, B., {et~al.} 2019, \pasp, 131,
   018003, \dodoi{10.1088/1538-3873/aae8ac}
 
