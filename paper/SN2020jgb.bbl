@@ -87,6 +87,9 @@
 {Blagorodnova}, N., {Neill}, J.~D., {Walters}, R., {et~al.} 2018, \pasp, 130,
   035003, \dodoi{10.1088/1538-3873/aaa53f}
 
+\bibitem[{{Blondin} \& {Tonry}(2007)}]{Blondin_SNID_2007}
+{Blondin}, S., \& {Tonry}, J.~L. 2007, \apj, 666, 1024, \dodoi{10.1086/520494}
+
 \bibitem[{{Boyle} {et~al.}(2017){Boyle}, {Sim}, {Hachinger}, \&
   {Kerzendorf}}]{Boyle2017_Helium}
 {Boyle}, A., {Sim}, S.~A., {Hachinger}, S., \& {Kerzendorf}, W. 2017, \aap,
@@ -346,6 +349,10 @@ de~los Reyes, M. A.~C., Kirby, E.~N., Seitenzahl, I.~R., \& Shen, K.~J. 2020,
 \bibitem[{{Fremling}(2020)}]{Fremling_report_2020}
 {Fremling}, C. 2020, Transient Name Server Discovery Report, 2020-1247, 1
 
+\bibitem[{{Gal-Yam}(2017)}]{Gal-Yam_2017}
+{Gal-Yam}, A. 2017, in Handbook of Supernovae, ed. A.~W. {Alsabti} \&
+  P.~{Murdin}, 195, \dodoi{10.1007/978-3-319-21846-5_35}
+
 \bibitem[{Galbany {et~al.}(2019)Galbany, Ashall, Höflich, González-Gaitán,
   Taubenberger, Stritzinger, Hsiao, Mazzali, Baron, Blondin, Bose, Bulla,
   Burke, Burns, Cartier, Chen, Della~Valle, Diamond, Gutiérrez, Harmanen,
@@ -460,6 +467,12 @@ Jiang, J.-a., Doi, M., Maeda, K., {et~al.} 2017, Nature, 550, 80,
   {Silverman}, {Sternberg}, \& {Xu}}]{Kasliwal_2012}
 {Kasliwal}, M.~M., {Kulkarni}, S.~R., {Gal-Yam}, A., {et~al.} 2012, \apj, 755,
   161, \dodoi{10.1088/0004-637X/755/2/161}
+
+\bibitem[{{Kasliwal} {et~al.}(2019){Kasliwal}, {Cannella}, {Bagdasaryan},
+  {Hung}, {Feindt}, {Singer}, {Coughlin}, {Fremling}, {Walters}, {Duev},
+  {Itoh}, \& {Quimby}}]{Kasliwal2019}
+{Kasliwal}, M.~M., {Cannella}, C., {Bagdasaryan}, A., {et~al.} 2019, \pasp,
+  131, 038003, \dodoi{10.1088/1538-3873/aafbc2}
 
 \bibitem[{{Kauffmann} {et~al.}(2003){Kauffmann}, {Heckman}, {White}, {Charlot},
   {Tremonti}, {Brinchmann}, {Bruzual}, {Peng}, {Seibert}, {Bernardi},
@@ -631,6 +644,10 @@ Miller, J., \& Stone, R. 1994, The Kast Double Spectograph, Lick Observatory
 {Oke}, J.~B., {Cohen}, J.~G., {Carr}, M., {et~al.} 1995, \pasp, 107, 375,
   \dodoi{10.1086/133562}
 
+\bibitem[{{Osterbrock} \& {Ferland}(2006)}]{Osterbrock_2006}
+{Osterbrock}, D.~E., \& {Ferland}, G.~J. 2006, {Astrophysics of gaseous nebulae
+  and active galactic nuclei}
+
 \bibitem[{{Patterson} {et~al.}(2019){Patterson}, {Bellm}, {Rusholme}, {Masci},
   {Juric}, {Krughoff}, {Golkhou}, {Graham}, {Kulkarni}, {Helou}, \& {Zwicky
   Transient Facility Collaboration}}]{Patterson_ZTFalert_2019}
@@ -701,11 +718,6 @@ Prochaska, J.~X., Hennawi, J.~F., Westfall, K.~B., {et~al.} 2020, Journal of
 {Shen}, K.~J., {Boos}, S.~J., {Townsley}, D.~M., \& {Kasen}, D. 2021, \apj,
   922, 68, \dodoi{10.3847/1538-4357/ac2304}
 
-\bibitem[{{Shen} {et~al.}(2018){Shen}, {Kasen}, {Miles}, \&
-  {Townsley}}]{Shen_DD_2018}
-{Shen}, K.~J., {Kasen}, D., {Miles}, B.~J., \& {Townsley}, D.~M. 2018, \apj,
-  854, 52, \dodoi{10.3847/1538-4357/aaa8de}
-
 \bibitem[{{Shen} \& {Moore}(2014)}]{Shen_DD_2014}
 {Shen}, K.~J., \& {Moore}, K. 2014, \apj, 797, 46,
   \dodoi{10.1088/0004-637X/797/1/46}
@@ -734,11 +746,6 @@ Prochaska, J.~X., Hennawi, J.~F., Westfall, K.~B., {et~al.} 2020, Journal of
   \& {Hillebrandt}}]{Sim_2012}
 {Sim}, S.~A., {Fink}, M., {Kromer}, M., {et~al.} 2012, \mnras, 420, 3003,
   \dodoi{10.1111/j.1365-2966.2011.20162.x}
-
-\bibitem[{{Sim} {et~al.}(2010){Sim}, {R{\"o}pke}, {Hillebrandt}, {Kromer},
-  {Pakmor}, {Fink}, {Ruiter}, \& {Seitenzahl}}]{Sim_2010}
-{Sim}, S.~A., {R{\"o}pke}, F.~K., {Hillebrandt}, W., {et~al.} 2010, \apjl, 714,
-  L52, \dodoi{10.1088/2041-8205/714/1/L52}
 
 \bibitem[{{Smith} {et~al.}(2012){Smith}, {Nichol}, {Dilday}, {Marriner},
   {Kessler}, {Bassett}, {Cinabro}, {Frieman}, {Garnavich}, {Jha}, {Lampeitl},
@@ -809,6 +816,9 @@ Waskom, M.~L. 2021, Journal of Open Source Software, 6, 3021,
   {Walters}, \& {Yan}}]{Yao_2019}
 {Yao}, Y., {Miller}, A.~A., {Kulkarni}, S.~R., {et~al.} 2019, \apj, 886, 152,
   \dodoi{10.3847/1538-4357/ab4cf5}
+
+\bibitem[{{Yaron} \& {Gal-Yam}(2012)}]{wiserep_2012}
+{Yaron}, O., \& {Gal-Yam}, A. 2012, \pasp, 124, 668, \dodoi{10.1086/666656}
 
 \bibitem[{{York} {et~al.}(2000){York}, {Adelman}, {Anderson}, {Anderson},
   {Annis}, {Bahcall}, {Bakken}, {Barkhouser}, {Bastian}, {Berman}, {Boroski},
