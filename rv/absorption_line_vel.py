@@ -673,8 +673,9 @@ class AbsorbLine(SpectrumSN):
         self.EW = 0
         self.sig_EW = 0
         for k, rs in enumerate(self.rel_strength):
-            ratio = 2 / (self.red_vel - self.blue_vel) * \
-                (self.wv_line[-1] - self.wv_line[0]) * np.sum(rs)
+            ratio = np.sum(rs) / (self.red_vel - self.blue_vel) / \
+                ((self.theta_MCMC[0] + self.theta_MCMC[1]) / 2) * \
+                (self.wv_line[-1] - self.wv_line[0])
             self.EW += self.theta_MCMC[4 + 3 * k] * -ratio
             self.sig_EW += self.sig_theta_MCMC[4 + 3 * k] * ratio
 

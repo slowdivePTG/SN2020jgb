@@ -5,6 +5,12 @@
 \providecommand{\doeprint}[1]{\href{http://ascl.net/#1}{\nolinkurl{http://ascl.net/#1}}}
 \providecommand{\doarXiv}[1]{\href{https://arxiv.org/abs/#1}{\nolinkurl{https://arxiv.org/abs/#1}}}
 
+\bibitem[{{Ahn} {et~al.}(2012){Ahn}, {Alexandroff}, {Allende Prieto},
+  {Anderson}, {Anderton}, {Andrews}, {Aubourg}, {Bailey}, {Balbinot}, {Barnes},
+  \& et~al.}]{Ahn2012a}
+{Ahn}, C.~P., {Alexandroff}, R., {Allende Prieto}, C., {et~al.} 2012, \apjs,
+  203, 21, \dodoi{10.1088/0067-0049/203/2/21}
+
 \bibitem[{{Almgren} {et~al.}(2010){Almgren}, {Beckner}, {Bell}, {Day},
   {Howell}, {Joggerst}, {Lijewski}, {Nonaka}, {Singer}, \&
   {Zingale}}]{Almgren_Castro_2010}
@@ -107,6 +113,11 @@
   {Shupe}}]{Bulla2020}
 {Bulla}, M., {Miller}, A.~A., {Yao}, Y., {et~al.} 2020, \apj, 902, 48,
   \dodoi{10.3847/1538-4357/abb13c}
+
+\bibitem[{{Byler} {et~al.}(2017){Byler}, {Dalcanton}, {Conroy}, \&
+  {Johnson}}]{Byler_2017}
+{Byler}, N., {Dalcanton}, J.~J., {Conroy}, C., \& {Johnson}, B.~D. 2017, \apj,
+  840, 44, \dodoi{10.3847/1538-4357/aa6c66}
 
 \bibitem[{{Cardelli} {et~al.}(1989){Cardelli}, {Clayton}, \&
   {Mathis}}]{Cardelli_1989}
@@ -493,6 +504,9 @@ Jiang, J.-a., Doi, M., Maeda, K., {et~al.} 2017, Nature, 550, 80,
 {Kupfer}, T., {Bauer}, E.~B., {van Roestel}, J., {et~al.} 2022, \apjl, 925,
   L12, \dodoi{10.3847/2041-8213/ac48f1}
 
+\bibitem[{{Lang}(2014)}]{Lang2014a}
+{Lang}, D. 2014, \aj, 147, 108, \dodoi{10.1088/0004-6256/147/5/108}
+
 \bibitem[{{Leroy} {et~al.}(2019){Leroy}, {Sandstrom}, {Lang}, {Lewis}, {Salim},
   {Behrens}, {Chastenet}, {Chiang}, {Gallagher}, {Kessler}, \&
   {Utomo}}]{Leroy_2019}
@@ -540,6 +554,15 @@ Jiang, J.-a., Doi, M., Maeda, K., {et~al.} 2017, Nature, 550, 80,
 {Mahabal}, A., {Rebbapragada}, U., {Walters}, R., {et~al.} 2019, \pasp, 131,
   038002, \dodoi{10.1088/1538-3873/aaf3fa}
 
+\bibitem[{{Mainzer} {et~al.}(2014){Mainzer}, {Bauer}, {Cutri}, {Grav},
+  {Masiero}, {Beck}, {Clarkson}, {Conrow}, {Dailey}, {Eisenhardt}, {Fabinsky},
+  {Fajardo-Acosta}, {Fowler}, {Gelino}, {Grillmair}, {Heinrichsen}, {Kendall},
+  {Kirkpatrick}, {Liu}, {Masci}, {McCallon}, {Nugent}, {Papin}, {Rice},
+  {Royer}, {Ryan}, {Sevilla}, {Sonnett}, {Stevenson}, {Thompson}, {Wheelock},
+  {Wiemer}, {Wittman}, {Wright}, \& {Yan}}]{Mainzer2014a}
+{Mainzer}, A., {Bauer}, J., {Cutri}, R.~M., {et~al.} 2014, \apj, 792, 30,
+  \dodoi{10.1088/0004-637X/792/1/30}
+
 \bibitem[{{Maoz} {et~al.}(2014){Maoz}, {Mannucci}, \& {Nelemans}}]{Maoz_2014}
 {Maoz}, D., {Mannucci}, F., \& {Nelemans}, G. 2014, \araa, 52, 107,
   \dodoi{10.1146/annurev-astro-082812-141031}
@@ -548,6 +571,14 @@ Jiang, J.-a., Doi, M., Maeda, K., {et~al.} 2017, Nature, 550, 80,
   {Wheeler}, \& {Robinson}}]{Marion2009_NIR}
 {Marion}, G.~H., {H{\"o}flich}, P., {Gerardy}, C.~L., {et~al.} 2009, \aj, 138,
   727, \dodoi{10.1088/0004-6256/138/3/727}
+
+\bibitem[{{Martin} {et~al.}(2005){Martin}, {Fanson}, {Schiminovich},
+  {Morrissey}, {Friedman}, {Barlow}, {Conrow}, {Grange}, {Jelinsky},
+  {Milliard}, {Siegmund}, {Bianchi}, {Byun}, {Donas}, {Forster}, {Heckman},
+  {Lee}, {Madore}, {Malina}, {Neff}, {Rich}, {Small}, {Surber}, {Szalay},
+  {Welsh}, \& {Wyder}}]{Martin2005a}
+{Martin}, D.~C., {Fanson}, J., {Schiminovich}, D., {et~al.} 2005, \apjl, 619,
+  L1, \dodoi{10.1086/426387}
 
 \bibitem[{{Masci} {et~al.}(2019){Masci}, {Laher}, {Rusholme}, {Shupe}, {Groom},
   {Surace}, {Jackson}, {Monkewitz}, {Beck}, {Flynn}, {Terek}, {Landry},
@@ -592,6 +623,11 @@ Jiang, J.-a., Doi, M., Maeda, K., {et~al.} 2017, Nature, 550, 80,
   {Bejar}, {Lodieu}, {Rebolo}, \& {VHS Collaboration}}]{VHS_2013}
 {McMahon}, R.~G., {Banerji}, M., {Gonzalez}, E., {et~al.} 2013, The Messenger,
   154, 35
+
+\bibitem[{{Meisner} {et~al.}(2017){Meisner}, {Lang}, \&
+  {Schlegel}}]{Meisner2017a}
+{Meisner}, A.~M., {Lang}, D., \& {Schlegel}, D.~J. 2017, \aj, 153, 38,
+  \dodoi{10.3847/1538-3881/153/1/38}
 
 \bibitem[{Miller \& Stone(1994)}]{miller1994kast}
 Miller, J., \& Stone, R. 1994, The Kast Double Spectograph, Lick Observatory
@@ -704,6 +740,19 @@ Prochaska, J.~X., Hennawi, J.~F., Westfall, K.~B., {et~al.} 2020, Journal of
 {Schlafly}, E.~F., \& {Finkbeiner}, D.~P. 2011, \apj, 737, 103,
   \dodoi{10.1088/0004-637X/737/2/103}
 
+\bibitem[{{Schulze} {et~al.}(2021){Schulze}, {Yaron}, {Sollerman}, {Leloudas},
+  {Gal}, {Wright}, {Lunnan}, {Gal-Yam}, {Ofek}, {Perley}, {Filippenko},
+  {Kasliwal}, {Kulkarni}, {Neill}, {Nugent}, {Quimby}, {Sullivan},
+  {Strotjohann}, {Arcavi}, {Ben-Ami}, {Bianco}, {Bloom}, {De}, {Fraser},
+  {Fremling}, {Horesh}, {Johansson}, {Kelly}, {Kne{\v{z}}evi{\'c}},
+  {Kne{\v{z}}evi{\'c}}, {Maguire}, {Nyholm}, {Papadogiannakis}, {Petrushevska},
+  {Rubin}, {Yan}, {Yang}, {Adams}, {Bufano}, {Clubb}, {Foley}, {Green},
+  {Harmanen}, {Ho}, {Hook}, {Hosseinzadeh}, {Howell}, {Kong}, {Kotak},
+  {Matheson}, {McCully}, {Milisavljevic}, {Pan}, {Poznanski}, {Shivvers}, {van
+  Velzen}, \& {Verbeek}}]{Schulze2021a}
+{Schulze}, S., {Yaron}, O., {Sollerman}, J., {et~al.} 2021, \apjs, 255, 29,
+  \dodoi{10.3847/1538-4365/abff5e}
+
 \bibitem[{{Shahbandeh} {et~al.}(2022){Shahbandeh}, {Hsiao}, {Ashall}, {Teffs},
   {Hoeflich}, {Morrell}, {Phillips}, {Anderson}, {Baron}, {Burns}, {Contreras},
   {Davis}, {Diamond}, {Folatelli}, {Galbany}, {Gall}, {Hachinger}, {Holmbo},
@@ -747,6 +796,15 @@ Prochaska, J.~X., Hennawi, J.~F., Westfall, K.~B., {et~al.} 2020, Journal of
 {Sim}, S.~A., {Fink}, M., {Kromer}, M., {et~al.} 2012, \mnras, 420, 3003,
   \dodoi{10.1111/j.1365-2966.2011.20162.x}
 
+\bibitem[{{Skrutskie} {et~al.}(2006){Skrutskie}, {Cutri}, {Stiening},
+  {Weinberg}, {Schneider}, {Carpenter}, {Beichman}, {Capps}, {Chester},
+  {Elias}, {Huchra}, {Liebert}, {Lonsdale}, {Monet}, {Price}, {Seitzer},
+  {Jarrett}, {Kirkpatrick}, {Gizis}, {Howard}, {Evans}, {Fowler}, {Fullmer},
+  {Hurt}, {Light}, {Kopan}, {Marsh}, {McCallon}, {Tam}, {Van Dyk}, \&
+  {Wheelock}}]{Skrutskie2006a}
+{Skrutskie}, M.~F., {Cutri}, R.~M., {Stiening}, R., {et~al.} 2006, \aj, 131,
+  1163, \dodoi{10.1086/498708}
+
 \bibitem[{{Smith} {et~al.}(2012){Smith}, {Nichol}, {Dilday}, {Marriner},
   {Kessler}, {Bassett}, {Cinabro}, {Frieman}, {Garnavich}, {Jha}, {Lampeitl},
   {Sako}, {Schneider}, \& {Sollerman}}]{Smith_2012}
@@ -771,6 +829,10 @@ Prochaska, J.~X., Hennawi, J.~F., Westfall, K.~B., {et~al.} 2020, Journal of
   \& {Poznanski}}]{Sullivan_2011}
 {Sullivan}, M., {Kasliwal}, M.~M., {Nugent}, P.~E., {et~al.} 2011, \apj, 732,
   118, \dodoi{10.1088/0004-637X/732/2/118}
+
+\bibitem[{{Sun} \& {Gal-Yam}(2017)}]{Sun_2017}
+{Sun}, F., \& {Gal-Yam}, A. 2017, arXiv e-prints, arXiv:1707.02543.
+\newblock \doarXiv{1707.02543}
 
 \bibitem[{{Valenti} {et~al.}(2014){Valenti}, {Yuan}, {Taubenberger}, {Maguire},
   {Pastorello}, {Benetti}, {Smartt}, {Cappellaro}, {Howell}, {Bildsten},
@@ -807,6 +869,20 @@ Waskom, M.~L. 2021, Journal of Open Source Software, 6, 3021,
 \bibitem[{{Woosley} \& {Weaver}(1994)}]{Woosley_1994}
 {Woosley}, S.~E., \& {Weaver}, T.~A. 1994, \apj, 423, 371,
   \dodoi{10.1086/173813}
+
+\bibitem[{{Wright}(2016)}]{Wright2016a}
+{Wright}, A.~H. 2016, {LAMBDAR: Lambda Adaptive Multi-Band Deblending Algorithm
+  in R}, Astrophysics Source Code Library, record ascl:1604.003.
+\newblock \doeprint{1604.003}
+
+\bibitem[{{Wright} {et~al.}(2010){Wright}, {Eisenhardt}, {Mainzer}, {Ressler},
+  {Cutri}, {Jarrett}, {Kirkpatrick}, {Padgett}, {McMillan}, {Skrutskie},
+  {Stanford}, {Cohen}, {Walker}, {Mather}, {Leisawitz}, {Gautier}, {McLean},
+  {Benford}, {Lonsdale}, {Blain}, {Mendez}, {Irace}, {Duval}, {Liu}, {Royer},
+  {Heinrichsen}, {Howard}, {Shannon}, {Kendall}, {Walsh}, {Larsen}, {Cardon},
+  {Schick}, {Schwalm}, {Abid}, {Fabinsky}, {Naes}, \& {Tsai}}]{Wright2010a}
+{Wright}, E.~L., {Eisenhardt}, P.~R.~M., {Mainzer}, A.~K., {et~al.} 2010, \aj,
+  140, 1868, \dodoi{10.1088/0004-6256/140/6/1868}
 
 \bibitem[{{Yao} {et~al.}(2019){Yao}, {Miller}, {Kulkarni}, {Bulla}, {Masci},
   {Goldstein}, {Goobar}, {Nugent}, {Dugas}, {Blagorodnova}, {Neill}, {Rigault},
