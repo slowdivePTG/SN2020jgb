@@ -700,6 +700,14 @@ Miller, J., \& Stone, R. 1994, The Kast Double Spectograph, Lick Observatory
 {Pereira}, R., {Thomas}, R.~C., {Aldering}, G., {et~al.} 2013, \aap, 554, A27,
   \dodoi{10.1051/0004-6361/201221008}
 
+\bibitem[{{Perets} {et~al.}(2010){Perets}, {Gal-Yam}, {Mazzali}, {Arnett},
+  {Kagan}, {Filippenko}, {Li}, {Arcavi}, {Cenko}, {Fox}, {Leonard}, {Moon},
+  {Sand}, {Soderberg}, {Anderson}, {James}, {Foley}, {Ganeshalingam}, {Ofek},
+  {Bildsten}, {Nelemans}, {Shen}, {Weinberg}, {Metzger}, {Piro}, {Quataert},
+  {Kiewe}, \& {Poznanski}}]{Perets_2010}
+{Perets}, H.~B., {Gal-Yam}, A., {Mazzali}, P.~A., {et~al.} 2010, \nat, 465,
+  322, \dodoi{10.1038/nature09056}
+
 \bibitem[{Polin {et~al.}(2019)Polin, Nugent, \&
   Kasen}]{polin_observational_2019}
 Polin, A., Nugent, P., \& Kasen, D. 2019, \apj, 873, 84,
@@ -833,6 +841,11 @@ Prochaska, J.~X., Hennawi, J.~F., Westfall, K.~B., {et~al.} 2020, Journal of
 \bibitem[{{Sun} \& {Gal-Yam}(2017)}]{Sun_2017}
 {Sun}, F., \& {Gal-Yam}, A. 2017, arXiv e-prints, arXiv:1707.02543.
 \newblock \doarXiv{1707.02543}
+
+\bibitem[{{Townsley} {et~al.}(2019){Townsley}, {Miles}, {Shen}, \&
+  {Kasen}}]{Townsley_2019}
+{Townsley}, D.~M., {Miles}, B.~J., {Shen}, K.~J., \& {Kasen}, D. 2019, \apjl,
+  878, L38, \dodoi{10.3847/2041-8213/ab27cd}
 
 \bibitem[{{Valenti} {et~al.}(2014){Valenti}, {Yuan}, {Taubenberger}, {Maguire},
   {Pastorello}, {Benetti}, {Smartt}, {Cappellaro}, {Howell}, {Bildsten},
