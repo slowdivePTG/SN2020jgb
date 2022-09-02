@@ -1,3 +1,7 @@
+'''
+Inverse-variance-weighted binning
+'''
+
 import numpy as np
 
 def data_binning(data, size=2, min_bin=1):  # size - day
