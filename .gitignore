@@ -152,8 +152,8 @@ orcid-ID.png
 galSpec*.fits
 
 
-rv/ZTF18aaqeasu/
-rv/SN2016hnk/
+rv/ZTF18aaqeasu/absorption_line_velocity*ipynb
+rv/SN2016hnk/absorption_line_velocity*ipynb
 rv/SN2022an/
 
 # Prospector posterior
