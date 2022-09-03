@@ -519,6 +519,9 @@ Jiang, J.-a., Doi, M., Maeda, K., {et~al.} 2017, Nature, 550, 80,
 \bibitem[{{Livne} \& {Arnett}(1995)}]{Livne_1995}
 {Livne}, E., \& {Arnett}, D. 1995, \apj, 452, 62, \dodoi{10.1086/176279}
 
+\bibitem[{{Lucy}(1991)}]{Lucy_1991}
+{Lucy}, L.~B. 1991, \apj, 383, 308, \dodoi{10.1086/170787}
+
 \bibitem[{{Lunnan} {et~al.}(2017){Lunnan}, {Kasliwal}, {Cao}, {Hangard},
   {Yaron}, {Parrent}, {McCully}, {Gal-Yam}, {Mulchaey}, {Ben-Ami},
   {Filippenko}, {Fremling}, {Fruchter}, {Howell}, {Koda}, {Kupfer}, {Kulkarni},
@@ -878,6 +881,10 @@ Prochaska, J.~X., Hennawi, J.~F., Westfall, K.~B., {et~al.} 2020, Journal of
 \bibitem[{Waskom(2021)}]{Waskom_seaborn_2021}
 Waskom, M.~L. 2021, Journal of Open Source Software, 6, 3021,
   \dodoi{10.21105/joss.03021}
+
+\bibitem[{{Woosley} \& {Kasen}(2011)}]{Woosley_2011}
+{Woosley}, S.~E., \& {Kasen}, D. 2011, \apj, 734, 38,
+  \dodoi{10.1088/0004-637X/734/1/38}
 
 \bibitem[{{Woosley} {et~al.}(1986){Woosley}, {Taam}, \&
   {Weaver}}]{Woosley_1986}

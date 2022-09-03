@@ -157,7 +157,7 @@ rv/SN2016hnk/
 rv/SN2022an/
 
 # Prospector posterior
-*_posteriors.csv
+*_posteriors*.csv
 *norm*.csv
 
 # vscode
