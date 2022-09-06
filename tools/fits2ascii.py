@@ -1,3 +1,7 @@
+'''
+convert pypeit coadded 1D spectra to ascii files
+'''
+
 from astropy.io import fits
 import numpy as np
 import matplotlib.pyplot as plt

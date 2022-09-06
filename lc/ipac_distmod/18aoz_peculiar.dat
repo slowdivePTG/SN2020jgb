@@ -1,0 +1,18 @@
+# Distance table obtained through http://cosmicflows.iap.fr
+# Options are: {'Omega_M': 0.3, 'H0': 70.0, 'beta': 0.43, 'Vext': [89.0, -131.0, 17.0]}
+#
+# If you use this model, please cite: Carrick, Turnbull, Lavaux & Hudson (MNRAS, 2015, arXiV:1504.04627)
+#
+# Columns are as follow:
+#   1- Input longitude (degrees)
+#   2- Input latitude (degrees)
+#   3- Galactic longitude (degrees)
+#   4- Galactic latitude (degrees)
+#   5- Total velocity in CMB rest frame (km/s)
+#   6- Comoving distance (Mpc)
+#   7- Luminosity distance (Mpc)
+#   8- Angular distance (Mpc)
+#   9- Hubble velocity (km/s)
+#   10- Peculiar velocity (km/s)
+# 
+   177.758    -28.744    287.256     32.282       2074 21.02 21.13 20.92 1473.26 600.49

@@ -152,12 +152,13 @@ orcid-ID.png
 galSpec*.fits
 
 
-rv/ZTF18aaqeasu/
-rv/SN2016hnk/
+
+rv/ZTF18aaqeasu/absorption_line_velocity*ipynb
+rv/SN2016hnk/absorption_line_velocity*ipynb
 rv/SN2022an/
 
 # Prospector posterior
-*_posteriors.csv
+*_posteriors*.csv
 *norm*.csv
 
 # vscode
@@ -166,5 +167,10 @@ rv/SN2022an/
 rv/ZTF22aajijjf/
 rv/SN2022an/
 rv/SN2016hnk/absorption_line_velocity*ipynb
+<<<<<<< HEAD
 rv/SN2012hn
+=======
+SN2012hn
+spectropscopy/SN2012hn
+>>>>>>> 6d6e54c7c95cd7b06c878be1ff688b7312e9783f
 paper/collaborators
