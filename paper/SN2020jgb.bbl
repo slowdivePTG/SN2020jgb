@@ -357,10 +357,6 @@ de~los Reyes, M. A.~C., Kirby, E.~N., Seitenzahl, I.~R., \& Shen, K.~J. 2020,
   Telescopes, ed. M.~{Iye} \& A.~F.~M. {Moorwood}, 1657--1669,
   \dodoi{10.1117/12.460346}
 
-\bibitem[{{Filippenko}(1997)}]{Filippenko97}
-{Filippenko}, A.~V. 1997, \araa, 35, 309,
-  \dodoi{10.1146/annurev.astro.35.1.309}
-
 \bibitem[{{Filippenko} {et~al.}(2003){Filippenko}, {Chornock}, {Swift},
   {Modjaz}, {Simcoe}, \& {Rauch}}]{Filippenko_2003}
 {Filippenko}, A.~V., {Chornock}, R., {Swift}, B., {et~al.} 2003, \iaucirc,
@@ -900,6 +896,15 @@ Prochaska, J.~X., Hennawi, J.~F., Westfall, K.~B., {et~al.} 2020, Journal of
   Velzen}, \& {Verbeek}}]{Schulze2021a}
 {Schulze}, S., {Yaron}, O., {Sollerman}, J., {et~al.} 2021, \apjs, 255, 29,
   \dodoi{10.3847/1538-4365/abff5e}
+
+\bibitem[{Shahbandeh {et~al.}(2021)Shahbandeh, Hsiao, Ashall, Teffs, Hoeflich,
+  Morrell, Phillips, Anderson, Baron, Burns, Contreras, Davis, Diamond,
+  Folatelli, Galbany, Gall, Hachinger, Holmbo, Karamehmetoglu, Kasliwal,
+  Kirshner, Krisciunas, Kumar, Lu, Marion, Mazzali, Piro, Sand, Stritzinger,
+  Suntzeff, Taddia, \& Uddin}]{shahbandeh_carnegie_2021}
+Shahbandeh, M., Hsiao, E.~Y., Ashall, C., {et~al.} 2021, arXiv:2110.12083
+  [astro-ph].
+\newblock \url{http://arxiv.org/abs/2110.12083}
 
 \bibitem[{{Shahbandeh} {et~al.}(2022){Shahbandeh}, {Hsiao}, {Ashall}, {Teffs},
   {Hoeflich}, {Morrell}, {Phillips}, {Anderson}, {Baron}, {Burns}, {Contreras},
