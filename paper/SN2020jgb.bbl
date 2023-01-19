@@ -415,16 +415,11 @@ Galbany, L., Ashall, C., Höflich, P., {et~al.} 2019, \aap, 630, A76,
   {Tremonti}, C.~A. 2005, \mnras, 362, 41,
   \dodoi{10.1111/j.1365-2966.2005.09321.x}
 
-\bibitem[{{Ganeshalingam} {et~al.}(2012{\natexlab{a}}){Ganeshalingam}, {Li},
-  {Filippenko}, {Silverman}, {Chornock}, {Foley}, {Matheson}, {Kirshner},
-  {Milne}, {Calkins}, \& {Shen}}]{Ganeshalingam_02es_2012}
-{Ganeshalingam}, M., {Li}, W., {Filippenko}, A.~V., {et~al.}
-  2012{\natexlab{a}}, \apj, 751, 142, \dodoi{10.1088/0004-637X/751/2/142}
-
-\bibitem[{{Ganeshalingam} {et~al.}(2012{\natexlab{b}}){Ganeshalingam}, {Li},
-  {Filippenko}, {Silverman}, {Chornock}, {Foley}, {Matheson}, {Kirshner},
-  {Milne}, {Calkins}, \& {Shen}}]{Ganeshalingam_2012}
----. 2012{\natexlab{b}}, \apj, 751, 142, \dodoi{10.1088/0004-637X/751/2/142}
+\bibitem[{{Ganeshalingam} {et~al.}(2012){Ganeshalingam}, {Li}, {Filippenko},
+  {Silverman}, {Chornock}, {Foley}, {Matheson}, {Kirshner}, {Milne}, {Calkins},
+  \& {Shen}}]{Ganeshalingam_02es_2012}
+{Ganeshalingam}, M., {Li}, W., {Filippenko}, A.~V., {et~al.} 2012, \apj, 751,
+  142, \dodoi{10.1088/0004-637X/751/2/142}
 
 \bibitem[{{Geier} {et~al.}(2013){Geier}, {Marsh}, {Wang}, {Dunlap}, {Barlow},
   {Schaffenroth}, {Chen}, {Irrgang}, {Maxted}, {Ziegerer}, {Kupfer},
@@ -432,12 +427,6 @@ Galbany, L., Ashall, C., Höflich, P., {et~al.} 2019, \aap, 630, A76,
   {{\O}stensen}, {O'Toole}, \& {Napiwotzki}}]{Geier_2013}
 {Geier}, S., {Marsh}, T.~R., {Wang}, B., {et~al.} 2013, \aap, 554, A54,
   \dodoi{10.1051/0004-6361/201321395}
-
-\bibitem[{{Goobar} {et~al.}(2015){Goobar}, {Kromer}, {Siverd}, {Stassun},
-  {Pepper}, {Amanullah}, {Kasliwal}, {Sollerman}, \&
-  {Taddia}}]{Goobar_2014J_2015}
-{Goobar}, A., {Kromer}, M., {Siverd}, R., {et~al.} 2015, \apj, 799, 106,
-  \dodoi{10.1088/0004-637X/799/1/106}
 
 \bibitem[{{Graham} {et~al.}(2019){Graham}, {Kulkarni}, {Bellm}, {Adams},
   {Barbarino}, {Blagorodnova}, {Bodewits}, {Bolin}, {Brady}, {Cenko}, {Chang},
@@ -527,11 +516,11 @@ Galbany, L., Ashall, C., Höflich, P., {et~al.} 2019, \aap, 630, A76,
 {Inserra}, C., {Sim}, S.~A., {Wyrzykowski}, L., {et~al.} 2015, \apjl, 799, L2,
   \dodoi{10.1088/2041-8205/799/1/L2}
 
-\bibitem[{Jacobson-Galán {et~al.}(2020)Jacobson-Galán, Polin, Foley,
+\bibitem[{Jacobson-Gal\'{a}n {et~al.}(2020)Jacobson-Gal\'{a}n, Polin, Foley,
   Dimitriadis, Kilpatrick, Margutti, Coulter, Jha, Jones, Kirshner, Pan, Piro,
   Rest, \& Rojas-Bravo}]{jacobson-galan_16hnk_2020}
-Jacobson-Galán, W.~V., Polin, A., Foley, R.~J., {et~al.} 2020, \apj, 896, 165,
-  \dodoi{10.3847/1538-4357/ab94b8}
+Jacobson-Gal\'{a}n, W.~V., Polin, A., Foley, R.~J., {et~al.} 2020, \apj, 896,
+  165, \dodoi{10.3847/1538-4357/ab94b8}
 
 \bibitem[{{Jerkstrand}(2017)}]{Jerkstrand_2017}
 {Jerkstrand}, A. 2017, in Handbook of Supernovae, ed. A.~W. {Alsabti} \&
@@ -737,15 +726,14 @@ Jiang, J.-a., Doi, M., Maeda, K., {et~al.} 2017, Nature, 550, 80,
 {McMahon}, R.~G., {Banerji}, M., {Gonzalez}, E., {et~al.} 2013, The Messenger,
   154, 35
 
-\bibitem[{{Meisner} {et~al.}(2017){Meisner}, {Lang}, \&
+\bibitem[{{Meisner} {et~al.}(2017{\natexlab{a}}){Meisner}, {Lang}, \&
   {Schlegel}}]{Meisner2017a}
-{Meisner}, A.~M., {Lang}, D., \& {Schlegel}, D.~J. 2017, \aj, 153, 38,
-  \dodoi{10.3847/1538-3881/153/1/38}
+{Meisner}, A.~M., {Lang}, D., \& {Schlegel}, D.~J. 2017{\natexlab{a}}, \aj,
+  153, 38, \dodoi{10.3847/1538-3881/153/1/38}
 
-\bibitem[{{Meisner} {et~al.}(2018){Meisner}, {Lang}, \&
-  {Schlegel}}]{Meisner_unwise_2018}
----. 2018, Research Notes of the American Astronomical Society, 2, 1,
-  \dodoi{10.3847/2515-5172/aaa4bc}
+\bibitem[{{Meisner} {et~al.}(2017{\natexlab{b}}){Meisner}, {Lang}, \&
+  {Schlegel}}]{Meisner2017b}
+---. 2017{\natexlab{b}}, \aj, 154, 161, \dodoi{10.3847/1538-3881/aa894e}
 
 \bibitem[{{Miller} {et~al.}(2017){Miller}, {Kasliwal}, {Cao}, {Adams},
   {Goobar}, {Kne{\v{z}}evi{\'c}}, {Laher}, {Lunnan}, {Masci}, {Nugent},
@@ -949,14 +937,22 @@ Shahbandeh, M., Hsiao, E.~Y., Ashall, C., {et~al.} 2021, arXiv:2110.12083
 {Sim}, S.~A., {Fink}, M., {Kromer}, M., {et~al.} 2012, \mnras, 420, 3003,
   \dodoi{10.1111/j.1365-2966.2011.20162.x}
 
+\bibitem[{{Skrutskie} {et~al.}(2003){Skrutskie}, {Cutri}, {Stiening},
+  {Weinberg}, {Schneider}, {Carpenter}, {Beichman}, {Capps}, {Chester},
+  {Elias}, {Huchra}, {Liebert}, {Lonsdale}, {Monet}, {Price}, {Seitzer},
+  {Jarrett}, {Kirkpatrick}, {Gizis}, {Howard}, {Evans}, {Fowler}, {Fullmer},
+  {Hurt}, {Light}, {Kopan}, {Marsh}, {McCallon}, {Tam}, {Van Dyk}, \&
+  {Wheelock}}]{2mass}
+{Skrutskie}, M.~F., {Cutri}, R.~M., {Stiening}, R., {et~al.} 2003, 2MASS
+  All-Sky Point Source Catalog,  IPAC, \dodoi{10.26131/IRSA2}
+
 \bibitem[{{Skrutskie} {et~al.}(2006){Skrutskie}, {Cutri}, {Stiening},
   {Weinberg}, {Schneider}, {Carpenter}, {Beichman}, {Capps}, {Chester},
   {Elias}, {Huchra}, {Liebert}, {Lonsdale}, {Monet}, {Price}, {Seitzer},
   {Jarrett}, {Kirkpatrick}, {Gizis}, {Howard}, {Evans}, {Fowler}, {Fullmer},
   {Hurt}, {Light}, {Kopan}, {Marsh}, {McCallon}, {Tam}, {Van Dyk}, \&
   {Wheelock}}]{Skrutskie2006a}
-{Skrutskie}, M.~F., {Cutri}, R.~M., {Stiening}, R., {et~al.} 2006, \aj, 131,
-  1163, \dodoi{10.1086/498708}
+---. 2006, \aj, 131, 1163, \dodoi{10.1086/498708}
 
 \bibitem[{{Smith} {et~al.}(2012){Smith}, {Nichol}, {Dilday}, {Marriner},
   {Kessler}, {Bassett}, {Cinabro}, {Frieman}, {Garnavich}, {Jha}, {Lampeitl},
@@ -984,6 +980,9 @@ Shahbandeh, M., Hsiao, E.~Y., Ashall, C., {et~al.} 2021, arXiv:2110.12083
   {Kasen}}]{Townsley_2019}
 {Townsley}, D.~M., {Miles}, B.~J., {Shen}, K.~J., \& {Kasen}, D. 2019, \apjl,
   878, L38, \dodoi{10.3847/2041-8213/ab27cd}
+
+\bibitem[{{UnWISE Team}(2021)}]{unwise_images}
+{UnWISE Team}. 2021, unWISE Images,  IPAC, \dodoi{10.26131/IRSA524}
 
 \bibitem[{{Valenti} {et~al.}(2014){Valenti}, {Yuan}, {Taubenberger}, {Maguire},
   {Pastorello}, {Benetti}, {Smartt}, {Cappellaro}, {Howell}, {Bildsten},

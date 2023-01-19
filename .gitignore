@@ -131,6 +131,7 @@ dmypy.json
 # Reduction process & raw data
 setup_files/
 *_pypeit/
+*_backup/
 .DS_Store
 
 # HDF data for MCMC chains
