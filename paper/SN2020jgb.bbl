@@ -310,14 +310,13 @@ de~los Reyes, M. A.~C., Kirby, E.~N., Seitenzahl, I.~R., \& Shen, K.~J. 2020,
   \dodoi{10.3847/2041-8213/aaedb0}
 
 \bibitem[{{Dong} {et~al.}(2022{\natexlab{a}}){Dong}, {Valenti}, {Polin},
-  {Boyle}, {fl{\"o}rs}, {Vogl}, {Kerzendorf}, {Sand}, {Jha}, {Wyrzykowski},
-  {Bostroem}, {Pearson}, {McCully}, {Andrew}, {Benettii}, {Blondin}, {Galbany},
+  {Boyle}, {Fl{\"o}rs}, {Vogl}, {Kerzendorf}, {Sand}, {Jha}, {Wyrzykowski},
+  {Bostroem}, {Pearson}, {McCully}, {Andrews}, {Benetti}, {Blondin}, {Galbany},
   {Gromadzki}, {Hosseinzadeh}, {Howell}, {Inserra}, {Jencson}, {Lundquist},
   {Lyman}, {Magee}, {Maguire}, {Meza}, {Srivastav}, {Taubenberger}, {Terwel},
   {Wyatt}, \& {Young}}]{Dong_16dsg_2022}
-{Dong}, Y., {Valenti}, S., {Polin}, A., {et~al.} 2022{\natexlab{a}}, arXiv
-  e-prints, arXiv:2206.07065.
-\newblock \doarXiv{2206.07065}
+{Dong}, Y., {Valenti}, S., {Polin}, A., {et~al.} 2022{\natexlab{a}}, \apj, 934,
+  102, \dodoi{10.3847/1538-4357/ac75eb}
 
 \bibitem[{{Dong} {et~al.}(2022{\natexlab{b}}){Dong}, {Milisavljevic}, {Leja},
   {Sarbadhicary}, {Nugent}, {Margutti}, {Jacobson-Gal{\'a}n}, {Polin},
@@ -792,9 +791,9 @@ Miller, J., \& Stone, R. 1994, The Kast Double Spectograph, Lick Observatory
 
 \bibitem[{{Nugent} {et~al.}(2022){Nugent}, {Fong}, {Dong}, {Leja}, {Berger},
   {Zevin}, {Chornock}, {Cobb}, {Kelley}, {Kilpatrick}, {Levan}, {Margutti},
-  {Paterson}, {Perley}, {Rouco Escorial}, {Smith}, \& {Tanvir}}]{Nugent_2022}
----. 2022, arXiv e-prints, arXiv:2206.01764.
-\newblock \doarXiv{2206.01764}
+  {Paterson}, {Perley}, {Escorial}, {Smith}, \& {Tanvir}}]{Nugent_2022}
+{Nugent}, A.~E., {Fong}, W.-F., {Dong}, Y., {et~al.} 2022, \apj, 940, 57,
+  \dodoi{10.3847/1538-4357/ac91d1}
 
 \bibitem[{{Oke} \& {Gunn}(1982)}]{P200_1982}
 {Oke}, J.~B., \& {Gunn}, J.~E. 1982, \pasp, 94, 586, \dodoi{10.1086/131027}
@@ -885,21 +884,12 @@ Prochaska, J.~X., Hennawi, J.~F., Westfall, K.~B., {et~al.} 2020, Journal of
 {Schulze}, S., {Yaron}, O., {Sollerman}, J., {et~al.} 2021, \apjs, 255, 29,
   \dodoi{10.3847/1538-4365/abff5e}
 
-\bibitem[{Shahbandeh {et~al.}(2021)Shahbandeh, Hsiao, Ashall, Teffs, Hoeflich,
-  Morrell, Phillips, Anderson, Baron, Burns, Contreras, Davis, Diamond,
-  Folatelli, Galbany, Gall, Hachinger, Holmbo, Karamehmetoglu, Kasliwal,
-  Kirshner, Krisciunas, Kumar, Lu, Marion, Mazzali, Piro, Sand, Stritzinger,
-  Suntzeff, Taddia, \& Uddin}]{shahbandeh_carnegie_2021}
-Shahbandeh, M., Hsiao, E.~Y., Ashall, C., {et~al.} 2021, arXiv:2110.12083
-  [astro-ph].
-\newblock \url{http://arxiv.org/abs/2110.12083}
-
 \bibitem[{{Shahbandeh} {et~al.}(2022){Shahbandeh}, {Hsiao}, {Ashall}, {Teffs},
   {Hoeflich}, {Morrell}, {Phillips}, {Anderson}, {Baron}, {Burns}, {Contreras},
   {Davis}, {Diamond}, {Folatelli}, {Galbany}, {Gall}, {Hachinger}, {Holmbo},
   {Karamehmetoglu}, {Kasliwal}, {Kirshner}, {Krisciunas}, {Kumar}, {Lu},
   {Marion}, {Mazzali}, {Piro}, {Sand}, {Stritzinger}, {Suntzeff}, {Taddia}, \&
-  {Uddin}}]{CSP_Ibc_2022}
+  {Uddin}}]{shahbandeh_carnegie_2021}
 {Shahbandeh}, M., {Hsiao}, E.~Y., {Ashall}, C., {et~al.} 2022, \apj, 925, 175,
   \dodoi{10.3847/1538-4357/ac4030}
 
